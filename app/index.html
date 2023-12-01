@@ -1,0 +1,245 @@
+<html>
+<head>
+<head>
+
+  <link rel="manifest" href="manifest.json">
+
+</head>
+
+    <title>Apuntes de Derecho Español</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .logo {
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin: 0 auto;
+        }
+        .title {
+            text-align: center;
+            font-size: 36px;
+            color: #333333;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 24px;
+            color: #666666;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            height: 50px;
+            margin: 20px auto;
+            background-color: #0099ff;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+    <style>
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  height: 100px;
+}
+
+.logo {
+  float: left;
+  margin: 50px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+/* Estilos para el menú hamburguesa */
+  
+.nav-menu {
+    position: fixed;
+    top: 100px; /* Cambiar a la misma altura que el logo */
+    left: -100%;
+    flex-direction: column;
+    background-color: #f0f0f0; /* Cambiar el color de fondo */
+    width: auto; /* Cambiar a auto para que se ajuste al contenido */
+    padding: 10px; /* Reducir el relleno */
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nav-menu.active {
+    left: 10px; /* Cambiar a la misma distancia que el logo */
+}
+
+.nav-item {
+    margin: 10px; /* Cambiar el margen */
+}
+
+.nav-link {
+    font-size: 14px; /* Cambiar el tamaño de la fuente */
+    color: white; /* Cambiar el color de la letra */
+    background-color: #482ff7; /* Cambiar el color de fondo del enlace */
+    border-radius: 5px; /* Añadir un borde redondeado */
+    padding: 10px; /* Añadir un relleno */
+    display: block; /* Hacer que el enlace ocupe todo el ancho */
+    text-align: center; /* Centrar el texto */
+    transition: background-color 0.3s ease-in-out; /* Añadir una transición al cambiar el color de fondo */    
+}
+
+.nav-link:hover {
+    background-color: #3d0e61; /* Cambiar el color de fondo al pasar el ratón */
+}
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+    position: absolute; /* Cambiar a absolute para que se posicione respecto al contenedor */
+    z-index: 10;
+    right: -80px; /* Ajustar según el tamaño del logo */
+    top: 85px; /* Ajustar según el espacio que quieras dejar */    
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: black; 
+    transition: transform 0.3s ease-in-out;   
+}
+
+/* Animación del botón hamburguesa */
+.hamburger.active .bar:nth-child(1) {
+     transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+     opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+     transform: translateY(-8px) rotate(-45deg);
+}
+
+</style>
+    <script>
+        // Esta variable guardará el evento para usarlo más tarde.
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+          // Evita que aparezca el mini-infobar o el diálogo de instalación predeterminado en el móvil
+          e.preventDefault();
+          // Guarda el evento porque lo necesitarás para activarlo más tarde.
+          deferredPrompt = e;
+          // Muestra tu propio diálogo de instalación personalizado para tu PWA
+          showInAppInstallPromotion();
+        });
+
+        // Luego, puedes comprobar si la PWA está en modo standalone (instalada) o no
+        if (window.matchMedia(' (display-mode: standalone)').matches) {
+          // La PWA está instalada, redirige al usuario a tu blog
+          window.location.href = 'https://apuntesdederechoespanol.blogspot.com';
+        } else {
+          // La PWA no está instalada, muestra un botón o un elemento de interfaz para que el usuario pueda instalarla
+          // Cuando el usuario haga clic en el botón, llama al método prompt() del evento guardado
+          installButton.addEventListener('click', async () => {
+            // Muestra el diálogo de instalación del navegador
+            deferredPrompt.prompt();
+            // Espera a que el usuario responda a la pregunta
+            const { outcome } = await deferredPrompt.userChoice;
+            // Analiza la respuesta del usuario
+            console.log(`User response to the install prompt: ${outcome}`);
+            // Ya no necesitas el evento guardado, borralo
+            deferredPrompt = null;
+          });
+        }
+    </script>
+</head>
+<body>
+
+  <script src="pwabuilder-sw.js"></script>
+
+
+    <div class="container">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjNbge_q3Pzf4DlwNerMFbjrZ-Yj7H9d-eDXP-Rlqg-V8lwxZ-Exfoc_JO_a26rczMUGF4jLur7tR9Yz1K4nZuq1eeUr_bSsRbTgXjw82gF-ajJ5qdq5fv8zcG3Rv1_fMK7Bd2pp9bC2RxbgpD2-NgswLK-2MhVcKQxp0JQPIKBjAT1PHnw1p0T0Fen=s572" alt="Logo" class="logo">
+        <h1 class="title">Apuntes de Derecho Español</h1>
+        <h2 class="subtitle">Bienvenido a la app de tu blog favorito</h2>
+        <button class="button" onclick="window.location.href='https://apuntesdederechoespanol.blogspot.com'">Ir al blog</button>
+    </div>
+
+  <script>
+        window.addEventListener('load', () => {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('pwabuilder-sw.js')
+                .then(reg => console.log('Service worker registrado', reg))
+                .catch(err => console.log('Error al registrar el service worker', err));
+            }
+        });
+    // Primero, comprueba si la web es una PWA usando la API getInstalledRelatedApps
+let isPWA = false;
+navigator.getInstalledRelatedApps().then((apps) => {
+  if (apps.length > 0) {
+    isPWA = true;
+  }
+});
+
+// Luego, comprueba si la web está en modo standalone usando una media query
+let isStandalone = false;
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  isStandalone = true;
+}
+
+// Finalmente, si la web es una PWA y está en modo standalone, redirige al usuario a la página deseada
+if (isPWA && isStandalone) {
+  window.location.href = 'https://apuntesdederechoespanol.blogspot.com/p/indice.html';
+}
+
+    </script>
+<p>Una PWA (Progressive Web App) es una aplicación web que se puede instalar en tu dispositivo como si fuera una aplicación nativa. Al instalar una PWA, podrás acceder a ella desde el icono de tu pantalla de inicio, menú de inicio o lanzador, y disfrutar de una experiencia más rápida, segura y sin conexión.</p>
+<p>Para instalar una PWA, necesitas cumplir algunos requisitos previos:</p>
+<ul>
+<li>Tener un navegador compatible con las PWAs, como Chrome, Edge, Firefox o Safari.</li>
+<li>Visitar la página web de la PWA que quieres instalar.</li>
+<li>Asegurarte de que la página web tenga un archivo manifest y un service worker que le permitan ser instalable.</li>
+</ul>
+<p>El proceso de instalación puede variar según el dispositivo y el sistema operativo que uses. Aquí te mostramos algunos ejemplos:</p>
+<ol>
+<li>En Android, si usas Chrome, verás un botón de "Añadir a pantalla de inicio" en la barra de direcciones o en el menú de opciones cuando visites una PWA. Si lo pulsas, se te mostrará una ventana emergente donde podrás confirmar la instalación y cambiar el nombre de la PWA si quieres. Una vez instalada, verás el icono de la PWA en tu pantalla de inicio o en tu cajón de aplicaciones.</li>
+<li>En iOS, si usas Safari, verás un botón de "Compartir" en la barra inferior cuando visites una PWA. Si lo pulsas, se te mostrará un menú donde podrás elegir la opción de "Añadir a pantalla de inicio". Si la seleccionas, se te mostrará una pantalla donde podrás confirmar la instalación y cambiar el nombre de la PWA si quieres. Una vez instalada, verás el icono de la PWA en tu pantalla de inicio.</li>
+<li>En Windows, si usas Edge, verás un botón de "Instalar esta aplicación" en la barra de direcciones o en el menú de opciones cuando visites una PWA. Si lo pulsas, se te mostrará una ventana emergente donde podrás confirmar la instalación. Una vez instalada, verás el icono de la PWA en tu menú de inicio o en tu barra de tareas.</li>
+</ol>
+<p>Para desinstalar una PWA, solo tienes que eliminar el icono desde tu dispositivo como si fuera una aplicación normal. También puedes desinstalarla desde el navegador que usaste para instalarla, accediendo al menú de opciones y buscando la sección de aplicaciones instaladas.</p>
+
+</body>
+</html>

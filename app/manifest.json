@@ -1,0 +1,27 @@
+{
+    "background_color": "#ffffff",
+    "description": "PWA para acceder al sitio web codigos monarquicos desde los telefonos o desde los PC",
+    "dir": "ltr",
+    "display": "standalone",
+    "name": "Codigos Monarquicos",
+    "orientation": "any",
+    "scope": "/",
+    "short_name": "Codigos Monarquicos",
+    "start_url": "/",
+    "theme_color": "#ffffff",
+    "categories": [
+        "government",
+        "news",
+        "social"
+    ],
+    "screenshots": [],
+    "icons": [{"src": "logo.png", "sizes": "465x465", "type": "image/png"}],
+    "shortcuts": [],
+    "display_override": [
+        "standalone",
+        "window-controls-overlay"
+    ],
+    "edge_side_panel": {
+        "preferred_width": 1
+    }
+}
