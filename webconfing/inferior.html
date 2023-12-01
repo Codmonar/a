@@ -1,3 +1,31 @@
 <p>______________________________________________________________________</p>
 <p>© 2023 Codigos Monarquicos Todos los derechos reservados. </p>
 <p>El contenido de esta web es propiedad intelectual de sus autores y está protegido por la ley. </p>
+<p>______________________________________________________________________</p>
+<!-- Este es el elemento HTML que contendrá el botón de instalación -->
+<div id="instalar-pwa" style="display: none;">
+<script src="https://codmonar.github.io/a/webconfing/instal.js"></script>
+  <!-- Este es el botón que el usuario podrá pulsar para instalar la PWA -->
+  <button id="boton-instalar">Instalar esta app</button>
+  <!-- Este es el texto que explicará al usuario por qué debería instalar la PWA -->
+  <p>Esta app te permite acceder a tu contenido favorito sin conexión, recibir notificaciones y disfrutar de una experiencia de usuario mejorada.</p>
+</div>
+
+<!-- Este es el código JavaScript que mostrará u ocultará el elemento HTML según el evento beforeinstallprompt -->
+<script>
+  // Esta función muestra el elemento HTML con el botón de instalación
+  function mostrarPromocionDeInstalacionEnApp() {
+    // Obtiene el elemento HTML por su id
+    let instalarPwa = document.getElementById("instalar-pwa");
+    // Cambia el estilo de display a block para que sea visible
+    instalarPwa.style.display = "block";
+  }
+
+  // Esta función oculta el elemento HTML con el botón de instalación
+  function ocultarPromocionDeInstalacionEnApp() {
+    // Obtiene el elemento HTML por su id
+    let instalarPwa = document.getElementById("instalar-pwa");
+    // Cambia el estilo de display a none para que sea invisible
+    instalarPwa.style.display = "none";
+  }
+</script>
