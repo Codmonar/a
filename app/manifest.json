@@ -7,7 +7,7 @@
     "orientation": "any",
     "scope": "/",
     "short_name": "Codigos Monarquicos",
-    "start_url": "/a/",
+    "start_url": "https://codmonar.github.io/a/",
     "theme_color": "#ffffff",
     "categories": [
         "government",
