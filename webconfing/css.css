@@ -285,6 +285,7 @@ button:hover {
   padding: 0;
   /* Establecer el ancho al auto */
   width: auto;
+  height: 10px
 }
 
 /* Establecer el estilo de los elementos de la lista */
