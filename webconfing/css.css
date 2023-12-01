@@ -307,6 +307,7 @@ button:hover {
   width: 20%;
   /* Establecer el flotado a la izquierda */
   float: left;
+  height: 10px
 }
 
 /* Establecer el estilo de los enlaces */
