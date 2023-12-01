@@ -7,7 +7,7 @@
     "orientation": "any",
     "scope": "/",
     "short_name": "Codigos Monarquicos",
-    "start_url": "/",
+    "start_url": "/a/",
     "theme_color": "#ffffff",
     "categories": [
         "government",
