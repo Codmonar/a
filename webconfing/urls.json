@@ -1,0 +1,14 @@
+// Crear un objeto con un array de URL
+var objeto = {
+  url: [
+    "https://apuntesdederechoespanol.blogspot.com/2023/10/formas-de-extincion-de-la-deuda.html",
+    "https://apuntesdederechoespanol.blogspot.com/2023/10/el-concepto-de-ius-evolucion.html",
+    "https://apuntesdederechoespanol.blogspot.com/2023/10/la-empresa-y-el-empresario-que-son-son.html"
+  ]
+};
+
+// Convertir el objeto en una cadena JSON
+var json = JSON.stringify(objeto);
+
+// Mostrar el JSON en la consola
+console.log(json);

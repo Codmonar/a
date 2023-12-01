@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de PDF</title>
+    <!-- Incluye PDF.js -->
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+</head>
+<body>
+<p class=MsoNoSpacing><a name="_Hlk150247372"></a><a name=instrucciones></a>/<a
+href="https://amigos-de-alejandro.github.io/Amigos">volver al indice</a>/ </p>
+    <div id="pdf-container"></div>
+
+    <script>
+        // Ruta del archivo PDF que deseas mostrar
+        const pdfUrl = 'ruta/al/archivo.pdf';
+
+        // Carga el archivo PDF
+        pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
+            // Obtiene el primer objeto de página
+            pdf.getPage(1).then(page => {
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+
+                // Escala para ajustar al tamaño deseado
+                const viewport = page.getViewport({ scale: 1.5 });
+
+                // Establece dimensiones del lienzo
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                // Renderiza la página en el lienzo
+                page.render({
+                    canvasContext: context,
+                    viewport: viewport
+                }).promise.then(() => {
+                    // Agrega el lienzo al contenedor
+                    document.getElementById('pdf-container').appendChild(canvas);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+Un sitemap XML es un archivo que contiene una lista de todas las páginas de tu sitio web, junto con información adicional sobre cada una, como la fecha de última modificación, la prioridad y la frecuencia de actualización. El objetivo de un sitemap XML es facilitar el rastreo e indexación de tu sitio web por parte de los motores de búsqueda como Google o Bing.
+
+El esquema básico de un sitemap XML es el siguiente:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>URL de la página</loc>
+    <lastmod>Fecha de última modificación</lastmod>
+    <changefreq>Frecuencia de actualización</changefreq>
+    <priority>Prioridad de la página</priority>
+  </url>
+  <!-- Repetir para cada página del sitio web -->
+</urlset>
+
+La etiqueta <urlset> es el contenedor de todas las URL del sitio web. Dentro de cada etiqueta <url>, se especifica la ubicación de la página en la etiqueta <loc>, que es obligatoria. Las demás etiquetas son opcionales, pero se recomienda incluirlas para proporcionar más información a los motores de búsqueda. La etiqueta <lastmod> indica la fecha y hora en que se modificó la página por última vez, en formato W3C. La etiqueta <changefreq> indica la frecuencia con la que se espera que cambie la página, y puede tener los siguientes valores: always, hourly, daily, weekly, monthly, yearly, never. La etiqueta <priority> indica la importancia de la página respecto a las demás, y puede tener un valor entre 0.0 y 1.0, siendo 1.0 el más alto.
+
+Para crear un sitemap XML, puedes usar herramientas en línea como XML-Sitemaps.com¹, plugins de WordPress como Google XML Sitemaps², o editores de texto como Notepad o WordPad. Una vez creado el sitemap XML, debes subirlo a la raíz de tu sitio web y enviarlo a los motores de búsqueda a través de sus herramientas para webmasters, como la Search Console de Google³ o las herramientas para webmasters de Bing⁴. De esta forma, les indicas a los motores de búsqueda que rastreen e indexen tu sitio web de acuerdo con tu sitemap XML.
+
+Origen: Conversación con Bing, 26/11/2023
+(1) Cómo Crear un Sitemap XML (y Enviarlo a Google) - Ahrefs. https://ahrefs.com/blog/es/como-crear-un-sitemap/.
+(2) Tutorial de sitemap XML - IONOS. https://www.ionos.es/digitalguide/paginas-web/creacion-de-paginas-web/tutorial-de-sitemap-xml/.
+(3) Sitemap XML: qué es y cómo crearlo para enviarlo a Google. https://bing.com/search?q=esquema+basico+de+un+sitemap.xml.
+(4) ¿Qué es un sitemap? ¡Te ayudamos a crear un sitemap XML! - One.com. https://www.one.com/es/marketing-digital/sitemap-que-es.
+(5) Guía Técnica - Sitemap XML | Visibilidad Web UNAM. https://www.visibilidadweb.unam.mx/guia/sistemap-xml.
+(6) undefined. http://www.sitemaps.org/schemas/sitemap/0.9.
+(7) undefined. https://ahrefs.com/.
+(8) undefined. https://ahrefs.com.com/blog/.
