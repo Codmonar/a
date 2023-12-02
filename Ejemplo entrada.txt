@@ -6,6 +6,7 @@
   <title>Inicio de Codigos Monarquicos</title>
   <!-- Enlazar el archivo CSS externo -->
   <link rel="stylesheet" href="https://codmonar.github.io/a/webconfing/css.css">
+  <link rel="shortcut icon" href="https://codmonar.github.io/a/webconfing/logo.ico">
   <!-- Incluir la librería jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
