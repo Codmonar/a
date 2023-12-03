@@ -54,7 +54,11 @@
 
 </head>
 <body>
- <script src="https://codmonar.github.io/a/app/pwabuilder-sw.js"></script>
+ <script>
+  if (typeof navigator.serviceWorker !== 'https://codmonar.github.io/a/app/pwabuilder-sw.js') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
 <!-- Incluir el archivo externo del encabezado -->
 <div id="encabezado"></div>
 <!----------------Contenido pagina----------------------->
