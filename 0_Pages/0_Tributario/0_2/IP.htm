@@ -100,7 +100,59 @@ div.WordSection1
 
 </div>
 
-   
+   <!--------------------------------Imprimir boton----------------->
+<!-- Crear un botón con el texto "Imprimir página web" -->
+<button id="print-button">Imprimir página web</button>
+
+<!-- Obtener el botón por su id -->
+<script>
+  var button = document.getElementById("print-button");
+
+  // Añadir un evento de clic al botón
+  button.addEventListener("click", function() {
+    // Ejecutar el script que imprime la página web
+    // Obtener el elemento iframe que contiene la página web
+    var iframe = document.getElementById("iframe-id");
+
+    // Obtener el contenido del iframe
+    var iframeContent = iframe.contentWindow.document;
+
+    // Crear un elemento link para añadir el estilo de impresión
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.media = "print";
+    link.href = "print.css";
+
+    // Añadir el elemento link al head del iframe
+    iframeContent.head.appendChild(link);
+
+    // Crear un elemento style para definir el estilo de impresión
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.innerHTML = `
+      @media print {
+        /* Establecer el ancho y el alto del iframe al 100% */
+        iframe {
+          width: 100%;
+          height: 100%;
+        }
+
+        /* Establecer el modo de impresión a horizontal */
+        @page {
+          size: landscape;
+        }
+      }
+    `;
+
+    // Añadir el elemento style al head del documento principal
+    document.head.appendChild(style);
+
+    // Imprimir el contenido del iframe
+    iframe.contentWindow.print();
+  });
+</script>
+<!------------------------------------------------------------->
 
 
 

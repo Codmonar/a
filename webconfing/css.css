@@ -336,3 +336,34 @@ button:hover {
   /* Establecer el color del texto a blanco */
   color: #ffffff;
 }
+
+
+
+/*-------------------print CSS---------------*/
+
+/* Establecer el margen de la página a 0 */
+@page {
+  margin: 0;
+}
+
+/* Establecer el margen del cuerpo a 0 */
+body {
+  margin: 0;
+}
+
+/* Establecer el ancho y el alto del iframe al 100% */
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* Establecer el desbordamiento del iframe a oculto */
+iframe {
+  overflow: hidden;
+}
+
+/* Establecer el zoom del iframe al 80% */
+iframe {
+  zoom: 0.8;
+}
+
