@@ -15,12 +15,7 @@
         "social"
     ],
     "screenshots": [],
-    "icons": [
-{
-      "src": "https://codmonar.github.io/a/app/android/android-launchericon-512-512.png",
-      "sizes": "512x512"
-    },
-  ],
+    "icons": [{"src": "https://codmonar.github.io/a/app/logo.png", "sizes": "465x465", "type": "image/png"}],
     "shortcuts": [],
     "display_override": [
         "standalone",
