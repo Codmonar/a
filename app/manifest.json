@@ -15,7 +15,7 @@
         "social"
     ],
     "screenshots": [],
-    "icons": [{"src": "https://codmonar.github.io/a/app/logo.png", "sizes": "465x465", "type": "image/png"}],
+    "icons": [{"src": "https://codmonar.github.io/a/app/logo500.png", "sizes": "465x465", "type": "image/png"}],
     "shortcuts": [],
     "display_override": [
         "standalone",
