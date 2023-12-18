@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+<link rel="manifest" href="https://codmonar.github.io/a/app/manifest.json">
+  <title>Inicio de Codigos Monarquicos</title>
+  <!-- Enlazar el archivo CSS externo -->
+  <link rel="stylesheet" href="https://codmonar.github.io/a/webconfing/css.css">
+  <link rel="shortcut icon" href="https://codmonar.github.io/a/webconfing/logo.ico">
+  <!-- Incluir la librería jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<script>
+  if (typeof navigator.serviceWorker !== 'https://codmonar.github.io/a/app/pwabuilder-sw.js') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
+<!-- Incluir el archivo externo del encabezado -->
+<div id="encabezado"></div>
+<!----------------Contenido pagina----------------------->
+
+<h1>Amigos de alejandro</h1> <h2>Reunion 1</h1>
+
+<iframe src="https://docs.google.com/gview?url=
+https://codmonar.github.io/a/0_Pages/0_Tributario/0_2/1_Reuniones/Reunion%201.pdf
+&embedded=true" style="width:100%; height:700px;" frameborder="0" ></iframe>
+
+
+
+<!---------------Fin contenido pagina-------------------->
+<div id="inferior"></div>
+<!-- Cargar los archivos externos con jQuery -->
+<script>
+  $(document).ready(function() {
+    // Cargar el archivo del encabezado
+    $("#encabezado").load("https://codmonar.github.io/a/webconfing/encabezado.html");
+    // Cargar el archivo del inferior
+    $("#inferior").load("https://codmonar.github.io/a/webconfing/inferior.html");
+  });
+</script>
+
+
+</body>
+</html>
