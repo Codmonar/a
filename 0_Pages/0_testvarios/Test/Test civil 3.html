@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8”>
+<meta name=“Test” content=“Tipo test aleatorio”>
+<title>Test Derecho Civil III</title>
+
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.question {
+  margin: 20px 0;
+}
+.options {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.correct {
+  visibility: hidden;
+}
+</style>
+<script>
+// Array de preguntas
+var questions = [
+
+    { question: "¿Qué es el derecho de familia?", options: ["Una rama del derecho civil", "Una rama del derecho público", "Una rama del derecho privado", "Una rama del derecho penal"], answer: 0 },
+    { question: "¿Qué regula el derecho de familia?", options: ["Las relaciones laborales", "Las relaciones familiares y conflictos dentro de la familia", "Las relaciones comerciales", "Las relaciones internacionales"], answer: 1 },
+    { question: "¿Qué es la familia?", options: ["Una institución natural y social", "Una institución jurídica", "Una institución educativa", "Una institución religiosa"], answer: 0 },
+    { question: "¿Qué cambio trajo la Constitución de 1978 en relación a la filiación de los hijos?", options: ["Estableció la igualdad entre hijos matrimoniales y extramatrimoniales", "Estableció la desigualdad entre hijos matrimoniales y extramatrimoniales", "No cambió nada", "Hizo que los hijos ilegítimos no formaran parte de la familia"], answer: 0 },
+    { question: "¿Qué reforma permitió el divorcio ante notario?", options: ["La reforma de 1981", "La reforma de 2005", "La reforma de 2015", "La reforma de 2021"], answer: 2 },
+    { question: "¿Qué es el derecho civil?", options: ["Es competencia del estado", "Es competencia de la comunidad autónoma", "Es competencia de la familia", "Es competencia de la iglesia"], answer: 0 },
+    { question: "¿Qué reforma reguló el matrimonio homosexual?", options: ["La reforma de 1981", "La reforma de 2005", "La reforma de 2015", "La reforma de 2021"], answer: 1 },
+    { question: "¿Qué reforma cambió la regulación del matrimonio en el Código Civil?", options: ["La Ley 11/1981", "La Ley 30/1981", "La Ley 25/2010", "Decreto Legislativo 1/2011"], answer: 1 },
+    { question: "¿Qué reforma modificó el Código Civil en materia de filiación, patria potestad y régimen económico del matrimonio?", options: ["La Ley 11/1981", "La Ley 30/1981", "La Ley 25/2010", "Decreto Legislativo 1/2011"], answer: 0 },
+    { question: "¿Qué tipo de normas caracterizan al derecho de familia?", options: ["Normas de IUS COGENS", "Normas dispositivas", "Normas de IUS COGENS y normas dispositivas", "Ninguna de las anteriores"], answer: 0 },
+    { question: "¿Qué es el parentesco?", options: ["La relación con el resto de los integrantes de un grupo familiar", "La relación entre cónyuges", "La relación entre amigos", "La relación entre colegas"], answer: 0 },
+    { question: "¿Cómo se determina el parentesco?", options: ["Por la relación paterno-filial", "Por la relación de amistad", "Por la relación laboral", "Por la relación de vecindad"], answer: 0 },
+    { question: "¿Existe relación de parentesco entre los cónyuges?", options: ["Sí", "No", "Depende de la situación", "Solo en algunos casos"], answer: 1 },
+    { question: "¿Cuántas modalidades de parentesco existen?", options: ["1", "2", "3", "4"], answer: 2 },
+    { question: "¿Qué es el parentesco por consanguinidad?", options: ["Relación entre personas unidas por lazos de sangre", "Relación entre personas unidas por matrimonio", "Relación entre personas unidas por adopción", "Relación entre personas unidas por afinidad"], answer: 0 },
+    { question: "¿Qué es el parentesco por adopción?", options: ["Relación entre personas unidas por lazos de sangre", "Relación entre personas unidas por matrimonio", "Relación entre personas unidas por adopción", "Relación entre personas unidas por afinidad"], answer: 2 },
+    { question: "¿Qué es el parentesco por afinidad?", options: ["Relación entre personas unidas por lazos de sangre", "Relación entre personas unidas por matrimonio", "Relación entre personas unidas por adopción", "Relación entre personas unidas por afinidad"], answer: 3 },
+    { question: "¿Cómo se computa el parentesco?", options: ["Por el número de generaciones", "Por el número de hijos", "Por el número de matrimonios", "Por el número de divorcios"], answer: 0 },
+       { question: "¿Qué es la figura de los 'alimentos entre parientes'?", options: ["Un derecho-deber de prestación de asistencia y socorro entre los cónyuges y parientes cercanos", "Una obligación legal de proporcionar alimentos a los parientes lejanos", "Una obligación legal de proporcionar alimentos a los amigos", "Un derecho-deber de prestación de asistencia y socorro entre los amigos"], answer: 0 },
+    { question: "¿En qué se basa esta figura?", options: ["En la solidaridad familiar", "En la solidaridad entre amigos", "En la solidaridad entre colegas", "En la solidaridad entre vecinos"], answer: 0 },
+    { question: "¿Quién tiene este derecho?", options: ["Solo los cónyuges", "Solo los parientes", "Solo los amigos", "Los cónyuges y algunos parientes"], answer: 3 },
+    { question: "¿Cómo se refiere a la persona que está obligada a dar los alimentos?", options: ["Alimentista", "Alimentante", "Proveedor", "Dador"], answer: 1 },
+    { question: "¿Cómo se refiere a la persona que tiene derecho a recibir alimentos?", options: ["Alimentista", "Alimentante", "Proveedor", "Dador"], answer: 0 },
+    { question: "¿Qué comprenden los alimentos?", options: ["Solo la alimentación", "Solo la ropa", "Solo los gastos de educación", "Sustento, habitación, vestido, asistencia médica, educación e instrucción"], answer: 3 },
+    { question: "¿Cuántas formas hay de prestar alimentos?", options: ["1", "2", "3", "4"], answer: 1 },
+    { question: "¿Qué es el 'derecho a los alimentos'?", options: ["El derecho-deber latente entre los familiares de exigir o prestar alimentos", "La obligación de proporcionar alimentos a los amigos", "La obligación de proporcionar alimentos a los colegas", "La obligación de proporcionar alimentos a los vecinos"], answer: 0 },
+    { question: "¿Qué es la 'prestación de alimentos'?", options: ["Las dos formas posibles de prestar los alimentos", "La obligación de proporcionar alimentos a los amigos", "La obligación de proporcionar alimentos a los colegas", "La obligación de proporcionar alimentos a los vecinos"], answer: 0 },
+    { question: "¿Qué es la 'pensión alimenticia'?", options: ["Una obligación alimenticia ya establecida y concretada por acuerdo entre las partes o sentencia judicial", "La obligación de proporcionar alimentos a los amigos", "La obligación de proporcionar alimentos a los colegas", "La obligación de proporcionar alimentos a los vecinos"], answer: 0 },
+    { question: "¿Cómo se determina la cuantía de la prestación alimenticia?", options: ["De forma proporcional al caudal o medios económicos de quien los da y a las necesidades de quien los recibe", "De forma proporcional a la edad del alimentista", "De forma proporcional al número de hijos", "De forma proporcional al salario mínimo"], answer: 0 },
+    { question: "¿Cómo se puede llevar a cabo la reclamación de alimentos?", options: ["A través de juicio verbal", "A través de una carta", "A través de una llamada telefónica", "A través de un correo electrónico"], answer: 0 },
+    { question: "¿Cuáles son las formas de la prestación?", options: ["Una pensión o el mantenimiento del alimentista en la casa del alimentante", "Una pensión o el mantenimiento del alimentista en la casa de un tercero", "Una pensión o el mantenimiento del alimentista en su propia casa", "Una pensión o el mantenimiento del alimentista en la casa del juez"], answer: 0 },
+    { question: "¿Qué ocurre si la situación de convivencia contradice la elección del obligado a prestar alimentos?", options: ["El obligado puede elegir otra forma de prestación", "El obligado debe prestar los alimentos mediante el pago de una pensión", "El obligado puede negarse a prestar los alimentos", "El obligado puede solicitar una excepción a la regla"], answer: 1 },
+    { question: "¿Qué puede dar lugar a la extinción de la obligación alimenticia?", options: ["La muerte de los interesados", "La variación de las circunstancias patrimoniales", "La mala conducta del alimentista", "Todas las anteriores"], answer: 3 },
+    { question: "¿Qué ocurre si el alimentista comete alguna falta que da lugar a la desheredación?", options: ["La obligación alimenticia se extingue", "La obligación alimenticia se duplica", "La obligación alimenticia se reduce a la mitad", "No afecta a la obligación alimenticia"], answer: 0 },
+    { question: "¿Qué ocurre si el alimentista puede ejercer un oficio, profesión o industria, o ha adquirido un destino o mejorado de fortuna?", options: ["La obligación alimenticia se extingue", "La obligación alimenticia se duplica", "La obligación alimenticia se reduce a la mitad", "No afecta a la obligación alimenticia"], answer: 0 },
+    { question: "¿Quiénes están obligados a prestar alimentos a sus hijos que están bajo la patria potestad?", options: ["Solo el padre", "Solo la madre", "Ambos padres", "Ninguno de los padres"], answer: 2 },
+    { question: "¿Qué ocurre con la obligación de alimentos al llegar a la mayoría de edad?", options: ["Se extingue automáticamente", "No se extingue si el hijo no tuviera recursos suficientes para mantenerse y siempre que esta situación de necesidad no sea imputable al hijo", "Se duplica automáticamente", "Se reduce a la mitad automáticamente"], answer: 1 },
+    { question: "¿Qué ocurre si no hay progenitor conviviente con el hijo mayor de edad?", options: ["El hijo mayor de edad puede acudir a un proceso de alimentos", "El hijo mayor de edad no puede acudir a un proceso de alimentos", "El hijo mayor de edad puede elegir a un progenitor sustituto", "El hijo mayor de edad puede exigir alimentos a sus hermanos"], answer: 0 },
+    { question: "¿Qué es la filiación?", options: ["Es una relación derivada de la generación biológica", "Es una relación derivada de la adopción", "Es una relación derivada del matrimonio", "Todas las anteriores"], answer: 0 },
+    { question: "¿Cuáles son los primeros derechos que se obtienen al tener una filiación determinada legalmente?", options: ["Tener los apellidos", "Poder solicitar alimentos", "Derechos sucesorios", "Todas las anteriores"], answer: 3 },
+    { question: "¿Cómo se determina la filiación por naturaleza?", options: ["Madre legal = Madre biológica, Padre legal = Padre biológica", "Madre legal ≠ Madre biológica, Padre legal ≠ Padre biológica", "Madre legal = Madre biológica, Padre legal ≠ Padre biológica", "Madre legal ≠ Madre biológica, Padre legal = Padre biológica"], answer: 0 },
+    { question: "¿Cómo se determina la filiación por adopción?", options: ["Madre legal = Madre biológica, Padre legal = Padre biológica", "Madre legal ≠ Madre biológica, Padre legal ≠ Padre biológica", "Madre legal = Madre biológica, Padre legal ≠ Padre biológica", "Madre legal ≠ Madre biológica, Padre legal = Padre biológica"], answer: 1 },
+    { question: "¿Cómo se determina la maternidad?", options: ["Por el hecho del nacimiento", "Por el hecho de la adopción", "Por el hecho del matrimonio", "Por el hecho de la reproducción asistida"], answer: 0 },
+    { question: "¿Qué ocurre si la mujer está casada y no separada legalmente o, de hecho, con otra mujer?", options: ["Esta última puede manifestar que consiente en que se determine a su favor la filiación respecto al hijo nacido de su cónyuge", "Esta última no puede manifestar que consiente en que se determine a su favor la filiación respecto al hijo nacido de su cónyuge", "Esta última puede manifestar que no consiente en que se determine a su favor la filiación respecto al hijo nacido de su cónyuge", "Ninguna de las anteriores"], answer: 0 },
+    { question: "¿Cómo se realiza la inscripción de los recién nacidos tras la Ley 19/2015?", options: ["Se realiza directamente desde los centros sanitarios", "Se realiza en la Oficina de Registro Civil", "Se realiza en el Ministerio de Justicia", "Se realiza en el hospital"], answer: 0 },
+    { question: "¿Qué deben hacer los padres en el plazo de 72 horas desde el nacimiento para la inscripción del recién nacido?", options: ["Identificarse en el centro con un documento válido", "Presentar el libro de familia", "Firmar la 'Declaración' de matrimonio en el Formulario oficial, si la filiación es matrimonial", "Todas las anteriores"], answer: 3 },
+    { question: "¿Qué ocurre si Juana está en relación lésbica con Pepa y siguen técnicas de reproducción asistida?", options: ["Juana tendrá la filiación por naturaleza por el lazo biológico y Pepa lo tendrá también por naturaleza por el hecho de ser la cónyuge de esa mujer", "Juana tendrá la filiación por naturaleza por el lazo biológico y Pepa no tendrá filiación", "Juana no tendrá filiación y Pepa tendrá la filiación por naturaleza por el hecho de ser la cónyuge de esa mujer", "Ninguna de las anteriores"], answer: 0 },
+    { question: "¿Qué ocurre si Juana va a una clínica de reproducción asistida y usa su propio material genético para hacer el niño?", options: ["Tendrá una filiación por naturaleza y habrá un lazo biológico entre la madre y el hijo", "No tendrá una filiación por naturaleza y no habrá un lazo biológico entre la madre y el hijo", "Tendrá una filiación por naturaleza pero no habrá un lazo biológico entre la madre y el hijo", "No tendrá una filiación por naturaleza pero habrá un lazo biológico entre la madre y el hijo"], answer: 0 },
+  { 
+    question: "¿Cómo se determina la filiación matrimonial con respecto a la madre?", 
+    options: ["Por el hecho del parto", "Por el reconocimiento del padre", "Por la declaración del juez"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué reglas se aplican para determinar la maternidad matrimonial?", 
+    options: ["Las mismas que para la filiación no matrimonial", "Las mismas que para la filiación adoptiva", "Las mismas que para la filiación por técnicas de reproducción asistida"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cómo se determina la paternidad en la filiación matrimonial?", 
+    options: ["Por el juego de las presunciones legales del CC", "Por el hecho del parto", "Por la declaración del juez"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué establece el artículo 116 del CC?", 
+    options: ["Se presumen hijos del marido los nacidos después de la celebración del matrimonio y antes de los trescientos días siguientes a su disolución o a la separación legal o de hecho de los cónyuges", "El marido puede destruir la presunción mediante declaración auténtica en contrario formalizada dentro de los seis meses siguientes al conocimiento del parto", "Aun faltando la presunción de paternidad del marido por causa de la separación legal o de hecho de los cónyuges, podrá inscribirse la filiación como matrimonial si concurre el consentimiento de ambos"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué establece el artículo 117 del CC?", 
+    options: ["Se presumen hijos del marido los nacidos después de la celebración del matrimonio y antes de los trescientos días siguientes a su disolución o a la separación legal o de hecho de los cónyuges", "El marido puede destruir la presunción mediante declaración auténtica en contrario formalizada dentro de los seis meses siguientes al conocimiento del parto", "Aun faltando la presunción de paternidad del marido por causa de la separación legal o de hecho de los cónyuges, podrá inscribirse la filiación como matrimonial si concurre el consentimiento de ambos"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué establece el artículo 118 del CC?", 
+    options: ["Se presumen hijos del marido los nacidos después de la celebración del matrimonio y antes de los trescientos días siguientes a su disolución o a la separación legal o de hecho de los cónyuges", "El marido puede destruir la presunción mediante declaración auténtica en contrario formalizada dentro de los seis meses siguientes al conocimiento del parto", "Aun faltando la presunción de paternidad del marido por causa de la separación legal o de hecho de los cónyuges, podrá inscribirse la filiación como matrimonial si concurre el consentimiento de ambos"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Cómo se determina la filiación de los nacidos con las técnicas de reproducción asistida?", 
+    options: ["La maternidad viene determinada por el hecho del parto y la paternidad por el consentimiento del compañero de la madre", "La maternidad y la paternidad vienen determinadas por el hecho del parto", "La maternidad y la paternidad vienen determinadas por el consentimiento del compañero de la madre"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cómo se determina la filiación adoptiva?", 
+    options: ["Por el hecho del parto", "Por el reconocimiento del padre", "Por la resolución judicial que constituya la adopción"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Cómo se determina la filiación no matrimonial?", 
+    options: ["Por el hecho del parto", "Por el reconocimiento del padre", "Puede determinarse de acuerdo con el art. 120 del CC"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Cómo se determina la filiación de un menor por una pareja homosexual?", 
+    options: ["Por el hecho del parto", "Por el reconocimiento del padre", "Por la resolución judicial que constituya la adopción"], 
+    answer: 2 
+  },
+
+  { 
+    question: "¿Qué es la posesión de estado según el artículo 767.3 de la LEC?", 
+    options: ["Es un hecho a partir del cual podrá declararse la filiación, aunque no haya prueba directa", "Es un documento legal que determina la filiación", "Es una presunción de paternidad matrimonial", "Es una inscripción del nacimiento en el Registro Civil"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cuáles son los tres requisitos para la posesión de estado en la filiación según la jurisprudencia?", 
+    options: ["Nomen, Tractatus, Reputatio o fama", "Inscripción, Documento, Presunción", "Reclamación, Impugnación, Acción mixta", "Matrimonial, No matrimonial, Mixta"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es la acción de reclamación en las acciones de filiación?", 
+    options: ["Es una acción de negación de una filiación determinada", "Pretende que se determine la filiación de una persona que aún no consta", "Es una acción para impugnar la filiación matrimonial", "Es una acción para impugnar la filiación no matrimonial"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué es la acción de impugnación en las acciones de filiación?", 
+    options: ["Es una acción de negación de una filiación determinada", "Pretende que se determine la filiación de una persona que aún no consta", "Es una acción para impugnar la filiación matrimonial", "Es una acción para impugnar la filiación no matrimonial"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es la acción mixta de reclamación con impugnación de la filiación contradictoria?", 
+    options: ["Es una acción de negación de una filiación determinada", "Pretende que se determine la filiación de una persona que aún no consta", "Es una acción para impugnar la filiación matrimonial", "Es una acción que permite la impugnación de la filiación contradictoria"], 
+    answer: 3 
+  },
+  { 
+    question: "¿Qué es Nomen en el contexto de la posesión de estado?", 
+    options: ["Es el hecho de ser considerado socialmente como hijo", "Es el comportamiento continuado y afectivo propio de la relación de filiación", "Consiste en usar de modo habitual y constante el apellido del supuesto progenitor", "Es una acción de negación de una filiación determinada"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Qué es Tractatus en el contexto de la posesión de estado?", 
+    options: ["Es el hecho de ser considerado socialmente como hijo", "Es el comportamiento continuado y afectivo propio de la relación de filiación", "Consiste en usar de modo habitual y constante el apellido del supuesto progenitor", "Es una acción de negación de una filiación determinada"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué es Reputatio o fama en el contexto de la posesión de estado?", 
+    options: ["Es el hecho de ser considerado socialmente como hijo", "Es el comportamiento continuado y afectivo propio de la relación de filiación", "Consiste en usar de modo habitual y constante el apellido del supuesto progenitor", "Es una acción de negación de una filiación determinada"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es la impugnación por vicio del consentimiento?", 
+    options: ["Es una subclase de la impugnación", "Es una acción de negación de una filiación determinada", "Es una acción para impugnar la filiación matrimonial", "Es una acción para impugnar la filiación no matrimonial"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cuándo puede ser impugnada la filiación matrimonial?", 
+    options: ["En el plazo de un año contado desde la inscripción de la filiación en el Registro Civil", "En cualquier momento si el parto fuera supuesto o no fuera cierta la identidad del hijo", "Si falta la posesión de estado, por aquellos a quienes perjudique", "Si hay posesión de estado, por quien aparece como hijo o progenitor"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es la adopción según el artículo 108 del CC?", 
+    options: ["Es una forma de filiación basada en una relación de naturaleza", "Es una forma de filiación basada en una declaración de voluntad del adoptante o adoptantes y del adoptado", "Es una forma de filiación que se origina en una realidad biológica", "Es una forma de filiación que se origina en un contrato entre los futuros padres y el progenitor"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué efectos surten la filiación matrimonial, la no matrimonial y la adoptiva según el artículo 108 del CC?", 
+    options: ["Surtan efectos diferentes", "Surtan los mismos efectos", "La filiación matrimonial y la no matrimonial surten los mismos efectos, pero la adoptiva no", "La filiación matrimonial y la adoptiva surten los mismos efectos, pero la no matrimonial no"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Cómo se constituye la adopción?", 
+    options: ["Se constituye siempre con la intervención judicial", "Se constituye siempre con un contrato entre los futuros padres y el progenitor", "Se constituye siempre con la intervención del Ministerio Fiscal", "Se constituye siempre con la intervención de un notario"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Quiénes pueden ser adoptados según el artículo 175.2 del CC?", 
+    options: ["Únicamente pueden ser adoptados los menores no emancipados", "Pueden ser adoptados tanto los menores no emancipados como los mayores de edad", "Pueden ser adoptados tanto los menores no emancipados como los menores emancipados", "Pueden ser adoptados tanto los menores no emancipados como los mayores de edad o un menor emancipado cuando, inmediatamente antes de la emancipación, hubiere existido una situación de acogimiento con los futuros adoptantes o de convivencia estable con ellos de, al menos, un año"], 
+    answer: 3 
+  },
+  { 
+    question: "¿Quiénes no pueden ser adoptados según el artículo 175.3 del CC?", 
+    options: ["Un descendiente, un pariente en segundo grado de la línea colateral por consanguinidad o afinidad, o a un pupilo por su tutor hasta que haya sido aprobada definitivamente la cuenta general justificada de la tutela", "Un ascendiente, un pariente en primer grado de la línea colateral por consanguinidad o afinidad, o a un pupilo por su tutor hasta que haya sido aprobada definitivamente la cuenta general justificada de la tutela", "Un descendiente, un pariente en tercer grado de la línea colateral por consanguinidad o afinidad, o a un pupilo por su tutor hasta que haya sido aprobada definitivamente la cuenta general justificada de la tutela", "Un ascendiente, un pariente en tercer grado de la línea colateral por consanguinidad o afinidad, o a un pupilo por su tutor hasta que haya sido aprobada definitivamente la cuenta general justificada de la tutela"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cuántas personas pueden adoptar a una misma persona según el artículo 175.4 del CC?", 
+    options: ["Nadie podrá ser adoptado por más de una persona", "Una persona puede ser adoptada por dos personas como máximo", "Una persona puede ser adoptada por tres personas como máximo", "No hay límite en el número de personas que pueden adoptar a una misma persona"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es el acogimiento?", 
+    options: ["Es una medida de protección de menores en situación de desamparo", "Es una forma de filiación", "Es una forma de adopción", "Es una forma de emancipación"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Existe un vínculo de filiación entre el menor acogido y sus acogedores?", 
+    options: ["Sí", "No", "Depende de la situación", "Depende de la decisión del juez"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué vínculo se crea entre el menor adoptado y los padres adoptivos?", 
+    options: ["Un vínculo jurídico de filiación", "Un vínculo de acogimiento", "Un vínculo de emancipación", "No se crea ningún vínculo"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué derechos y deberes conlleva la adopción para el menor adoptado?", 
+    options: ["Apellidos, alimentos, sucesión, patria potestad, etc.", "Solo apellidos y patria potestad", "Solo alimentos y sucesión", "Ninguno"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cuáles son los requisitos para los adoptantes según el art. 175.1 del CC?", 
+    options: ["Haber cumplido los 25 años y tener una diferencia de edad mínima de 16 años o máxima de 45 años con el adoptante", "Haber cumplido los 30 años y tener una diferencia de edad mínima de 16 años o máxima de 45 años con el adoptante", "Haber cumplido los 25 años y tener una diferencia de edad mínima de 18 años o máxima de 45 años con el adoptante", "Haber cumplido los 30 años y tener una diferencia de edad mínima de 18 años o máxima de 45 años con el adoptante"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es la declaración de idoneidad según el art. 176.3 del CC?", 
+    options: ["Es la capacidad, aptitud y motivación adecuadas para ejercer la responsabilidad parental, atendiendo a las necesidades de los menores a adoptar, y para asumir las peculiaridades, consecuencias y responsabilidades que conlleva la adopción", "Es la capacidad, aptitud y motivación adecuadas para ejercer la patria potestad, atendiendo a las necesidades de los menores a adoptar, y para asumir las peculiaridades, consecuencias y responsabilidades que conlleva la adopción", "Es la capacidad, aptitud y motivación adecuadas para ejercer la responsabilidad parental, atendiendo a las necesidades de los menores a adoptar, y para asumir las peculiaridades, consecuencias y responsabilidades que conlleva la patria potestad", "Es la capacidad, aptitud y motivación adecuadas para ejercer la patria potestad, atendiendo a las necesidades de los menores a adoptar, y para asumir las peculiaridades, consecuencias y responsabilidades que conlleva la patria potestad"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cómo se constituye la adopción según el art. 176.1 del CC?", 
+    options: ["Se constituirá por resolución judicial, que tendrá en cuenta siempre el interés del adoptando y la idoneidad del adoptante o adoptantes para el ejercicio de la patria potestad", "Se constituirá por resolución judicial, que tendrá en cuenta siempre el interés del adoptando y la idoneidad del adoptante o adoptantes para el ejercicio de la responsabilidad parental", "Se constituirá por contrato, que tendrá en cuenta siempre el interés del adoptando y la idoneidad del adoptante o adoptantes para el ejercicio de la patria potestad", "Se constituirá por contrato, que tendrá en cuenta siempre el interés del adoptando y la idoneidad del adoptante o adoptantes para el ejercicio de la responsabilidad parental"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Quiénes pueden iniciar el expediente de adopción según el art. 176.2 del CC?", 
+    options: ["La Entidad Pública a favor del adoptante o adoptantes que dicha Entidad Pública haya declarado idóneos para el ejercicio de la patria potestad", "El adoptante o adoptantes que hayan sido declarados idóneos para el ejercicio de la patria potestad por la Entidad Pública", "La Entidad Pública a favor del adoptante o adoptantes que dicha Entidad Pública haya declarado idóneos para el ejercicio de la responsabilidad parental", "El adoptante o adoptantes que hayan sido declarados idóneos para el ejercicio de la responsabilidad parental por la Entidad Pública"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es el consentimiento en el expediente de adopción según los arts. 177.1 del CC y 36 de la LJV?", 
+    options: ["Es un acto personalísimo y previo a la decisión judicial, así como un requisito constitutivo respecto de la adopción cuya falta motivará la inexistencia de esta", "Es un acto personalísimo y posterior a la decisión judicial, así como un requisito constitutivo respecto de la adopción cuya falta motivará la inexistencia de esta", "Es un acto personalísimo y previo a la decisión judicial, así como un requisito constitutivo respecto de la adopción cuya falta motivará la nulidad de esta", "Es un acto personalísimo y posterior a la decisión judicial, así como un requisito constitutivo respecto de la adopción cuya falta motivará la nulidad de esta"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es el asentimiento en el expediente de adopción según el art. 177.2 del CC?", 
+    options: ["Es una declaración de voluntad en la que determinadas personas, que no forman parte de la relación adoptiva, manifiestan su conformidad", "Es una declaración de voluntad en la que determinadas personas, que forman parte de la relación adoptiva, manifiestan su conformidad", "Es una declaración de voluntad en la que determinadas personas, que no forman parte de la relación adoptiva, manifiestan su disconformidad", "Es una declaración de voluntad en la que determinadas personas, que forman parte de la relación adoptiva, manifiestan su disconformidad"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es la audiencia en el expediente de adopción según el art. 177.3 del CC?", 
+    options: ["Es un trámite obligatorio que permite a los interesados realizar alegaciones con el fin de informar al Juez para que decida de manera fundada, pero sin que esta opinión le sea vinculante", "Es un trámite obligatorio que permite a los interesados realizar alegaciones con el fin de informar al Juez para que decida de manera fundada, y esta opinión le es vinculante", "Es un trámite opcional que permite a los interesados realizar alegaciones con el fin de informar al Juez para que decida de manera fundada, pero sin que esta opinión le sea vinculante", "Es un trámite opcional que permite a los interesados realizar alegaciones con el fin de informar al Juez para que decida de manera fundada, y esta opinión le es vinculante"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué dispone el art. 180.1 del CC sobre la adopción?", 
+    options: ["La adopción es revocable", "La adopción es irrevocable", "La adopción puede ser revocable o irrevocable dependiendo del caso", "No se especifica si la adopción es revocable o irrevocable"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué efectos tiene la adopción según el art. 178.1 del CC?", 
+    options: ["Se produce la extinción de los vínculos jurídicos entre el adoptado y su familia de origen", "Se produce la extinción de los vínculos jurídicos entre el adoptado y su familia adoptiva", "Se produce la extinción de los vínculos jurídicos entre el adoptado y su familia de origen y la constitución de unos nuevos vínculos jurídicos con la familia adoptiva", "Se produce la extinción de los vínculos jurídicos entre el adoptado y su familia adoptiva y la constitución de unos nuevos vínculos jurídicos con la familia de origen"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Qué derecho tiene el adoptado según el art. 180.6 del CC?", 
+    options: ["Tiene derecho a conocer los datos sobre sus orígenes biológicos (identidad de sus progenitores o padres biológicos)", "Tiene derecho a conocer los datos sobre sus orígenes adoptivos (identidad de sus progenitores o padres adoptivos)", "Tiene derecho a conocer los datos sobre sus orígenes biológicos y adoptivos (identidad de sus progenitores o padres biológicos y adoptivos)", "No tiene derecho a conocer los datos sobre sus orígenes biológicos ni adoptivos (identidad de sus progenitores o padres biológicos y adoptivos)"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es la patria potestad?", 
+    options: ["Es el conjunto de deberes, atribuciones y facultades que los padres ostentan sobre los hijos menores no emancipados en orden a la protección y cuidado de éstos", "Es un derecho subjetivo del paterfamilias sobre los hijos, y sobre los bienes o frutos de los hijos", "Es una potestad en sentido técnico y no un derecho subjetivo del patriarca familiar", "Todas las anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cuál es el fundamento de la patria potestad?", 
+    options: ["La protección y cuidado de los hijos menores no emancipados", "El derecho subjetivo del paterfamilias sobre los hijos", "La potestad en sentido técnico y no un derecho subjetivo del patriarca familiar", "Ninguna de las anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Quiénes son los titulares de la patria potestad según el art. 154 del CC?", 
+    options: ["Los padres", "Los hijos", "Los abuelos", "Los tutores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Quiénes están sujetos a la patria potestad?", 
+    options: ["Los hijos menores de edad que no hayan sido emancipados", "Los hijos mayores de edad que no hayan sido emancipados", "Los hijos menores de edad que hayan sido emancipados", "Los hijos mayores de edad que hayan sido emancipados"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cómo se ejerce la patria potestad según el art. 154 del CC?", 
+    options: ["Siempre en interés de los hijos e hijas, de acuerdo con su personalidad, y con respeto a sus derechos, su integridad física y mental", "Siempre en interés de los padres, de acuerdo con su personalidad, y con respeto a sus derechos, su integridad física y mental", "Siempre en interés de los hijos e hijas, de acuerdo con su personalidad, y sin respeto a sus derechos, su integridad física y mental", "Siempre en interés de los padres, de acuerdo con su personalidad, y sin respeto a sus derechos, su integridad física y mental"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué ocurre en caso de desacuerdo en el ejercicio de la patria potestad según el art. 156 del CC?", 
+    options: ["Cualquiera de los dos podrá acudir a la autoridad judicial, quien, después de oír a ambos y al hijo si tuviera suficiente madurez y, en todo caso, si fuera mayor de doce años, atribuirá la facultad de decidir a uno de los dos progenitores", "Cualquiera de los dos podrá acudir a la autoridad judicial, quien, después de oír a ambos y al hijo si tuviera suficiente madurez y, en todo caso, si fuera mayor de doce años, atribuirá la facultad de decidir a ambos progenitores", "Cualquiera de los dos podrá acudir a la autoridad judicial, quien, después de oír a ambos y al hijo si tuviera suficiente madurez y, en todo caso, si fuera mayor de doce años, no atribuirá la facultad de decidir a ninguno de los progenitores", "Ninguna de las anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué ocurre cuando los desacuerdos son reiterados o concurre cualquier otra causa que entorpezca gravemente el ejercicio de la patria potestad según el art. 156 del CC?", 
+    options: ["Se podrá atribuir la patria potestad total o parcialmente a uno de los progenitores o distribuir entre ellos sus funciones", "Se podrá atribuir la patria potestad total o parcialmente a ambos progenitores o distribuir entre ellos sus funciones", "Se podrá atribuir la patria potestad total o parcialmente a ninguno de los progenitores o distribuir entre ellos sus funciones", "Ninguna de las anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué ocurre en los casos de titularidad individual de la patria potestad?", 
+    options: ["Sólo uno de los padres tiene la titularidad de la patria potestad", "Ambos padres tienen la titularidad de la patria potestad", "Ninguno de los padres tiene la titularidad de la patria potestad", "Ninguna de las anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué ocurre con los vínculos jurídicos entre el adoptado y su familia de origen cuando se produce una adopción según el art. 178.1 del CC?", 
+    options: ["Se produce la extinción de los vínculos jurídicos entre el adoptado y su familia de origen", "Se produce la extinción de los vínculos jurídicos entre el adoptado y su familia adoptiva", "Se produce la extinción de los vínculos jurídicos entre el adoptado y su familia de origen y la constitución de unos nuevos vínculos jurídicos con la familia adoptiva", "Se produce la extinción de los vínculos jurídicos entre el adoptado y su familia adoptiva y la constitución de unos nuevos vínculos jurídicos con la familia de origen"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué derecho tiene el adoptado según el art. 180.6 del CC?", 
+    options: ["Tiene derecho a conocer los datos sobre sus orígenes biológicos (identidad de sus progenitores o padres biológicos)", "Tiene derecho a conocer los datos sobre sus orígenes adoptivos (identidad de sus progenitores o padres adoptivos)", "Tiene derecho a conocer los datos sobre sus orígenes biológicos y adoptivos (identidad de sus progenitores o padres biológicos y adoptivos)", "No tiene derecho a conocer los datos sobre sus orígenes biológicos ni adoptivos (identidad de sus progenitores o padres biológicos y adoptivos)"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cuáles son los deberes de los hijos según el artículo 155.1º del Código Civil?", 
+    options: ["Obedecer y respetar a sus padres siempre", "Contribuir equitativamente al levantamiento de las cargas de la familia", "Participar en la vida familiar respetando a sus progenitores y hermanos"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué establece el artículo 9 ter de la Ley Orgánica 1/1996, de 15 de enero, de protección jurídica del menor?", 
+    options: ["Los menores deben participar en la vida familiar respetando a sus progenitores y hermanos", "Los menores deben participar y corresponsabilizarse en el cuidado del hogar y en la realización de las tareas domésticas", "Ambas respuestas son correctas"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Qué comprende la patria potestad según el artículo 154 del Código Civil?", 
+    options: ["Velar por ellos, tenerlos en su compañía, alimentarlos, educarlos y procurarles una formación integral", "Representarlos y administrar sus bienes", "Ambas respuestas son correctas"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Qué se necesita para celebrar contratos que obliguen al hijo a realizar prestaciones personales según el artículo 158 del Código Civil?", 
+    options: ["El previo consentimiento del hijo si tuviere suficiente juicio", "La autorización judicial", "El consentimiento de ambos progenitores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué ocurre cuando se extingue la patria potestad de ambos padres y el hijo es menor de edad?", 
+    options: ["Se debe proceder a la constitución de la tutela", "Los padres pueden ostentar la patria potestad y ser simultáneamente tutores del hijo", "Ninguna de las respuestas anteriores es correcta"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué implica la guarda y custodia?", 
+    options: ["La puesta en práctica de unas facultades concretas de la patria potestad que están relacionadas con el cuidado directo del menor", "La representación legal de los hijos", "La administración de los bienes de los hijos"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué derechos están excluidos de la figura de la guarda y custodia?", 
+    options: ["El derecho de representación", "El de administrar los bienes", "Ambas respuestas son correctas"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Qué es la privación de la patria potestad?", 
+    options: ["Una sanción impuesta por sentencia a consecuencia del incumplimiento de los deberes inherentes a la patria potestad", "Una interrupción temporal en el ejercicio de las funciones inherentes a la patria potestad", "El cese total y sin carácter punitivo de la potestad"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué ocurre cuando la entidad pública se atribuye la tutela?", 
+    options: ["Queda suspendida la patria potestad", "Los padres pueden ostentar la patria potestad y ser simultáneamente tutores del hijo", "Ninguna de las respuestas anteriores es correcta"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué comprende el derecho de visita?", 
+    options: ["Un conjunto de facultades que posibilita relacionarse a padres e hijos menores no emancipados", "El derecho para que puedan relacionarse los hijos no emancipados con sus abuelos y con otros parientes y allegados", "Ambas respuestas son correctas"], 
+    answer: 2 
+  },
+
+//Te has quedado en el Bloque 3, el matrimonio, p31
+
+
+
+
+
+
+  // Añade tus preguntas aquí
+  // { question: "¿Pregunta?", options: ["Opción 1", "Opción 2", "Opción 3"], answer: 0 }
+];
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+window.onload = function() {
+  // Selecciona 10 preguntas aleatorias
+  questions = shuffleArray(questions).slice(0, 10);
+  
+  var quiz = document.getElementById("quiz");
+  
+  for (var i = 0; i < questions.length; i++) {
+    var questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    
+    var questionP = document.createElement("p");
+    questionP.textContent = questions[i].question;
+    questionDiv.appendChild(questionP);
+    
+    var optionsDiv = document.createElement("div");
+    optionsDiv.className = "options";
+    
+    // Aquí se barajan las opciones
+    var shuffledOptions = shuffleArray(questions[i].options.slice());
+    
+    for (var j = 0; j < shuffledOptions.length; j++) {
+      var optionInput = document.createElement("input");
+      optionInput.type = "radio";
+      optionInput.id = "question" + i + "option" + j;
+      optionInput.name = "question" + i;
+      optionInput.value = shuffledOptions[j]; // Añadimos el valor de la opción
+      
+      var optionLabel = document.createElement("label");
+      optionLabel.htmlFor = optionInput.id;
+      optionLabel.textContent = shuffledOptions[j];
+      
+      var correctIndicator = document.createElement("span");
+      correctIndicator.className = "correct";
+      correctIndicator.textContent = " ⬅️";
+      if (shuffledOptions[j] == questions[i].options[questions[i].answer]) {
+        optionLabel.appendChild(correctIndicator);
+      }
+      
+      optionsDiv.appendChild(optionInput);
+      optionsDiv.appendChild(optionLabel);
+      optionsDiv.appendChild(document.createElement("br"));
+    }
+    
+    questionDiv.appendChild(optionsDiv);
+    quiz.appendChild(questionDiv);
+  }
+}
+
+function checkAnswers() {
+  var score = 0;
+  var wrongAnswers = [];
+  
+  for (var i = 0; i < questions.length; i++) {
+    var options = document.getElementsByName("question" + i);
+    var correct = false;
+    
+    for (var j = 0; j < options.length; j++) {
+      if (options[j].checked && options[j].value == questions[i].options[questions[i].answer]) {
+        score++;
+        correct = true;
+      }
+    }
+    
+    if (!correct) {
+      wrongAnswers.push({
+        question: questions[i].question,
+        correctAnswer: questions[i].options[questions[i].answer]
+      });
+    }
+  }
+  
+  alert("Tu puntuación es: " + score + "/" + questions.length);
+  
+  if (wrongAnswers.length > 0) {
+    var message = "Has fallado en las siguientes preguntas:\n";
+    
+    for (var i = 0; i < wrongAnswers.length; i++) {
+      message += "\nPregunta: " + wrongAnswers[i].question;
+      message += "\nRespuesta correcta: " + wrongAnswers[i].correctAnswer + " ⬅️\n";
+    }
+    
+    alert(message);
+  }
+  
+  // Muestra los indicadores de respuesta correcta
+  var correctIndicators = document.getElementsByClassName("correct");
+  for (var i = 0; i < correctIndicators.length; i++) {
+    correctIndicators[i].style.visibility = "visible";
+  }
+}
+</script>
+</head>
+<body>
+<div id="quiz"></div>
+<button onclick="checkAnswers()">Comprobar respuestas</button>
+</body>
+</html>

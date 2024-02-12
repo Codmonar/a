@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8”>
+<meta name=“Test” content=“Tipo test aleatorio”>
+<title>Test derecho Civil IV</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.question {
+  margin: 20px 0;
+}
+.options {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.correct {
+  visibility: hidden;
+}
+</style>
+<script>
+// Array de preguntas
+var questions = [
+
+
+  {
+    question: "¿Qué sucede con las relaciones jurídicas de una persona cuando muere?",
+    options: ["Se extinguen completamente", "Se transmiten a otra persona", "Se mantienen en espera", "Se eliminan"],
+    answer: 1
+  },
+  {
+    question: "¿Qué es la sucesión mortis causa?",
+    options: ["Es la sucesión que se genera por la muerte de una persona", "Es la sucesión que se genera por la vida de una persona", "Es la sucesión que se genera por la enfermedad de una persona", "Es la sucesión que se genera por el nacimiento de una persona"],
+    answer: 0
+  },
+  {
+    question: "¿Qué es la sucesión testamentaria?",
+    options: ["Es la sucesión que se genera por la voluntad de la persona manifestada mediante testamento", "Es la sucesión que se genera por la ley", "Es la sucesión que se genera por un contrato", "Es la sucesión que se genera por la muerte de una persona"],
+    answer: 0
+  },
+  {
+    question: "¿Qué es la sucesión legal, intestada o abintestato?",
+    options: ["Es la sucesión que se genera por la voluntad de la persona manifestada mediante testamento", "Es la sucesión que se genera por la ley", "Es la sucesión que se genera por un contrato", "Es la sucesión que se genera por la muerte de una persona"],
+    answer: 1
+  },
+  {
+    question: "¿Qué es la sucesión a título universal?",
+    options: ["Es la sucesión en la que el sucesor recibe un bien o un derecho determinado", "Es la sucesión en la que el sucesor recibe la totalidad de la herencia o una parte de ésta", "Es la sucesión en la que el sucesor recibe todos los bienes excepto uno", "Es la sucesión en la que el sucesor no recibe nada"],
+    answer: 1
+  },
+  {
+    question: "¿Qué es la sucesión a título particular?",
+    options: ["Es la sucesión en la que el sucesor recibe un bien o un derecho determinado", "Es la sucesión en la que el sucesor recibe la totalidad de la herencia o una parte de ésta", "Es la sucesión en la que el sucesor recibe todos los bienes excepto uno", "Es la sucesión en la que el sucesor no recibe nada"],
+    answer: 0
+  },
+
+  {
+    question: "¿Qué es la sucesión mortis causa?",
+    options: [
+      "Es un fenómeno que se genera por la muerte de una persona, provocando que el conjunto de relaciones jurídicas que le eran imputables quede sin titular.",
+      "Es un fenómeno que se genera por la vida de una persona, provocando que el conjunto de relaciones jurídicas que le eran imputables quede sin titular.",
+      "Es un fenómeno que se genera por la muerte de una persona, provocando que el conjunto de relaciones jurídicas que le eran imputables quede con titular."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Cuál es el rasgo distintivo del fenómeno sucesorio según Lacruz Berdejo?",
+    options: [
+      "Es necesario que al cambio de sujeto no acompañe la extinción de la relación antigua y la creación de otra nueva.",
+      "Es necesario que al cambio de sujeto acompañe la extinción de la relación antigua y la creación de otra nueva.",
+      "Es necesario que al cambio de sujeto no acompañe la extinción de la relación antigua y la creación de otra antigua."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Qué es la sucesión testamentaria?",
+    options: [
+      "Es una sucesión en la que es el legislador el que determina subsidiariamente, a falta de testamento total o parcialmente, cómo debe llevarse a cabo ésta.",
+      "Es una sucesión en la que el sucesor o los sucesores son designados por voluntad de la persona manifestada mediante testamento.",
+      "Es una sucesión en la que el sucesor o los sucesores son designados por voluntad de la persona manifestada mediante contrato."
+    ],
+    answer: 1
+  },
+  {
+    question: "¿Qué es la sucesión legal?",
+    options: [
+      "Es una sucesión en la que el sucesor o los sucesores son designados por voluntad de la persona manifestada mediante testamento.",
+      "Es una sucesión en la que es el legislador el que determina subsidiariamente, a falta de testamento total o parcialmente, cómo debe llevarse a cabo ésta.",
+      "Es una sucesión en la que el sucesor o los sucesores son designados por voluntad de la persona manifestada mediante contrato."
+    ],
+    answer: 1
+  },
+  {
+    question: "¿Qué es la sucesión a título universal?",
+    options: [
+      "Es aquélla en que un sujeto, llamado legatario, recibe un bien o un derecho determinado, del patrimonio del causante.",
+      "Es aquélla en la cual el sucesor, denominado heredero, recibe la totalidad de la herencia o una parte de ésta.",
+      "Es aquélla en la cual el sucesor, denominado heredero, recibe un bien o un derecho determinado, del patrimonio del causante."
+    ],
+    answer: 1
+  },
+  {
+    question: "¿Qué es la sucesión a título particular?",
+    options: [
+      "Es aquélla en la cual el sucesor, denominado heredero, recibe la totalidad de la herencia o una parte de ésta.",
+      "Es aquélla en que un sujeto, llamado legatario, recibe un bien o un derecho determinado, del patrimonio del causante.",
+      "Es aquélla en la cual el sucesor, denominado heredero, recibe un bien o un derecho determinado, del patrimonio del causante."
+    ],
+    answer: 1
+  },
+
+  {
+    question: "¿Qué regula el Derecho de Sucesiones?",
+    options: ["El destino de las relaciones jurídicas transmisibles de una persona fallecida", "Las obligaciones de una persona antes de su muerte", "Las relaciones jurídicas no transmisibles de una persona fallecida"],
+    answer: 0
+  },
+  {
+    question: "¿Qué artículo de la Constitución Española reconoce el derecho a la propiedad privada y a la herencia?",
+    options: ["Artículo 31", "Artículo 33", "Artículo 35"],
+    answer: 1
+  },
+  {
+    question: "¿Dónde se contiene la regulación de la sucesión mortis causa de los españoles con vecindad civil común?",
+    options: ["En el Código Penal", "En el Código Civil", "En la Constitución Española"],
+    answer: 1
+  },
+  {
+    question: "¿Cuáles son los dos ámbitos donde se han manifestado históricamente los derechos civiles propios en diversos territorios de España?",
+    options: ["La familia y la sucesión mortis causa", "La propiedad privada y la sucesión mortis causa", "La familia y la propiedad privada"],
+    answer: 0
+  },
+  {
+    question: "¿Qué comunidades autónomas en España tienen Derecho civil propio?",
+    options: ["País Vasco, Cataluña, Galicia, Aragón, Navarra e Islas Baleares", "Andalucía, Castilla-La Mancha, Extremadura, Madrid y Murcia", "Asturias, Cantabria, Castilla y León, La Rioja y Comunidad Valenciana"],
+    answer: 0
+  },
+  {
+    question: "¿Qué artículo de la Constitución Española delimita el contenido de los derechos a la propiedad privada y a la herencia?",
+    options: ["Artículo 31", "Artículo 33.2", "Artículo 35"],
+    answer: 1
+  },
+  {
+    question: "¿Qué tipo de leyes requiere el desarrollo del derecho a la herencia según la Constitución Española?",
+    options: ["Ley orgánica", "Ley ordinaria", "No precisa de desarrollo mediante ley"],
+    answer: 2
+  },
+  {
+    question: "¿Dónde se contiene la regulación de la sucesión mortis causa de los españoles con vecindad civil común?",
+    options: ["En el Código Penal", "En el Código Civil", "En la Constitución Española"],
+    answer: 1
+  },
+  {
+    question: "¿Cuál es una de las peculiaridades del Derecho sucesorio catalán?",
+    options: ["El 'heredamiento'", "La mejora de labrar y poseer", "El testamento de hermandad"],
+    answer: 0
+  },
+  {
+    question: "¿Qué figura propia y singular del Derecho sucesorio gallego tiene un marcado carácter agrario?",
+    options: ["El 'heredamiento'", "La mejora de labrar y poseer", "El testamento de hermandad"],
+    answer: 1
+  },
+
+  { 
+    question: "¿Quiénes son los sujetos principales en el fenómeno sucesorio?", 
+    options: ["El causante y el sucesor", "El notario y el oficial del ejército", "El albacea testamentario y el contador partidor", "El legatario y el heredero"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es el causante o de cuius en el contexto de la sucesión?", 
+    options: ["La persona que recibe la herencia", "La persona que fallece y cuyos bienes se reparten", "El notario que supervisa la sucesión", "El albacea testamentario"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué es un sucesor a título universal?", 
+    options: ["Un legatario", "Un heredero", "Un albacea testamentario", "Un notario"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué es un sucesor a título particular?", 
+    options: ["Un legatario", "Un heredero", "Un albacea testamentario", "Un notario"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cuándo adquiere el legatario derecho al legado?", 
+    options: ["Desde la muerte del testador", "Cuando acepta el legado", "Cuando el heredero le transmite la posesión", "Cuando el notario aprueba la sucesión"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Quién puede ser instituido tanto en testamento como en sucesión intestada?", 
+    options: ["Un legatario", "Un heredero", "Un albacea testamentario", "Un notario"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Quién entra en posesión de los bienes hereditarios desde el fallecimiento del causante?", 
+    options: ["Un legatario", "Un heredero", "Un albacea testamentario", "Un notario"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Quién responde con su patrimonio de las deudas del causante?", 
+    options: ["Un legatario", "Un heredero", "Un albacea testamentario", "Un notario"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Quién no adquiere la posesión de los bienes hasta que no le sea transmitida por el heredero?", 
+    options: ["Un legatario", "Un heredero", "Un albacea testamentario", "Un notario"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Quién no responde de las deudas del causante con su patrimonio, sino únicamente de las cargas impuestas por el testador dentro de los límites de lo recibido?", 
+    options: ["Un legatario", "Un heredero", "Un albacea testamentario", "Un notario"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cómo se denomina el objeto o contenido del fenómeno sucesorio?", 
+    options: ["Patrimonio", "Herencia", "Caudal relicto", "Todos los anteriores"], 
+    answer: 3 
+  },
+  { 
+    question: "¿Qué comprende la herencia según el art. 659 CC?", 
+    options: ["Solo bienes", "Solo derechos", "Bienes, derechos y obligaciones que no se extingan por muerte", "Ninguna de las anteriores"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Qué sucede con el derecho real de usufructo tras la muerte del causante?", 
+    options: ["Se transmite a los herederos", "Se extingue", "Se dona a una organización benéfica", "Se vende"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué tipo de facultades no se transmiten a los sucesores?", 
+    options: ["Facultades de carácter personalísimo", "Facultades de carácter patrimonial", "Facultades de carácter extrapatrimonial", "Todas las anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué sucede con las deudas del causante?", 
+    options: ["Se cancelan", "Se transmiten a los herederos", "Se donan a una organización benéfica", "Se venden"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué sucede con las pensiones de viudedad o de orfandad tras la muerte del sujeto?", 
+    options: ["Se transmiten a los herederos", "Se extinguen", "Se obtienen por parte de terceros", "Ninguna de las anteriores"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Qué sucede con el capital que corresponde al beneficiario de un seguro de vida?", 
+    options: ["Se integra en la sucesión mortis causa", "No se integra en la sucesión mortis causa", "Se dona a una organización benéfica", "Se vende"], 
+    answer: 1 
+  },
+  { 
+    question: "Si el causante estaba casado en régimen de gananciales, ¿qué forma la herencia?", 
+    options: ["Solo sus bienes privativos", "Solo su mitad en la sociedad de gananciales", "Sus bienes privativos más su mitad en la sociedad de gananciales", "Ninguna de las anteriores"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Qué sucede con las acciones de protección civil del honor, la intimidad y la propia imagen tras la muerte del sujeto?", 
+    options: ["Se transmiten a los herederos", "Se extinguen", "Se obtienen por parte de terceros", "Ninguna de las anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué sucede con las facultades derivadas del derecho moral de autor tras la muerte del sujeto?", 
+    options: ["Se transmiten a los herederos", "Se extinguen", "Se obtienen por parte de terceros", "Ninguna de las anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué determina la adquisición de la condición de sucesor?", 
+    options: ["La voluntad del sucesor", "La capacidad para suceder", "El testamento", "La ley"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Quiénes pueden ser sucesores según el art. 744 CC?", 
+    options: ["Solo los parientes", "Solo los amigos", "Los que no estén incapacitados por la ley", "Todos los anteriores"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Qué requisito debe reunir el sucesor en el momento de la apertura de la sucesión?", 
+    options: ["Debe estar presente", "Debe ser mayor de edad", "Debe sobrevivir al causante", "Debe ser rico"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Quiénes son incapaces de suceder según el art. 745 CC?", 
+    options: ["Las criaturas abortivas y las asociaciones no permitidas por la ley", "Los menores de edad", "Los extranjeros", "Los pobres"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Puede el concebido, pero no nacido, ser considerado como sucesor?", 
+    options: ["Sí", "No", "Solo si es varón", "Solo si es mujer"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Pueden ser llamados a la herencia los que ni siquiera han sido concebidos?", 
+    options: ["Sí", "No", "Solo si son varones", "Solo si son mujeres"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Pueden las asociaciones o corporaciones no permitidas por la ley ser sucesoras?", 
+    options: ["Sí", "No", "Solo si son ricas", "Solo si son pobres"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Puede una fundación ser sucesora?", 
+    options: ["Sí", "No", "Solo si es rica", "Solo si es pobre"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Cómo se entiende la aceptación de herencias por las fundaciones según el art. 22 LF?", 
+    options: ["A beneficio de inventario", "A beneficio de la fundación", "A beneficio del causante", "A beneficio del gobierno"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Quiénes son responsables frente a la fundación de la pérdida del beneficio de inventario?", 
+    options: ["Los sucesores", "Los patronos", "El gobierno", "Los empleados"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué tipo de incapacidades sólo operan en la sucesión testamentaria?", 
+    options: ["Incapacidades absolutas", "Incapacidades relativas", "Incapacidades totales", "Incapacidades parciales"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Pueden ser perdonadas las incapacidades relativas?", 
+    options: ["Sí", "No", "Depende del caso", "Solo si el testador lo permite"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué caracteriza a las incapacidades relativas?", 
+    options: ["Son generales", "Son absolutas", "Son relativas al testador", "Son relativas al heredero"], 
+    answer: 2 
+  },
+  { 
+    question: "¿Quiénes no pueden ser beneficiados por disposiciones testamentarias según el art. 752 CC?", 
+    options: ["Los ministros religiosos", "Los tutores o curadores", "Los notarios y testigos", "Todos los anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué sucede con las disposiciones testamentarias a favor de un incapaz de suceder?", 
+    options: ["Son válidas", "Son nulas", "Son parcialmente válidas", "Dependen del testador"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué es la indignidad para suceder?", 
+    options: ["Es una tacha que inhabilita para suceder al causante", "Es una capacidad para suceder", "Es una prohibición de suceder", "Es una obligación de suceder"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Afecta la indignidad sólo a la sucesión testamentaria?", 
+    options: ["Sí", "No", "Depende del caso", "Solo si el testador lo permite"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Puede ser rehabilitado el indigno?", 
+    options: ["Sí", "No", "Depende del caso", "Solo si el testador lo permite"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Quién puede perdonar al indigno?", 
+    options: ["El testador", "El heredero", "El notario", "El tutor"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué sucede si el testador conoce las causas de indignidad al tiempo de hacer testamento?", 
+    options: ["Las causas de indignidad dejan de surtir efectos", "Las causas de indignidad se mantienen", "El testamento se invalida", "El testador se convierte en indigno"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Es igual la sucesión de un causante muerto que la de un causante declarado fallecido?", 
+    options: ["Sí", "No", "Depende del caso"], 
+    answer: 1 
+  },
+  { 
+    question: "¿La sucesión solamente puede predicarse de personas físicas?", 
+    options: ["Sí", "No", "También las personas jurídicas pueden causar una herencia"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Admite el Código Civil el contrato sucesorio en el que el futuro causante instituye heredero o dispone de un legado a favor del otro contratante?", 
+    options: ["Sí", "No", "Depende del caso"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Un causante puede nombrar en testamento un heredero de la mitad de sus bienes, mientras deja que la ley se ocupe de la otra mitad?", 
+    options: ["Sí", "No", "Depende del caso"], 
+    answer: 0 
+  },
+  { 
+    question: "¿La condición de legatario de Juan exige siempre que exista un testamento que prevea su nombramiento?", 
+    options: ["Sí", "No", "Depende del caso"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué tipo de sucesión es cuando se instituye heredero de todos los bienes a Juan?", 
+    options: ["A título universal (heredero)", "A título particular (legatario)", "Ninguna de las anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué tipo de sucesión es cuando se deja el dinero de una cuenta bancaria específica a Carla?", 
+    options: ["A título universal (heredero)", "A título particular (legatario)", "Ninguna de las anteriores"], 
+    answer: 1 
+  },
+  { 
+    question: "¿Qué tipo de sucesión es cuando se dejan todos los bienes, por iguales partes, a los hermanos?", 
+    options: ["A título universal (heredero)", "A título particular (legatario)", "Ninguna de las anteriores"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué tipo de sucesión es cuando se instituye heredero de los bienes a Juan en una tercera parte?", 
+    options: ["A título universal (heredero)", "A título particular (legatario)", "Ninguna de las anteriores"], 
+    answer: 0 
+  },
+{
+  question: "María, hija de Juan que ocupó una finca durante casi treinta años antes de su fallecimiento, ¿puede adquirir la propiedad de esta finca mediante usucapión en unos meses?",
+  options: ["Sí, inmediatamente", "No, nunca", "Sí, pero solo si acepta la herencia"],
+  answer: 2
+},
+{
+  question: "Si José, que estaba casado con María y esperaba un bebé, fallece en un accidente de tráfico, ¿el bebé puede ser considerado heredero en la herencia de José?",
+  options: ["No, a menos que José y María estén casados", "Sí, pero solo si el bebé nace", "No, a menos que el bebé ya haya nacido"],
+  answer: 1
+},
+{
+  question: "¿Qué efectos produce la declaración de fallecimiento de Federico, un marinero que desapareció en el mar y fue declarado muerto judicialmente?",
+  options: ["Se cierra la sucesión", "Se abre la sucesión", "No tiene ningún efecto"],
+  answer: 1
+},
+{
+  question: "¿Los familiares de Federico pudieron adquirir los bienes de su herencia? Si entendemos que Federico es un marinero que desapareció en el mar y fue declarado muerto judicialmente.",
+  options: ["No, a menos que Federico haya dejado un testamento", "Sí, según lo dispuesto en el código civil", "No, a menos que Federico haya dejado un testamento y estén casados"],
+  answer: 1
+},
+{
+  question: "Tras la reaparición de Federico, un marinero que desapareció en el mar y fue declarado muerto judicialmente, ¿qué solución puede darse a la nueva situación?",
+  options: ["Federico puede recuperar sus bienes y reclamar el precio de venta de estos", "Federico no puede recuperar sus bienes", "Federico puede recuperar sus bienes, pero no puede reclamar el precio de venta de estos"],
+  answer: 0
+},
+{
+  question: "¿El hijo que esperaba Inés cuando su marido (Juan) falleció, pudo concurrir a la herencia de Juan con sus hermanas?",
+  options: ["No, a menos que Inés esté embarazada en el momento del fallecimiento de Juan", "Sí, pero solo si el hijo nace", "No, a menos que Juan haya dejado un testamento"],
+  answer: 1
+},
+{
+  question: "El hijo que tuvo Inés un año despues de que su marido Juan falleciera, ¿pudo concurrir a la herencia de Juan con sus hermanas?",
+  options: ["Sí, si Inés estaba embarazada en el momento del fallecimiento de Juan", "No, a menos que Inés esté embarazada en el momento del fallecimiento de Juan", "Sí, si Juan dejó un testamento"],
+  answer: 1
+},
+
+
+
+
+
+  // Añade tus preguntas aquí
+  // { question: "¿Pregunta?", options: ["Opción 1", "Opción 2", "Opción 3"], answer: 0 }
+];
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+window.onload = function() {
+  // Selecciona 10 preguntas aleatorias
+  questions = shuffleArray(questions).slice(0, 10);
+  
+  var quiz = document.getElementById("quiz");
+  
+  for (var i = 0; i < questions.length; i++) {
+    var questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    
+    var questionP = document.createElement("p");
+    questionP.textContent = questions[i].question;
+    questionDiv.appendChild(questionP);
+    
+    var optionsDiv = document.createElement("div");
+    optionsDiv.className = "options";
+    
+    // Aquí se barajan las opciones
+    var shuffledOptions = shuffleArray(questions[i].options.slice());
+    
+    for (var j = 0; j < shuffledOptions.length; j++) {
+      var optionInput = document.createElement("input");
+      optionInput.type = "radio";
+      optionInput.id = "question" + i + "option" + j;
+      optionInput.name = "question" + i;
+      optionInput.value = shuffledOptions[j]; // Añadimos el valor de la opción
+      
+      var optionLabel = document.createElement("label");
+      optionLabel.htmlFor = optionInput.id;
+      optionLabel.textContent = shuffledOptions[j];
+      
+      var correctIndicator = document.createElement("span");
+      correctIndicator.className = "correct";
+      correctIndicator.textContent = " ⬅️";
+      if (shuffledOptions[j] == questions[i].options[questions[i].answer]) {
+        optionLabel.appendChild(correctIndicator);
+      }
+      
+      optionsDiv.appendChild(optionInput);
+      optionsDiv.appendChild(optionLabel);
+      optionsDiv.appendChild(document.createElement("br"));
+    }
+    
+    questionDiv.appendChild(optionsDiv);
+    quiz.appendChild(questionDiv);
+  }
+}
+
+function checkAnswers() {
+  var score = 0;
+  var wrongAnswers = [];
+  
+  for (var i = 0; i < questions.length; i++) {
+    var options = document.getElementsByName("question" + i);
+    var correct = false;
+    
+    for (var j = 0; j < options.length; j++) {
+      if (options[j].checked && options[j].value == questions[i].options[questions[i].answer]) {
+        score++;
+        correct = true;
+      }
+    }
+    
+    if (!correct) {
+      wrongAnswers.push({
+        question: questions[i].question,
+        correctAnswer: questions[i].options[questions[i].answer]
+      });
+    }
+  }
+  
+  alert("Tu puntuación es: " + score + "/" + questions.length);
+  
+  if (wrongAnswers.length > 0) {
+    var message = "Has fallado en las siguientes preguntas:\n";
+    
+    for (var i = 0; i < wrongAnswers.length; i++) {
+      message += "\nPregunta: " + wrongAnswers[i].question;
+      message += "\nRespuesta correcta: " + wrongAnswers[i].correctAnswer + " ⬅️\n";
+    }
+    
+    alert(message);
+  }
+  
+  // Muestra los indicadores de respuesta correcta
+  var correctIndicators = document.getElementsByClassName("correct");
+  for (var i = 0; i < correctIndicators.length; i++) {
+    correctIndicators[i].style.visibility = "visible";
+  }
+}
+</script>
+</head>
+<body>
+<div id="quiz"></div>
+<button onclick="checkAnswers()">Comprobar respuestas</button>
+</body>
+</html>

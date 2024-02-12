@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8”>
+<meta name=“Test” content=“Tipo test aleatorio”>
+<title>Test Derecho Eclesiastico</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.question {
+  margin: 20px 0;
+}
+.options {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.correct {
+  visibility: hidden;
+}
+</style>
+<script>
+// Array de preguntas
+var questions = [
+
+{
+    question: "¿Qué es lo eclesiástico?",
+    options: ["Es el derecho sobre las iglesias", "Es el derecho sobre las confesiones", "Es el derecho sobre la libertad religiosa"],
+    answer: 1
+  },
+  {
+    question: "¿Qué regula el derecho eclesiástico?",
+    options: ["La vertiente interna de la confesión", "La vertiente externa o social de la confesión", "Ambas vertientes de la confesión"],
+    answer: 1
+  },
+  {
+    question: "¿Qué es el cesaropapismo?",
+    options: ["Es cuando la autoridad civil intenta regular, dirigir y ayudar a la iglesia", "Es cuando la autoridad religiosa se sobrepone al civil", "Es cuando la autoridad civil y religiosa son iguales"],
+    answer: 0
+  },
+  {
+    question: "¿Qué es el herocratismo?",
+    options: ["Es cuando la autoridad civil intenta regular, dirigir y ayudar a la iglesia", "Es cuando la autoridad religiosa se sobrepone al civil", "Es cuando la autoridad civil y religiosa son iguales"],
+    answer: 1
+  },
+  {
+    question: "¿Qué es el monismo?",
+    options: ["Es cuando lo civil y lo religioso es uno solo", "Es cuando lo civil y lo religioso son dos cosas distintas", "Es cuando lo civil y lo religioso son iguales pero no se entrelazan"],
+    answer: 0
+  },
+  {
+    question: "¿Qué es el dualismo?",
+    options: ["Es cuando lo civil y lo religioso es uno solo", "Es cuando lo civil y lo religioso son dos cosas distintas", "Es cuando lo civil y lo religioso son iguales pero no se entrelazan"],
+    answer: 1
+  },
+
+{
+  question: "¿Qué es lo eclesiástico?",
+  options: ["Es el derecho sobre las iglesias", "Es el derecho sobre las confesiones", "Es el derecho de libertad religiosa", "Es el derecho de la iglesia católica"],
+  answer: 1
+},
+
+{
+  question: "¿Qué regula el derecho eclesiástico?",
+  options: ["Regula cómo se ordena o regula la confesión de forma interna", "Regula su vertiente externa o social", "Regula el derecho de libertad religiosa", "Regula el derecho de la iglesia católica"],
+  answer: 1
+},
+
+
+{
+  question: "¿Qué es el cesaropapismo?",
+  options: ["Es cuando la autoridad civil intenta regular, dirigir y ayudar a la iglesia", "Es cuando la autoridad religiosa se sobrepone al poder civil", "Es cuando el poder civil busca eliminar el religioso", "Es cuando el poder religioso busca eliminar el civil"],
+  answer: 0
+},
+
+{
+  question: "¿Qué es el herocratismo?",
+  options: ["Es cuando la autoridad civil intenta regular, dirigir y ayudar a la iglesia", "Es cuando la autoridad religiosa se sobrepone al poder civil", "Es cuando el poder civil busca eliminar el religioso", "Es cuando el poder religioso busca eliminar el civil"],
+  answer: 1
+},
+
+{
+  question: "¿Qué norma sería de derecho eclesiástico?",
+  options: ["Una norma que nos dice quién ha de ser párroco de una parroquia y qué necesita", "Una norma que pone requisitos para darle efectos civiles a un matrimonio religioso", "Ambas", "Ninguna"],
+  answer: 1
+},
+
+  {
+    question: "¿En qué siglo se produce la Reforma Protestante?",
+    options: ["Siglo XV", "Siglo XVI", "Siglo XVII", "Siglo XVIII"],
+    answer: 1,
+  },
+  {
+    question: "¿Qué es la Reforma Protestante?",
+    options: ["Una reforma del Islam", "Una reforma del Cristianismo", "Una reforma del Judaísmo", "Una reforma del Budismo"],
+    answer: 1,
+  },
+  {
+    question: "¿Qué consecuencias tuvo la Reforma Protestante?",
+    options: [
+      "La división del Cristianismo en dos ramas: Católica y Protestante",
+      "La unificación del Cristianismo",
+      "La desaparición del Cristianismo",
+      "La expansión del Cristianismo a nuevos territorios",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Cuál era la concepción de Lutero y los reformadores sobre la interrelación de los dos poderes?",
+    options: [
+      "Rechazo a la autoridad del Papa y creación de una iglesia espiritual sin aspectos materiales ni políticos",
+      "Aceptación de la autoridad del Papa y creación de una iglesia con poder político",
+      "Separación total de la Iglesia y el Estado",
+      "Unificación de la Iglesia y el Estado",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es el 'cuius regio eius regio'?",
+    options: [
+      "El principio de que el rey es el jefe de la Iglesia",
+      "El principio de que el Papa es el jefe de la Iglesia",
+      "El principio de que el pueblo es el jefe de la Iglesia",
+      "El principio de que la Iglesia no tiene jefe",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué son las iglesias nacionales?",
+    options: ["Iglesias que dependen del Papa", "Iglesias que dependen del rey", "Iglesias que dependen del pueblo", "Iglesias que no dependen de nadie"],
+    answer: 1,
+  },
+  {
+    question: "¿Qué son las instituciones regalistas?",
+    options: [
+      "Instituciones que otorgan competencias al poder civil en materias religiosas",
+      "Instituciones que otorgan competencias al poder religioso en materias civiles",
+      "Instituciones que separan el poder civil del poder religioso",
+      "Instituciones que unifican el poder civil y el poder religioso",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué principios del liberalismo afectaron a la concepción de los dos poderes?",
+    options: [
+      "Dualismo, separación de poderes, derechos innatos y libertad de religión",
+      "Monismo, concentración de poderes, derechos del Estado y control de la religión",
+      "Teocratismo, supremacía del poder religioso, derechos divinos y obligación religiosa",
+      "Secularismo, eliminación del poder religioso, derechos humanos y libertad de conciencia",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿En qué se diferencia la libertad de culto en Estados Unidos y en la Europa del siglo XIX?",
+    options: [
+      "En Estados Unidos existe libertad de culto, mientras que en Europa no",
+      "En Europa existe libertad de culto, mientras que en Estados Unidos no",
+      "En ambos lugares existe libertad de culto, pero en Estados Unidos es más amplia",
+      "En ambos lugares existe libertad de culto, pero en Europa es más amplia",
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿Qué es la constitución civil del clero?",
+    options: [
+      "Una constitución que establece la separación de la Iglesia y el Estado",
+      "Una constitución que establece la supremacía del poder civil sobre el poder religioso",
+      "Una constitución que establece la supremacía del poder religioso sobre el poder civil",
+      "Una constitución que establece la unificación del poder civil y el poder religioso",
+    ],
+    answer: 1,
+  },
+
+
+
+
+
+
+
+  // Añade tus preguntas aquí
+  // { question: "¿Pregunta?", options: ["Opción 1", "Opción 2", "Opción 3"], answer: 0 }
+];
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+window.onload = function() {
+  // Selecciona 10 preguntas aleatorias
+  questions = shuffleArray(questions).slice(0, 10);
+  
+  var quiz = document.getElementById("quiz");
+  
+  for (var i = 0; i < questions.length; i++) {
+    var questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    
+    var questionP = document.createElement("p");
+    questionP.textContent = questions[i].question;
+    questionDiv.appendChild(questionP);
+    
+    var optionsDiv = document.createElement("div");
+    optionsDiv.className = "options";
+    
+    // Aquí se barajan las opciones
+    var shuffledOptions = shuffleArray(questions[i].options.slice());
+    
+    for (var j = 0; j < shuffledOptions.length; j++) {
+      var optionInput = document.createElement("input");
+      optionInput.type = "radio";
+      optionInput.id = "question" + i + "option" + j;
+      optionInput.name = "question" + i;
+      optionInput.value = shuffledOptions[j]; // Añadimos el valor de la opción
+      
+      var optionLabel = document.createElement("label");
+      optionLabel.htmlFor = optionInput.id;
+      optionLabel.textContent = shuffledOptions[j];
+      
+      var correctIndicator = document.createElement("span");
+      correctIndicator.className = "correct";
+      correctIndicator.textContent = " ⬅️";
+      if (shuffledOptions[j] == questions[i].options[questions[i].answer]) {
+        optionLabel.appendChild(correctIndicator);
+      }
+      
+      optionsDiv.appendChild(optionInput);
+      optionsDiv.appendChild(optionLabel);
+      optionsDiv.appendChild(document.createElement("br"));
+    }
+    
+    questionDiv.appendChild(optionsDiv);
+    quiz.appendChild(questionDiv);
+  }
+}
+
+function checkAnswers() {
+  var score = 0;
+  var wrongAnswers = [];
+  
+  for (var i = 0; i < questions.length; i++) {
+    var options = document.getElementsByName("question" + i);
+    var correct = false;
+    
+    for (var j = 0; j < options.length; j++) {
+      if (options[j].checked && options[j].value == questions[i].options[questions[i].answer]) {
+        score++;
+        correct = true;
+      }
+    }
+    
+    if (!correct) {
+      wrongAnswers.push({
+        question: questions[i].question,
+        correctAnswer: questions[i].options[questions[i].answer]
+      });
+    }
+  }
+  
+  alert("Tu puntuación es: " + score + "/" + questions.length);
+  
+  if (wrongAnswers.length > 0) {
+    var message = "Has fallado en las siguientes preguntas:\n";
+    
+    for (var i = 0; i < wrongAnswers.length; i++) {
+      message += "\nPregunta: " + wrongAnswers[i].question;
+      message += "\nRespuesta correcta: " + wrongAnswers[i].correctAnswer + " ⬅️\n";
+    }
+    
+    alert(message);
+  }
+  
+  // Muestra los indicadores de respuesta correcta
+  var correctIndicators = document.getElementsByClassName("correct");
+  for (var i = 0; i < correctIndicators.length; i++) {
+    correctIndicators[i].style.visibility = "visible";
+  }
+}
+</script>
+</head>
+<body>
+<div id="quiz"></div>
+<button onclick="checkAnswers()">Comprobar respuestas</button>
+</body>
+</html>
