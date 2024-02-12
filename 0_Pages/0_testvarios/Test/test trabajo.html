@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8”>
+<meta name=“Test” content=“Tipo test aleatorio”>
+<title>Test derecho del Trabajo II</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.question {
+  margin: 20px 0;
+}
+.options {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.correct {
+  visibility: hidden;
+}
+</style>
+<script>
+// Array de preguntas
+var questions = [
+
+  { question: "¿Qué establecen los principios constitucionales en relación con las políticas de empleo?", options: ["El derecho de todos los ciudadanos a acceder al mercado laboral", "El derecho de todos los ciudadanos a recibir un salario mínimo", "El derecho de todos los ciudadanos a tener un empleo garantizado"], answer: 0 },
+  { question: "¿Qué obliga a los poderes públicos el Art. 35.1 de la Constitución Española (CE)?", options: ["A garantizar el empleo para todos los ciudadanos", "A considerar la situación de los grupos más desfavorecidos", "A tomar acciones positivas y vincular a los empresarios"], answer: 2 },
+  { question: "¿Qué tipo de derecho es el artículo 35.1 según el texto?", options: ["Un derecho fundamental", "Un derecho programático", "Un derecho absoluto"], answer: 1 },
+  { question: "¿Qué exige la Constitución Española para garantizar el derecho al trabajo?", options: ["Una política de protección del desempleo", "Una política de fomento del empleo e incluso de tendencia al pleno empleo", "Una política de igualdad de oportunidades en el empleo"], answer: 1 },
+  { question: "¿Qué busca el principio de estabilidad?", options: ["Que el trabajador tenga un empleo temporal permanente", "Que el trabajador tenga un empleo a tiempo parcial", "Que el trabajador goce de cierta estabilidad"], answer: 2 },
+  { question: "¿Cuáles son los dos grandes tipos de políticas de empleo?", options: ["Políticas activas y políticas pasivas", "Políticas de empleo a tiempo completo y a tiempo parcial", "Políticas de empleo público y privado"], answer: 0 },
+  { question: "¿Qué comprenden las políticas activas de empleo?", options: ["El conjunto de decisiones, medidas, servicios y programas orientados a la contribución a la mejora de la empleabilidad y reducción del desempleo", "El conjunto de prestaciones y subsidios orientados a la protección económica de las situaciones de desempleo", "El conjunto de leyes y regulaciones que rigen el mercado laboral"], answer: 0 },
+  { question: "¿Qué comprenden las políticas pasivas?", options: ["El conjunto de decisiones, medidas, servicios y programas orientados a la contribución a la mejora de la empleabilidad y reducción del desempleo", "El conjunto de prestaciones y subsidios orientados a la protección económica de las situaciones de desempleo", "El conjunto de leyes y regulaciones que rigen el mercado laboral"], answer: 1 },
+  { question: "¿Cuál es el objetivo general de la política de empleo?", options: ["Contribuir a la creación de empleo, reducir el desempleo y mejorar la empleabilidad", "Garantizar un salario mínimo para todos los trabajadores", "Asegurar que todos los ciudadanos tengan un empleo"], answer: 0 },
+  { question: "¿Qué es la empleabilidad según el texto?", options: ["El conjunto de competencias y cualificaciones transferibles que refuerzan la capacidad de las personas para aprovechar las oportunidades de educación y formación", "La capacidad de un individuo para obtener un empleo", "La capacidad de un individuo para mantener un empleo"], answer: 0 },
+  { question: "¿Quién es la entidad encargada de gestionar las políticas de empleo en España?", options: ["El antiguo INEM", "El SEPE", "La Agencia Española de Empleo"], answer: 2 },
+  { question: "¿Qué establece el Real Decreto-ley 1/2023, de 10 de enero?", options: ["Medidas urgentes en materia de incentivos a la contratación laboral y mejora de la protección social de las personas artistas", "Medidas urgentes en materia de protección del desempleo", "Medidas urgentes en materia de formación y reorientación profesional"], answer: 0 },
+  { 
+    question: "¿Cuál es el principio al que están sujetos los trabajadores comunitarios según la Ley 4/2000?", 
+    options: ["Principio de libre circulación de trabajadores", "Principio de igualdad de oportunidades", "Principio de no discriminación", "Principio de igualdad de remuneración"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué asegura el Art. 45 del Tratado de Funcionamiento de la Unión Europea (TFUE)?", 
+    options: ["La libre circulación de trabajadores dentro de la UE", "El derecho a la educación", "El derecho a la salud", "El derecho a la vivienda"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué necesitan los trabajadores no comunitarios para trabajar en España?", 
+    options: ["Permiso de trabajo", "Visado de turista", "Certificado de nacimiento", "Licencia de conducir"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué se considera una infracción grave según el Art. 35.1 de la Ley 5/2000?", 
+    options: ["Contratar a trabajadores extranjeros sin permiso de trabajo", "No pagar impuestos", "No tener seguro de salud", "No tener un contrato de trabajo"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué autorización permite a los extranjeros permanecer en España por un período superior a noventa días para realizar o ampliar estudios?", 
+    options: ["Autorización de estancia por estudios", "Permiso de trabajo", "Visado de turista", "Tarjeta Azul UE"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué permite la Tarjeta Azul UE?", 
+    options: ["Ejercer un empleo cualificado en España", "Estudiar en España", "Viajar a cualquier país de la UE", "Obtener la ciudadanía española"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué deben hacer los trabajadores extranjeros que, residiendo en la zona limítrofe, desarrollen su actividad en España y regresen a su lugar de residencia diariamente?", 
+    options: ["Obtener la correspondiente autorización administrativa", "Obtener un visado de turista", "Obtener un permiso de residencia", "Obtener una licencia de conducir"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué no invalida la carencia de la autorización de residencia y trabajo?", 
+    options: ["El contrato de trabajo respecto a los derechos del trabajador extranjero", "La necesidad de un visado", "La necesidad de un permiso de residencia", "La necesidad de un permiso de trabajo"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué es necesario para la renovación de las autorizaciones de residencia temporal y trabajo por cuenta ajena?", 
+    options: ["Solicitarla durante los sesenta días naturales previos a la fecha de expiración de la vigencia de su autorización", "Solicitarla después de la fecha de expiración de la vigencia de su autorización", "Solicitarla en cualquier momento", "No es necesario solicitarla"], 
+    answer: 0 
+  },
+  { 
+    question: "¿Qué permite el permiso de residencia y trabajo permanente?", 
+    options: ["Residir y trabajar en España sin limitación temporal", "Residir en España sin limitación temporal", "Trabajar en España sin limitación temporal", "Viajar a cualquier país de la UE sin limitación temporal"], 
+    answer: 0 
+  },
+    { question: "¿Qué es la intermediación en el mercado laboral?", options: ["Un conjunto de acciones que buscan proporcionar a los trabajadores un empleo que se ajuste a sus características y facilitar a los empleadores los trabajadores más apropiados para sus requerimientos y necesidades.", "Un servicio de carácter público.", "Un proceso de contratación que se rige por el principio de libertad.", "Todas las anteriores."], answer: 0 },
+    { question: "¿Cuál de las siguientes actividades NO es parte de la intermediación?", options: ["Prospección y captación de ofertas de empleo.", "Puesta en contacto de ofertas de trabajo con personas que buscan empleo, para su colocación o recolocación.", "Selección de trabajadores.", "Gestión de prestaciones por desempleo de la Seguridad Social."], answer: 3 },
+    { question: "¿Quiénes son los agentes de intermediación según el artículo 41 de la LE?", options: ["Los servicios públicos de empleo.", "Las agencias de colocación debidamente autorizadas.", "Aquellos otros servicios que reglamentariamente se establezcan para trabajadores en el exterior.", "Todas las anteriores."], answer: 3 },
+    { question: "¿Cuál es la finalidad de la intermediación?", options: ["Proporcionar a los trabajadores un empleo adecuado a sus características y facilitar a los empleadores los trabajadores más apropiados a sus requerimientos y necesidades.", "Facilitar la contratación e inserción en el mercado de trabajo de los trabajadores, especialmente aquellos que tienen mayores problemas de acceso directo al empleo.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 2 },
+    { question: "¿Qué obligaciones tienen las empresas en el proceso de intermediación laboral?", options: ["Comunicación de Contrataciones.", "Entrega de la Copia Básica del Contrato.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 2 },
+    { question: "¿Qué son las Agencias de Colocación?", options: ["Entidades que realizan actividades de intermediación laboral.", "Entidades que se dedican a identificar y seleccionar a los candidatos más adecuados para un puesto de trabajo.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 0 },
+    { question: "¿Qué son las Agencias de Selección de Personal?", options: ["Entidades que realizan actividades de intermediación laboral.", "Entidades que se dedican a identificar y seleccionar a los candidatos más adecuados para un puesto de trabajo.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 1 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las Agencias de Colocación?", options: ["Pueden colaborar con los Servicios Públicos de Empleo a través de convenios de colaboración.", "Pueden operar de forma autónoma pero coordinada con los SPE mediante acuerdos de coordinación.", "Las AC con fines lucrativos deben desarrollar al menos un 60% de su actividad con fondos propios, es decir, no provenientes de los SPE.", "Todas las anteriores."], answer: 3 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las Agencias de Selección de Personal?", options: ["Pueden ser entidades con o sin fines de lucro.", "Se limitan a verificar, por encargo de las empresas, las aptitudes y la adecuación de los trabajadores a los requisitos de los puestos ofertados.", "No asumen las funciones de notificación y registro de ofertas y demandas de empleo.", "Todas las anteriores."], answer: 3 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las Empresas de Trabajo Temporal (ETT)?", options: ["Deben obtener una autorización administrativa para poder funcionar.", "Pueden actuar como agencias de colocación cuando cuenten con la correspondiente autorización de acuerdo con lo establecido en la normativa aplicable.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 2 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las obligaciones de las empresas en la intermediación laboral?", options: ["Las empresas deben comunicar al servicio de empleo las contrataciones realizadas, así como sus prórrogas.", "Las empresas deben entregar la copia básica del contrato.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 2 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las Agencias de Colocación?", options: ["Las AC deben respetar los principios de igualdad y no discriminación.", "Las AC deben garantizar la transparencia en su funcionamiento.", "Las AC deben respetar la intimidad y dignidad de los trabajadores en el tratamiento de sus datos.", "Todas las anteriores."], answer: 3 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las Agencias de Selección de Personal?", options: ["Las actividades llevadas a cabo por estas empresas pueden ser remuneradas.", "Deben respetar el principio de igualdad en todos sus procesos.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 2 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las Empresas de Trabajo Temporal (ETT)?", options: ["Deben obtener una autorización administrativa para poder funcionar.", "Pueden actuar como agencias de colocación cuando cuenten con la correspondiente autorización de acuerdo con lo establecido en la normativa aplicable.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 2 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las obligaciones de las empresas en la intermediación laboral?", options: ["Las empresas deben comunicar al servicio de empleo las contrataciones realizadas, así como sus prórrogas.", "Las empresas deben entregar la copia básica del contrato.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 2 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las Agencias de Colocación?", options: ["Las AC deben respetar los principios de igualdad y no discriminación.", "Las AC deben garantizar la transparencia en su funcionamiento.", "Las AC deben respetar la intimidad y dignidad de los trabajadores en el tratamiento de sus datos.", "Todas las anteriores."], answer: 3 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las Agencias de Selección de Personal?", options: ["Las actividades llevadas a cabo por estas empresas pueden ser remuneradas.", "Deben respetar el principio de igualdad en todos sus procesos.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 2 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las Empresas de Trabajo Temporal (ETT)?", options: ["Deben obtener una autorización administrativa para poder funcionar.", "Pueden actuar como agencias de colocación cuando cuenten con la correspondiente autorización de acuerdo con lo establecido en la normativa aplicable.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 2 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las obligaciones de las empresas en la intermediación laboral?", options: ["Las empresas deben comunicar al servicio de empleo las contrataciones realizadas, así como sus prórrogas.", "Las empresas deben entregar la copia básica del contrato.", "Ambas son correctas.", "Ninguna de las anteriores."], answer: 2 },
+    { question: "¿Cuál de las siguientes afirmaciones es correcta sobre las Agencias de Colocación?", options: ["Las AC deben respetar los principios de igualdad y no discriminación.", "Las AC deben garantizar la transparencia en su funcionamiento.", "Las AC deben respetar la intimidad y dignidad de los trabajadores en el tratamiento de sus datos.", "Todas las anteriores."], answer: 3 },
+
+
+
+
+
+
+
+  // Añade tus preguntas aquí
+  // { question: "¿Pregunta?", options: ["Opción 1", "Opción 2", "Opción 3"], answer: 0 }
+];
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+window.onload = function() {
+  // Selecciona 10 preguntas aleatorias
+  questions = shuffleArray(questions).slice(0, 10);
+  
+  var quiz = document.getElementById("quiz");
+  
+  for (var i = 0; i < questions.length; i++) {
+    var questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    
+    var questionP = document.createElement("p");
+    questionP.textContent = questions[i].question;
+    questionDiv.appendChild(questionP);
+    
+    var optionsDiv = document.createElement("div");
+    optionsDiv.className = "options";
+    
+    // Aquí se barajan las opciones
+    var shuffledOptions = shuffleArray(questions[i].options.slice());
+    
+    for (var j = 0; j < shuffledOptions.length; j++) {
+      var optionInput = document.createElement("input");
+      optionInput.type = "radio";
+      optionInput.id = "question" + i + "option" + j;
+      optionInput.name = "question" + i;
+      optionInput.value = shuffledOptions[j]; // Añadimos el valor de la opción
+      
+      var optionLabel = document.createElement("label");
+      optionLabel.htmlFor = optionInput.id;
+      optionLabel.textContent = shuffledOptions[j];
+      
+      var correctIndicator = document.createElement("span");
+      correctIndicator.className = "correct";
+      correctIndicator.textContent = " ⬅️";
+      if (shuffledOptions[j] == questions[i].options[questions[i].answer]) {
+        optionLabel.appendChild(correctIndicator);
+      }
+      
+      optionsDiv.appendChild(optionInput);
+      optionsDiv.appendChild(optionLabel);
+      optionsDiv.appendChild(document.createElement("br"));
+    }
+    
+    questionDiv.appendChild(optionsDiv);
+    quiz.appendChild(questionDiv);
+  }
+}
+
+function checkAnswers() {
+  var score = 0;
+  var wrongAnswers = [];
+  
+  for (var i = 0; i < questions.length; i++) {
+    var options = document.getElementsByName("question" + i);
+    var correct = false;
+    
+    for (var j = 0; j < options.length; j++) {
+      if (options[j].checked && options[j].value == questions[i].options[questions[i].answer]) {
+        score++;
+        correct = true;
+      }
+    }
+    
+    if (!correct) {
+      wrongAnswers.push({
+        question: questions[i].question,
+        correctAnswer: questions[i].options[questions[i].answer]
+      });
+    }
+  }
+  
+  alert("Tu puntuación es: " + score + "/" + questions.length);
+  
+  if (wrongAnswers.length > 0) {
+    var message = "Has fallado en las siguientes preguntas:\n";
+    
+    for (var i = 0; i < wrongAnswers.length; i++) {
+      message += "\nPregunta: " + wrongAnswers[i].question;
+      message += "\nRespuesta correcta: " + wrongAnswers[i].correctAnswer + " ⬅️\n";
+    }
+    
+    alert(message);
+  }
+  
+  // Muestra los indicadores de respuesta correcta
+  var correctIndicators = document.getElementsByClassName("correct");
+  for (var i = 0; i < correctIndicators.length; i++) {
+    correctIndicators[i].style.visibility = "visible";
+  }
+}
+</script>
+</head>
+<body>
+<div id="quiz"></div>
+<button onclick="checkAnswers()">Comprobar respuestas</button>
+</body>
+</html>
