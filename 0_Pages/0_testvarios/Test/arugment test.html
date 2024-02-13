@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8”>
+<meta name=“Test” content=“Tipo test aleatorio”>
+<title>Test +name</title>
+
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.question {
+  margin: 20px 0;
+}
+.options {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.correct {
+  visibility: hidden;
+}
+</style>
+<script>
+// Array de preguntas
+var questions = [
+
+
+
+  {
+    question: "¿Cuáles son los tres conjuntos de respuestas centrales a la pregunta de qué es el derecho, según Manuel Atienza?",
+    options: [
+      "Normativismo positivista, realismo jurídico e iusnaturalismo.",
+      "Formalismo jurídico, escepticismo jurídico e iusnaturalismo.",
+      "Normativismo positivista, realismo jurídico y formalismo jurídico.",
+      "Iusnaturalismo, escepticismo jurídico y formalismo jurídico.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la cultura jurídica interna?",
+    options: [
+      "Las ideas, actitudes, etc., que sobre el Derecho tiene la población en general.",
+      "La cultura jurídica de los países no occidentales.",
+      "La cultura jurídica de los países socialistas.",
+      "Las ideas, actitudes, etc., que sobre el Derecho tienen los operadores jurídicos.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Según Friedman, qué diferencia a un sistema jurídico cerrado de uno abierto?",
+    options: [
+      "La forma en que se organiza el poder judicial.",
+      "La existencia o no de un código civil.",
+      "El papel que juega la jurisprudencia en la resolución de casos.",
+      "El tipo de premisas que se admiten en las decisiones judiciales.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Qué tipo de sistema jurídico es el Common Law actual?",
+    options: [
+      "Cerrado y que rechaza la innovación.",
+      "Cerrado y que admite la innovación.",
+      "Abierto pero que no acepta la innovación.",
+      "Abierto y que acepta la innovación.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "¿Qué tipo de sistema jurídico es el derecho soviético de la primera época?",
+    options: [
+      "Cerrado y que rechaza la innovación.",
+      "Cerrado y que admite la innovación.",
+      "Abierto pero que no acepta la innovación.",
+      "Abierto y que acepta la innovación.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Según Atienza, a qué tipo de sistema jurídico obedecen los sistemas jurídicos evolucionados de nuestros días?",
+    options: [
+      "Al tipo 1).",
+      "Al tipo 2).",
+      "Al tipo 3).",
+      "A una combinación de los tipos 2) y 4).",
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Cuál es la situación actual de la cultura jurídica interna española?",
+    options: [
+      "Domina el formalismo kelseniano.",
+      "Hay un rechazo generalizado al normativismo positivista.",
+      "Se ha impuesto el realismo jurídico.",
+      "Subsiste un fondo formalista que tiende a debilitarse, junto con elementos de otras concepciones.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Qué papel juega el iusnaturalismo en la cultura jurídica interna española actual?",
+    options: [
+      "Es la concepción dominante.",
+      "Ha desaparecido por completo.",
+      "Se ha transformado y se hace de forma encubierta.",
+      "Se mantiene como una corriente minoritaria.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿Qué es el razonamiento jurídico?",
+    options: [
+      "La forma en que los jueces interpretan las leyes.",
+      "La forma en que los abogados argumentan en los tribunales.",
+      "La forma en que los legisladores redactan las leyes.",
+      "La forma en que los ciudadanos entienden el derecho.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la práctica judicial?",
+    options: [
+      "La forma en que los jueces aplican las leyes en los casos concretos.",
+      "La forma en que los abogados seleccionan las pruebas en un caso.",
+      "La forma en que los legisladores debaten las leyes en el parlamento.",
+      "La forma en que los ciudadanos participan en la elaboración de las leyes.",
+    ],
+    answer: 0,
+  },
+
+
+  {
+    question: "¿Qué es el formalismo en el derecho?",
+    options: [
+      "Una característica del derecho moderno donde las reglas funcionan como razones excluyentes, simplificando la aplicación del derecho.",
+      "Una concepción del derecho que absolutiza los elementos formales y busca simplificar la interpretación y aplicación del derecho.",
+      "Ambas opciones anteriores son correctas.",
+      "Ninguna de las opciones anteriores es correcta."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Qué tendencias del derecho contemporáneo parecen ir en contra del formalismo?",
+    options: [
+      "El aumento de las funciones del derecho.",
+      "La tendencia a la regulación jurídica particularizada.",
+      "Factores que minan el carácter sistemático del derecho: lagunas, contradicciones…",
+      "Todas las opciones anteriores son correctas."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Por qué el formalismo permite limitar el poder de los intérpretes y aplicadores del derecho?",
+    options: [
+      "Porque el formalismo exige una interpretación literal de las normas.",
+      "Porque el formalismo reduce la discrecionalidad en la aplicación del derecho.",
+      "Porque el formalismo exige una argumentación deductiva en las decisiones.",
+      "Todas las opciones anteriores son correctas."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Cuáles son las tesis o defectos del formalismo?",
+    options: [
+      "El Derecho es un sistema completo y coherente.",
+      "Solo los legisladores crean el derecho.",
+      "El derecho debe tener un carácter estático.",
+      "Todas las opciones anteriores son correctas."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué es la analogía y cómo se utiliza en el formalismo?",
+    options: [
+      "Un instrumento para resolver casos nuevos a partir de la ley o jurisprudencia existente.",
+      "Un método para crear nuevas leyes a partir de casos particulares.",
+      "Un instrumento para determinar la constitucionalidad de las leyes.",
+      "Un método para interpretar las leyes de forma literal."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Qué significa que el formalismo reduce la argumentación a términos deductivos o mecánicos?",
+    options: [
+      "Que la argumentación se basa en la lógica y la razón.",
+      "Que la argumentación se basa en la experiencia y la intuición.",
+      "Que la argumentación se basa en la persuasión y la emoción.",
+      "Que la argumentación se basa en la autoridad y la tradición."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Qué significa que el formalismo considera que el verdadero Derecho está constituido por las reglas generales?",
+    options: [
+      "Que las leyes particulares no son relevantes para el derecho.",
+      "Que las leyes generales son más importantes que las leyes particulares.",
+      "Que las leyes generales y las leyes particulares son igualmente importantes.",
+      "Que las leyes generales no son tan importantes como las leyes particulares."
+    ],
+    answer: 1
+  },
+  {
+    question: "¿Por qué el formalismo no considera necesario acudir a elementos extrajurídicos para hallar soluciones?",
+    options: [
+      "Porque el derecho es un sistema completo y autosuficiente.",
+      "Porque los elementos extrajurídicos son impredecibles y subjetivos.",
+      "Porque los elementos extrajurídicos pueden ser utilizados para manipular el derecho.",
+      "Todas las opciones anteriores son correctas."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Cuál es la principal crítica al formalismo?",
+    options: [
+      "Que es demasiado rígido e inflexible.",
+      "Que no toma en cuenta las circunstancias particulares de los casos.",
+      "Que es demasiado complejo y difícil de entender.",
+      "Todas las opciones anteriores son correctas."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿En qué contexto histórico surge el formalismo jurídico?",
+    options: [
+      "En la antigua Grecia.",
+      "En la Edad Media.",
+      "En la Ilustración.",
+      "En la Revolución Industrial."
+    ],
+    answer: 2
+  },
+
+
+  {
+    question: "¿Qué diferencia fundamental existe entre el positivismo normativista de Kelsen y el de Hart?",
+    options: [
+      "Kelsen considera el derecho como un sistema deductivo, mientras que Hart lo concibe como un conjunto de reglas sociales.",
+      "Kelsen se centra en la validez formal de las normas, mientras que Hart analiza su contenido y significado.",
+      "Kelsen niega la existencia del derecho natural, mientras que Hart lo admite como un límite al derecho positivo.",
+      "Kelsen defiende una teoría pura del derecho, mientras que Hart adopta una postura más descriptiva."
+    ],
+    answer: 1
+  },
+  {
+    question: "¿En qué se basa la distinción entre 'describir' y 'valorar' el derecho según el positivismo normativista?",
+    options: [
+      "En la separación entre hechos y valores.",
+      "En la diferencia entre el derecho positivo y el derecho natural.",
+      "En la distinción entre la ciencia del derecho y la moral.",
+      "En la dicotomía entre ser y deber ser."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Cuál de las siguientes afirmaciones es incompatible con el enfoque del derecho como argumentación?",
+    options: [
+      "El derecho es una práctica social compleja.",
+      "El derecho puede ser entendido como una actividad.",
+      "El derecho es un conjunto de normas preestablecidas.",
+      "El derecho se configura a través de la interacción entre diferentes actores."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Qué crítica fundamental realiza el enfoque argumentativo al positivismo normativista?",
+    options: [
+      "Ignora la dimensión social del derecho.",
+      "Reduce el derecho a un conjunto de normas estáticas.",
+      "No toma en cuenta la interpretación judicial del derecho.",
+      "Se basa en una concepción positivista de la ciencia."
+    ],
+    answer: 1
+  },
+  {
+    question: "¿Qué tipo de análisis del derecho privilegia el positivismo normativista?",
+    options: [
+      "Estructural y anatómico.",
+      "Funcional y teleológico.",
+      "Histórico y comparativo.",
+      "Sociológico y antropológico."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Cuál es la principal diferencia entre la metodología del positivismo normativista y la del enfoque argumentativo?",
+    options: [
+      "El positivismo busca describir el derecho de forma neutral, mientras que el enfoque argumentativo busca transformarlo.",
+      "El positivismo se basa en la lógica deductiva, mientras que el enfoque argumentativo utiliza la argumentación práctica.",
+      "El positivismo se centra en el análisis de las normas, mientras que el enfoque argumentativo se centra en la práctica social.",
+      "El positivismo es una teoría del derecho, mientras que el enfoque argumentativo es una metodología jurídica."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Qué autores se consideran exponentes del positivismo normativista en su versión más radical?",
+    options: [
+      "Hans Kelsen y Herbert Hart.",
+      "Ronald Dworkin y Robert Alexy.",
+      "Lon Fuller y Alf Ross.",
+      "Jürgen Habermas y Karl-Otto Apel."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Qué autores se asocian con el enfoque del derecho como argumentación?",
+    options: [
+      "Hans Kelsen y Joseph Raz.",
+      "Ronald Dworkin y Neil MacCormick.",
+      "Jürgen Habermas y Robert Alexy.",
+      "Lon Fuller y Carlos Nino."
+    ],
+    answer: 1
+  },
+  {
+    question: "¿En qué contexto histórico surge el positivismo normativista como teoría del derecho?",
+    options: [
+      "En la Ilustración, con el auge del racionalismo y la secularización.",
+      "En la Revolución Industrial, con el desarrollo del capitalismo y la sociedad industrial.",
+      "En la Segunda Guerra Mundial, como respuesta al auge del nazismo y el fascismo.",
+      "En la Guerra Fría, como parte del debate entre el liberalismo y el socialismo."
+    ],
+    answer: 0
+  },
+
+  {
+    question: "¿Cuál es la idea central del Realismo Jurídico?",
+    options: [
+      "El derecho es un sistema lógico y deductivo.",
+      "El derecho es una herramienta para la justicia social.",
+      "**El derecho es una práctica social en constante evolución.**",
+      "El derecho es un conjunto de normas abstractas e inmutables.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿Qué papel juega el juez en el Realismo Jurídico?",
+    options: [
+      "El juez es un aplicador neutral de la ley.",
+      "**El juez tiene un rol activo en la creación del derecho.**",
+      "El juez es un representante del poder político.",
+      "El juez es un intérprete objetivo de la voluntad del legislador.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "¿Cuál es la relación entre el derecho y la sociedad según el Realismo Jurídico?",
+    options: [
+      "El derecho es independiente de la sociedad.",
+      "El derecho es un reflejo de la sociedad.",
+      "**El derecho es un instrumento para el cambio social.**",
+      "El derecho es una herramienta para el control social.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿Qué es la 'jurisprudencia sociológica' propuesta por Roscoe Pound?",
+    options: [
+      "Un método para estudiar el derecho desde una perspectiva histórica.",
+      "**Un enfoque que analiza el derecho en su contexto social.**",
+      "Una teoría que defiende la primacía del derecho natural.",
+      "Una escuela de pensamiento que aboga por la libre interpretación judicial.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "¿Qué significa la frase de Oliver Wendell Holmes 'La vida del Derecho no ha sido lógica, ha sido experiencia'?",
+    options: [
+      "El derecho es un sistema irracional e impredecible.",
+      "El derecho se basa en la lógica y la razón.",
+      "**El derecho se desarrolla a partir de la experiencia y la práctica.**",
+      "El derecho es un reflejo de las ideas y valores de la sociedad.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿Cuál es la crítica principal al Realismo Jurídico?",
+    options: [
+      "Es un enfoque demasiado pesimista del derecho.",
+      "Es una teoría que no ofrece soluciones prácticas.",
+      "**Es una teoría que legitima el poder judicial.**",
+      "Es una teoría que ignora la importancia de la moral en el derecho.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿En qué se diferencia el Realismo Jurídico Americano del Realismo Jurídico Escandinavo?",
+    options: [
+      "El Realismo Americano se centra en la función del juez.",
+      "El Realismo Escandinavo se centra en la función del legislador.",
+      "**El Realismo Americano se basa en el pragmatismo.**",
+      "El Realismo Escandinavo se basa en el idealismo.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿Qué autores son considerados los principales exponentes del Realismo Jurídico?",
+    options: [
+      "Hans Kelsen y Carl Schmitt.",
+      "John Rawls y Ronald Dworkin.",
+      "**Oliver Wendell Holmes, Roscoe Pound y Karl Llewellyn.**",
+      "Lon Fuller y H.L.A. Hart.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿En qué contexto histórico surge el Realismo Jurídico?",
+    options: [
+      "En la Edad Media.",
+      "En la Ilustración.",
+      "**A finales del siglo XIX y principios del XX.**",
+      "En la segunda mitad del siglo XX.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿Qué impacto ha tenido el Realismo Jurídico en el pensamiento jurídico actual?",
+    options: [
+      "Ha sido completamente reemplazado por otras teorías.",
+      "**Ha contribuido a una visión más pragmática del derecho.**",
+      "Ha sido absorbido por otras corrientes de pensamiento jurídico.",
+      "Ha sido refutado por las teorías críticas del derecho.",
+    ],
+    answer: 1,
+  },
+
+  {
+    question: "¿Cuál de las siguientes afirmaciones sobre el realismo jurídico americano es **INCORRECTA**?",
+    options: [
+      "El realismo jurídico americano nunca constituyó propiamente una escuela.",
+      "El realismo jurídico americano niega la existencia de normas jurídicas.",
+      "El realismo jurídico americano defiende la indeterminación radical del derecho.",
+      "El realismo jurídico americano distingue entre una versión extrema y otra moderada."
+    ],
+    answer: 1,
+  },
+  {
+    question: "¿Qué autor representa la versión extrema del realismo jurídico americano?",
+    options: ["Jerome Frank", "Karl Llewellyn", "Roscoe Pound", "Oliver Wendell Holmes"],
+    answer: 0,
+  },
+  {
+    question: "¿Por qué, según Jerome Frank, no se puede hablar de justificación de las decisiones judiciales?",
+    options: [
+      "Porque las decisiones judiciales son impredecibles.",
+      "Porque las decisiones judiciales se basan en la lógica formal.",
+      "Porque las decisiones judiciales se basan en valores y emociones.",
+      "Porque las decisiones judiciales se basan en precedentes."
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿Qué es lo que, según Jerome Frank, se necesita para comprender las decisiones judiciales?",
+    options: ["Lógica", "Psicología", "Sociología", "Historia"],
+    answer: 1,
+  },
+  {
+    question: "¿Qué autor representa la versión moderada del realismo jurídico americano?",
+    options: ["Jerome Frank", "Karl Llewellyn", "Roscoe Pound", "Oliver Wendell Holmes"],
+    answer: 1,
+  },
+  {
+    question: "En un primer momento, ¿cómo definió Karl Llewellyn el derecho?",
+    options: [
+      "Como un conjunto de normas y principios.",
+      "Como un sistema de instituciones y procedimientos.",
+      "Como un conjunto de valores y creencias.",
+      "Como \"lo que hacen los funcionarios en relación con las disputas\"."
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Qué contrapone Karl Llewellyn a la lógica en el ámbito del derecho?",
+    options: ["La intuición", "La emoción", "La prudencia", "La experiencia"],
+    answer: 2,
+  },
+  {
+    question: "¿Qué es el \"Grand Style\" o \"Style of Reason\" que defiende Karl Llewellyn?",
+    options: [
+      "Una forma de argumentar deductivamente a partir de las normas jurídicas.",
+      "Una forma de pensar y trabajar que combina la lógica con la prudencia.",
+      "Una forma de utilizar la retórica para persuadir al juez.",
+      "Una forma de aplicar las reglas de derecho de forma mecánica."
+    ],
+    answer: 1,
+  },
+  {
+    question: "¿Por qué el realismo jurídico americano ha sido criticado por algunos autores?",
+    options: [
+      "Por negar la existencia de normas jurídicas.",
+      "Por defender la indeterminación radical del derecho.",
+      "Por reducir el derecho a un conjunto de hechos.",
+      "Todas las anteriores."
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Qué tienen en común el realismo jurídico americano y el realismo jurídico escandinavo?",
+    options: [
+      "Su crítica al formalismo jurídico.",
+      "Su énfasis en la importancia de los hechos en la toma de decisiones judiciales.",
+      "Su defensa del activismo judicial.",
+      "Todas las anteriores."
+    ],
+    answer: 3,
+  },
+
+  {
+    question: "¿Cuál de las siguientes afirmaciones es **INCORRECTA** respecto al Iusnaturalismo predominante en el siglo XX en países de tradición católica?",
+    options: [
+      "Se preocupaba por determinar la esencia del derecho.",
+      "Mostraba las conexiones entre el orden jurídico y un orden religioso.",
+      "Se basaba en una fundamentación teológica del derecho.",
+      "Rechazaba la idea de justicia como elemento esencial del derecho."
+    ],
+    answer: 3,
+  },
+  {
+    question: "Según Luis Legaz y Lacambra, ¿cuál era la relación entre el derecho natural y el orden religioso?",
+    options: [
+      "El derecho natural era independiente del orden religioso.",
+      "El orden religioso era una fuente del derecho natural.",
+      "El derecho natural era una fuente del orden religioso.",
+      "No existe una relación clara entre ambos conceptos en su obra."
+    ],
+    answer: 1,
+  },
+  {
+    question: "¿Qué diferencia a la concepción de derecho natural de Recasens Siches de la de Legaz y Lacambra?",
+    options: [
+      "Recasens Siches no consideraba la religión como fuente del derecho natural.",
+      "Recasens Siches defendía una visión más flexible del derecho natural.",
+      "Recasens Siches no creía en la existencia de un orden superior al derecho positivo.",
+      "Recasens Siches no era un autor iusnaturalista."
+    ],
+    answer: 1,
+  },
+  {
+    question: "¿Qué defendía Giorgio del Vecchio sobre la positividad del derecho?",
+    options: [
+      "La positividad era una nota esencial del concepto de derecho.",
+      "La positividad era la única fuente del derecho.",
+      "La positividad era irrelevante para el concepto de derecho.",
+      "La positividad no era una nota esencial del concepto de derecho."
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿En qué consiste el método dialéctico que propone Michel Villey para descubrir el derecho natural?",
+    options: [
+      "Un tipo de razonamiento deductivo basado en la lógica formal.",
+      "Un método empírico que se basa en la observación de la realidad social.",
+      "Un tipo de razonamiento persuasivo similar a la retórica.",
+      "Un tipo de razonamiento que busca la verdad a partir de opiniones divergentes."
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Cuál es la principal crítica que se le ha hecho a la concepción del derecho natural de Michel Villey?",
+    options: [
+      "Ser demasiado abstracta y alejada de la realidad social.",
+      "Ser demasiado compleja y difícil de aplicar en la práctica.",
+      "Ser incompatible con las ideas del derecho positivo.",
+      "Ser una concepción premoderna o antimoderna."
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿En qué se diferencia el neoiusnaturalismo de John Finnis del Iusnaturalismo tradicional?",
+    options: [
+      "En que se basa en una fundamentación teológica del derecho.",
+      "En que se basa en una visión ontológica del derecho natural.",
+      "En que se basa en una visión deontológica del derecho natural.",
+      "En que no busca determinar la validez del derecho positivo."
+    ],
+    answer: 2,
+  },
+  {
+    question: "¿Cuál es la función de los principios morales en el neoiusnaturalismo de John Finnis?",
+    options: [
+      "Guiar y justificar el derecho positivo.",
+      "Determinar la validez del derecho positivo.",
+      "Sustituir al derecho positivo en caso de conflicto.",
+      "Ninguna de las anteriores."
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué autores se consideran como precursores de las teorías contemporáneas de la argumentación jurídica?",
+    options: [
+      "Luis Legaz y Lacambra y Giorgio del Vecchio.",
+      "Michel Villey y John Finnis.",
+      "Recasens Siches y Michel Villey.",
+      "John Finnis y Ronald Dworkin."
+    ],
+    answer: 2,
+  },
+  
+
+
+
+
+
+
+  // Añade tus preguntas aquí
+  // { question: "¿Pregunta?", options: ["Opción 1", "Opción 2", "Opción 3"], answer: 0 }
+];
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+window.onload = function() {
+  // Selecciona 10 preguntas aleatorias
+  questions = shuffleArray(questions).slice(0, 10);
+  
+  var quiz = document.getElementById("quiz");
+  
+  for (var i = 0; i < questions.length; i++) {
+    var questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    
+    var questionP = document.createElement("p");
+    questionP.textContent = questions[i].question;
+    questionDiv.appendChild(questionP);
+    
+    var optionsDiv = document.createElement("div");
+    optionsDiv.className = "options";
+    
+    // Aquí se barajan las opciones
+    var shuffledOptions = shuffleArray(questions[i].options.slice());
+    
+    for (var j = 0; j < shuffledOptions.length; j++) {
+      var optionInput = document.createElement("input");
+      optionInput.type = "radio";
+      optionInput.id = "question" + i + "option" + j;
+      optionInput.name = "question" + i;
+      optionInput.value = shuffledOptions[j]; // Añadimos el valor de la opción
+      
+      var optionLabel = document.createElement("label");
+      optionLabel.htmlFor = optionInput.id;
+      optionLabel.textContent = shuffledOptions[j];
+      
+      var correctIndicator = document.createElement("span");
+      correctIndicator.className = "correct";
+      correctIndicator.textContent = " ⬅️";
+      if (shuffledOptions[j] == questions[i].options[questions[i].answer]) {
+        optionLabel.appendChild(correctIndicator);
+      }
+      
+      optionsDiv.appendChild(optionInput);
+      optionsDiv.appendChild(optionLabel);
+      optionsDiv.appendChild(document.createElement("br"));
+    }
+    
+    questionDiv.appendChild(optionsDiv);
+    quiz.appendChild(questionDiv);
+  }
+}
+
+function checkAnswers() {
+  var score = 0;
+  var wrongAnswers = [];
+  
+  for (var i = 0; i < questions.length; i++) {
+    var options = document.getElementsByName("question" + i);
+    var correct = false;
+    
+    for (var j = 0; j < options.length; j++) {
+      if (options[j].checked && options[j].value == questions[i].options[questions[i].answer]) {
+        score++;
+        correct = true;
+      }
+    }
+    
+    if (!correct) {
+      wrongAnswers.push({
+        question: questions[i].question,
+        correctAnswer: questions[i].options[questions[i].answer]
+      });
+    }
+  }
+  
+  alert("Tu puntuación es: " + score + "/" + questions.length);
+  
+  if (wrongAnswers.length > 0) {
+    var message = "Has fallado en las siguientes preguntas:\n";
+    
+    for (var i = 0; i < wrongAnswers.length; i++) {
+      message += "\nPregunta: " + wrongAnswers[i].question;
+      message += "\nRespuesta correcta: " + wrongAnswers[i].correctAnswer + " ⬅️\n";
+    }
+    
+    alert(message);
+  }
+  
+  // Muestra los indicadores de respuesta correcta
+  var correctIndicators = document.getElementsByClassName("correct");
+  for (var i = 0; i < correctIndicators.length; i++) {
+    correctIndicators[i].style.visibility = "visible";
+  }
+}
+</script>
+</head>
+<body>
+<div id="quiz"></div>
+<button onclick="checkAnswers()">Comprobar respuestas</button>
+</body>
+</html>
