@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8”>
+<meta name=“Test” content=“Tipo test aleatorio”>
+<title>Test +name</title>
+
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.question {
+  margin: 20px 0;
+}
+.options {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.correct {
+  visibility: hidden;
+}
+</style>
+<script>
+// Array de preguntas
+var questions = [
+  {
+    question: "¿Qué se entiende por 'delimitación del Derecho Internacional Privado'?",
+    options: [
+      "La determinación de la ley aplicable a las situaciones jurídicas con elementos internacionales.",
+      "La delimitación del ámbito de competencia de los tribunales nacionales en casos internacionales.",
+      "La búsqueda de soluciones justas para las controversias internacionales.",
+      "Todas las anteriores."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Cuál es la principal contradicción del Derecho Internacional Privado, según J.A. Carrillo Salcedo?",
+    options: [
+      "Su carácter internacional frente a la aplicación de normas nacionales.",
+      "Su enfoque teórico frente a la necesidad de soluciones prácticas.",
+      "Su complejidad técnica frente a la simplicidad de las situaciones jurídicas.",
+      "Su enfoque casuístico frente a la búsqueda de soluciones generales."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Qué se entiende por 'Estado del foro'?",
+    options: [
+      "El Estado donde se celebró un contrato internacional.",
+      "El Estado donde se produjo un hecho ilícito internacional.",
+      "El Estado desde cuya perspectiva se constituye y/o se soluciona una situación de tráfico jurídico externo.",
+      "El Estado donde reside habitualmente el demandante en un proceso internacional."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Por qué la cooperación entre Estados es fundamental en el Derecho Internacional Privado?",
+    options: [
+      "Para facilitar la ejecución de sentencias extranjeras.",
+      "Para evitar la denegación de justicia en casos internacionales.",
+      "Para garantizar la seguridad jurídica en el tráfico jurídico internacional.",
+      "Todas las anteriores."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué son los 'presupuestos del Derecho Internacional Privado'?",
+    options: [
+      "Los principios generales del Derecho.",
+      "Las normas de conflicto de leyes.",
+      "Los requisitos necesarios para que la disciplina pueda desplegar su función.",
+      "Los tratados internacionales en materia de Derecho Internacional Privado."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿En qué consiste el 'presupuesto objetivo' del Derecho Internacional Privado?",
+    options: [
+      "La existencia de una pluralidad de ordenamientos jurídicos.",
+      "La existencia de situaciones jurídicas con elementos internacionales.",
+      "La necesidad de procurar la continuidad transfronteriza de las situaciones jurídicas.",
+      "La existencia de mecanismos de cooperación entre Estados."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿En qué consiste el 'presupuesto subjetivo' del Derecho Internacional Privado?",
+    options: [
+      "La existencia de un conflicto de leyes.",
+      "La necesidad de certeza jurídica en el tráfico internacional.",
+      "La existencia de una comunidad internacional con intereses comunes.",
+      "La existencia de órganos jurisdiccionales especializados en Derecho Internacional Privado."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Cuáles son las limitaciones de los procesos de armonización o unificación del Derecho?",
+    options: [
+      "Su carácter geopolítico.",
+      "Su ámbito material.",
+      "Las técnicas utilizadas para su implementación.",
+      "Todas las anteriores."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Por qué la globalización ha incrementado la importancia del Derecho Internacional Privado?",
+    options: [
+      "Por el aumento del comercio internacional.",
+      "Por el desarrollo de las nuevas tecnologías.",
+      "Por el aumento de la movilidad de las personas.",
+      "Todas las anteriores."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué es el 'espíritu ecuménico' del Derecho Internacional Privado?",
+    options: [
+      "La búsqueda de soluciones justas para las controversias internacionales.",
+      "La búsqueda de soluciones uniformes para las situaciones jurídicas internacionales.",
+      "La búsqueda de soluciones armonizadas con los valores y principios universales.",
+      "La búsqueda de soluciones basadas en el respeto a la diversidad cultural."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Cuál es la principal contradicción del Derecho Internacional Privado, según J.A. Carrillo Salcedo?",
+    options: [
+      "Su carácter internacional vs. la aplicación de normas nacionales.",
+      "Su enfoque teórico vs. su aplicación práctica.",
+      "Su complejidad técnica vs. su necesidad en la sociedad actual.",
+      "Su falta de armonización vs. su objetivo de continuidad transfronteriza."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Qué es el Estado del foro y qué papel juega en el Derecho Internacional Privado?",
+    options: [
+      "Es el Estado donde se celebra un contrato internacional.",
+      "Es el Estado donde se produce un hecho ilícito internacional.",
+      "Es el Estado donde se radica una persona jurídica internacional.",
+      "Es el Estado desde cuya perspectiva se constituye o resuelve una situación de tráfico jurídico externo."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Por qué la cooperación entre Estados es fundamental en el Derecho Internacional Privado?",
+    options: [
+      "Para evitar la disfunción del sistema jurídico internacional.",
+      "Para garantizar la aplicación uniforme del Derecho internacional.",
+      "Para facilitar la resolución de conflictos de leyes.",
+      "Para promover la armonización y unificación del Derecho."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Cuáles son los dos presupuestos del Derecho Internacional Privado?",
+    options: [
+      "Objetivo y subjetivo.",
+      "Material y formal.",
+      "Nacional e internacional.",
+      "Público y privado."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿En qué consiste el presupuesto objetivo del Derecho Internacional Privado?",
+    options: [
+      "La existencia de una situación jurídica con elementos internacionales.",
+      "La existencia de un conflicto de leyes.",
+      "La existencia de un interés en la resolución de la situación jurídica.",
+      "La existencia de una norma jurídica internacional aplicable."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿En qué consiste el presupuesto subjetivo del Derecho Internacional Privado?",
+    options: [
+      "La existencia de un Estado del foro.",
+      "La existencia de una norma jurídica nacional aplicable.",
+      "La existencia de un interés en la resolución de la situación jurídica.",
+      "La existencia de una persona con capacidad jurídica internacional."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué son los procesos de armonización y unificación del Derecho?",
+    options: [
+      "Son mecanismos para evitar la disfunción del sistema jurídico internacional.",
+      "Son mecanismos para garantizar la aplicación uniforme del Derecho internacional.",
+      "Son mecanismos para facilitar la resolución de conflictos de leyes.",
+      "Son mecanismos para promover la convergencia de las normas jurídicas nacionales."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Cuáles son las limitaciones de los procesos de armonización y unificación del Derecho?",
+    options: [
+      "Geopolíticas, materiales y técnicas.",
+      "Económicas, políticas y sociales.",
+      "Públicas, privadas y nacionales.",
+      "Internacionales, regionales y locales."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Por qué la globalización ha incrementado la importancia del Derecho Internacional Privado?",
+    options: [
+      "Porque ha aumentado el número de situaciones jurídicas con elementos internacionales.",
+      "Porque ha aumentado el número de conflictos de leyes.",
+      "Porque ha aumentado la necesidad de cooperación entre Estados.",
+      "Todas las anteriores."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué desafíos enfrenta el Derecho Internacional Privado en la actualidad?",
+    options: [
+      "La fragmentación del Derecho internacional.",
+      "La falta de armonización entre las normas jurídicas nacionales.",
+      "El desarrollo de nuevas tecnologías.",
+      "Todas las anteriores."
+    ],
+    answer: 3
+  },
+
+  {
+    question: "¿Qué es el Derecho Internacional Privado?",
+    options: ["Un conjunto de normas que regulan las relaciones entre Estados.", "Un sector del Derecho que se ocupa de las relaciones privadas con un elemento extranjero.", "Un conjunto de normas que regulan la nacionalidad de las personas.", "Ninguna de las anteriores."],
+    answer: 1,
+  },
+  {
+    question: "¿Qué caracteriza al Derecho Internacional Privado?",
+    options: ["Su carácter nacional.", "Su carácter internacional.", "Su carácter público.", "Su carácter privado."],
+    answer: 1,
+  },
+  {
+    question: "¿Cuál es el objeto del Derecho Internacional Privado?",
+    options: ["Las relaciones entre Estados.", "Las relaciones privadas con un elemento extranjero.", "Las relaciones públicas con un elemento extranjero.", "Ninguna de las anteriores."],
+    answer: 1,
+  },
+  {
+    question: "¿Qué son los elementos de extranjería?",
+    options: ["Los elementos que determinan la nacionalidad de una persona.", "Los elementos que determinan la competencia judicial en un caso internacional.", "Los elementos que determinan la ley aplicable a una situación privada con un elemento extranjero.", "Ninguna de las anteriores."],
+    answer: 2,
+  },
+  {
+    question: "¿Cuáles son los tipos de elementos de extranjería?",
+    options: ["Endógenos y exógenos.", "Subjetivos y objetivos.", "Materiales y territoriales.", "Todas las anteriores."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es el 'foro de necesidad'?",
+    options: ["El foro que se elige por las partes en un contrato.", "El foro que se determina por la ley aplicable a un caso.", "El foro que es más conveniente para las partes en un caso.", "Ninguna de las anteriores."],
+    answer: 2,
+  },
+  {
+    question: "¿Qué es la 'autonomía de la voluntad'?",
+    options: ["La capacidad de las partes para elegir la ley aplicable a un contrato.", "La capacidad de las partes para elegir el foro competente para resolver un caso.", "La capacidad de las partes para elegir la nacionalidad de sus hijos.", "Ninguna de las anteriores."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es el 'fraude a la ley'?",
+    options: ["La elección de la ley aplicable a un contrato con el fin de evitar la aplicación de una ley imperativa.", "La elección del foro competente para resolver un caso con el fin de evitar la aplicación de una ley imperativa.", "La elección de la nacionalidad de una persona con el fin de evitar la aplicación de una ley imperativa.", "Ninguna de las anteriores."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué son las normas imperativas?",
+    options: ["Normas que no pueden ser derogadas por las partes.", "Normas que son obligatorias para todos los Estados.", "Normas que son aplicables a todos los casos.", "Ninguna de las anteriores."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es el 'conflicto de leyes'?",
+    options: ["La situación en la que dos o más leyes pueden ser aplicables a un mismo caso.", "La situación en la que dos o más foros pueden ser competentes para resolver un mismo caso.", "La situación en la que dos o más personas tienen la misma nacionalidad.", "Ninguna de las anteriores."],
+    answer: 0,
+  },
+
+  {
+    question: "¿Cuál es la definición del objeto del Derecho Internacional Privado?",
+    options: [
+      "La regulación de las relaciones entre Estados.",
+      "La protección de los derechos humanos en el ámbito internacional.",
+      "El estudio de las normas jurídicas de diferentes países.",
+      "La determinación de la ley aplicable a las situaciones privadas con elemento extranjero."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿De qué deriva la naturaleza privada del Derecho Internacional Privado?",
+    options: [
+      "Intervienen personas físicas o jurídicas que actúan a título particular.",
+      "Se aplica a las relaciones entre Estados y organizaciones internacionales.",
+      "Regula las relaciones comerciales entre empresas de diferentes países.",
+      "Se basa en normas de Derecho público internacional."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿El elemento extranjero en el Derecho Internacional Privado puede ser?",
+    options: [
+      "Endógeno (nacionalidad, domicilio, residencia habitual) o exógeno (autonomía de la voluntad).",
+      "Únicamente de carácter material (objeto de la situación).",
+      "Siempre de naturaleza subjetiva (nacionalidad de las personas).",
+      "Exclusivamente territorial (lugar donde se produce la situación)."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿A qué se debe el carácter multidisciplinar del Derecho Internacional Privado?",
+    options: [
+      "Se aplica a las relaciones entre Estados y organizaciones internacionales.",
+      "Regula las relaciones comerciales entre empresas de diferentes países.",
+      "Opera en categorías del Derecho civil, mercantil, laboral, etc., utilizando técnicas del Derecho público y del Derecho internacional público.",
+      "Se basa en normas de Derecho público internacional."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿En qué aspectos es plural el Derecho Internacional Privado?",
+    options: [
+      "**En sus fuentes (supraestatales y estatales).**",
+      "En la metodología de su aplicación (reglas directas e indirectas).",
+      "En los intereses que protege (individuales y estatales).",
+      "En las técnicas de resolución de conflictos (judiciales y extrajudiciales)."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿En qué se basa la perspectiva preventiva del Derecho Internacional Privado?",
+    options: [
+      "En la resolución de los conflictos de leyes.",
+      "En la aplicación de las normas de Derecho internacional público.",
+      "En la protección de los derechos humanos en el ámbito internacional.",
+      "En la evitación de los conflictos mediante la armonización de las legislaciones nacionales."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Cuál es la composición del contenido del Derecho Internacional Privado, según la concepción más amplia?",
+    options: [
+      "Los conflictos de leyes y la cooperación judicial internacional.",
+      "La protección de los derechos humanos en el ámbito internacional.",
+      "El Derecho de la nacionalidad y el Derecho de extranjería.",
+      "Los conflictos de leyes, la cooperación judicial internacional, el Derecho de la nacionalidad y el Derecho de extranjería."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué es la técnica de reenvío en el Derecho Internacional Privado?",
+    options: [
+      "Remite a la aplicación del Derecho de otro Estado.",
+      "Permite la aplicación del Derecho internacional público.",
+      "Es una técnica de resolución de conflictos de leyes.",
+      "Se utiliza para determinar la competencia judicial internacional."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Qué regula el Reglamento Roma I de la Unión Europea?",
+    options: [
+      "La competencia judicial internacional en materia civil y mercantil.",
+      "La ley aplicable a las obligaciones contractuales.",
+      "Es un tratado internacional entre los Estados miembros de la Unión Europea.",
+      "La ley aplicable a las relaciones familiares y patrimoniales."
+    ],
+    answer: 1
+  },
+  {
+    question: "¿Qué significa la autonomía de la voluntad en el Derecho Internacional Privado?",
+    options: [
+      "Es un principio que permite a las partes elegir la ley aplicable a su contrato.",
+      "Es un límite al application de la ley extranjera.",
+      "Se aplica únicamente en los contratos internacionales.",
+      "No es compatible con las normas de Derecho internacional público."
+    ],
+    answer: 0
+  
+  },
+  {
+    question: "¿Cuáles son los tres sectores principales del Derecho internacional privado en una concepción amplia y sistemática?",
+    options: ["Conflictos de leyes, nacionalidad y extranjería", "Conflictos de jurisdicciones, nacionalidad y extranjería", "Conflictos de leyes, conflictos de jurisdicciones y derecho procesal civil internacional", "Conflictos de leyes, nacionalidad y derecho procesal civil internacional"],
+    answer: 2,
+  },
+  {
+    question: "¿En qué se basa la función del Derecho internacional privado en relación con los conflictos de leyes?",
+    options: ["Designar la ley aplicable al fondo del asunto", "Determinar la competencia judicial internacional", "Ambas anteriores", "Ninguna de las anteriores"],
+    answer: 2,
+  },
+  {
+    question: "¿Qué implica la superación de la visión conflictualista tradicional en la perspectiva moderna del Derecho internacional privado?",
+    options: ["Que se rechaza la existencia de conflictos de leyes", "Que se prioriza la aplicación del Derecho del Estado del foro", "Que se busca la solución más justa y adecuada para cada caso concreto", "Que se da preferencia a la aplicación del Derecho internacional público"],
+    answer: 2,
+  },
+  {
+    question: "¿En un sistema plurilegislativo, como España, los conflictos de leyes pueden ser?",
+    options: ["Solo internacionales", "Solo internos", "Tanto internacionales como internos", "Ninguno de los anteriores"],
+    answer: 2,
+  },
+  {
+    question: "¿Cómo se adquiere la nacionalidad española según el artículo 11.1.º del Código Civil español?",
+    options: ["Ius sanguinis", "Ius soli", "Ambas anteriores", "Ninguna de las anteriores"],
+    answer: 2,
+  },
+  {
+    question: "¿La pérdida de la nacionalidad española puede ser?",
+    options: ["Voluntaria", "Forzosa", "Ambas anteriores", "Ninguna de las anteriores"],
+    answer: 2,
+  },
+  {
+    question: "¿En qué casos permite el artículo 11.3 del Código Civil español la doble nacionalidad?",
+    options: ["Por nacimiento en un país iberoamericano", "Por adquisición voluntaria de la nacionalidad de un país iberoamericano", "Ambas anteriores", "Ninguna de las anteriores"],
+    answer: 2,
+  },
+  {
+    question: "¿En qué casos no se pierde la nacionalidad española por la adquisición voluntaria de la nacionalidad de otro Estado?",
+    options: ["Si el otro Estado es un país iberoamericano", "Si se ha obtenido la autorización previa del Ministerio de Justicia", "Ambas anteriores", "Ninguna de las anteriores"],
+    answer: 0,
+  },
+  {
+    question: "¿A quiénes se aplica la opción por la nacionalidad española regulada en el artículo 24.1.º del Código Civil español?",
+    options: ["A los nacidos en España", "A los nacidos en un país extranjero con el que España tenga un tratado de doble nacionalidad", "Ambas anteriores", "Ninguna de las anteriores"],
+    answer: 1,
+  },
+  {
+    question: "¿Cuál es el plazo para ejercitar la opción por la nacionalidad española?",
+    options: ["Un año", "Dos años", "Tres años", "Cuatro años"],
+    answer: 1,
+  },
+  {
+    question: "¿Cuál es la función principal del Derecho Internacional Privado?",
+    options: ["Determinar la ley aplicable al fondo del asunto", "Resolver el conflicto de jurisdicciones entre diferentes Estados", "Otorgar la nacionalidad a las personas", "Regular el tráfico jurídico internacional"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es el 'lex fori'?",
+    options: ["La ley del Estado donde se encuentra el bien objeto del litigio", "La ley del Estado donde se celebra el contrato", "La ley del Estado de la nacionalidad del demandante", "La ley del Estado donde se tramita el proceso"],
+    answer: 3,
+  },
+  {
+    question: "¿Qué criterio se utiliza para determinar la competencia judicial internacional en materia contractual?",
+    options: ["El domicilio del demandante", "El lugar de celebración del contrato", "El lugar de ejecución del contrato", "La ley del Estado más favorable al demandante"],
+    answer: 2,
+  },
+  {
+    question: "¿En qué consiste la teoría del 'renvoi'?",
+    options: ["En la remisión a la ley de otro Estado para determinar la ley aplicable al fondo del asunto", "En la aplicación directa de la ley extranjera por parte del juez del foro", "En la remisión a un juez extranjero para que resuelva el conflicto de leyes", "En la aplicación de la ley del Estado de la nacionalidad del demandado"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la 'excepción de orden público'?",
+    options: ["La posibilidad de que el juez del foro no aplique la ley extranjera cuando sea contraria a los principios fundamentales del Estado", "La obligación del juez del foro de aplicar la ley extranjera siempre que sea compatible con el orden público internacional", "La posibilidad de que las partes elijan la ley aplicable al fondo del asunto", "La remisión a la ley de un Estado federado para determinar la ley aplicable al fondo del asunto"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la 'nacionalidad originaria'?",
+    options: ["La nacionalidad que se adquiere por nacimiento", "La nacionalidad que se adquiere por residencia", "La nacionalidad que se adquiere por matrimonio", "La nacionalidad que se adquiere por naturalización"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la 'doble nacionalidad'?",
+    options: ["La condición de tener dos nacionalidades al mismo tiempo", "La condición de no tener ninguna nacionalidad", "La condición de tener la nacionalidad de un Estado federado", "La condición de tener la nacionalidad de un Estado extranjero"],
+    answer: 0,
+  },
+  {
+    question: "¿En qué consiste la 'pérdida de la nacionalidad'?",
+    options: ["La renuncia voluntaria a la nacionalidad", "La privación de la nacionalidad por parte del Estado", "La adquisición de la nacionalidad de otro Estado", "La muerte del individuo"],
+    answer: 1,
+  },
+  {
+    question: "¿Qué es el 'Derecho de extranjería'?",
+    options: ["El conjunto de normas que regulan la entrada, salida y residencia de los extranjeros en un Estado", "El conjunto de normas que regulan la adquisición y pérdida de la nacionalidad", "El conjunto de normas que regulan el tráfico jurídico internacional", "El conjunto de normas que regulan la competencia judicial internacional"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es el 'Derecho de asilo'?",
+    options: ["El derecho de un Estado a conceder protección a un extranjero que se encuentra perseguido en su país de origen", "El derecho de un extranjero a solicitar la nacionalidad del Estado donde se encuentra", "El derecho de un extranjero a salir libremente del Estado donde se encuentra", "El derecho de un extranjero a entrar libremente en un Estado"],
+    answer: 0,
+  },
+  {
+    question: "¿Cuál de las siguientes NO es una causa de pérdida de la nacionalidad española de origen?",
+    options: ["Residir en el extranjero durante más de 10 años", "Adquirir voluntariamente la nacionalidad de otro país", "No realizar el servicio militar obligatorio"],
+    answer: 2,
+  },
+  {
+    question: "La ciudadanía europea:",
+    options: ["Es un concepto equivalente a la nacionalidad española", "Se adquiere automáticamente al nacer en España", "Permite a los ciudadanos circular y residir libremente en la Unión Europea", "No tiene efectos jurídicos en España"],
+    answer: 2,
+  },
+  {
+    question: "El Derecho de extranjería:",
+    options: ["Regula la situación jurídica de los nacionales en el extranjero", "Es una rama del Derecho internacional público", "Se encarga de regular la entrada, salida y residencia de los extranjeros en un país", "No tiene relación con el Derecho internacional privado"],
+    answer: 2,
+  },
+  {
+    question: "¿Cuáles son las fuentes del Derecho de extranjería en España?",
+    options: ["Se limitan a la Constitución Española", "Se encuentran únicamente en la Ley de Extranjería", "Incluyen normas supraestatales (UE) y estatales", "Se basan en la jurisprudencia del Tribunal Supremo"],
+    answer: 2,
+  },
+  {
+    question: "¿Quién tiene derecho al sufragio activo y pasivo en las elecciones municipales en España?",
+    options: ["Todos los ciudadanos españoles", "Todos los residentes en España", "Los ciudadanos de la Unión Europea", "Los extranjeros con permiso de residencia de larga duración"],
+    answer: 0,
+  },
+  {
+    question: "¿En qué se basa la extradición de un extranjero desde España?",
+    options: ["Se puede realizar sin necesidad de un tratado o ley", "Se concede siempre que el extranjero haya cometido un delito grave", "Se regula por la Ley de Extradición y los tratados internacionales", "Se basa en el principio de justicia universal"],
+    answer: 2,
+  },
+  {
+    question: "¿Qué es el sistema de Derecho internacional privado?",
+    options: ["Es un conjunto de normas que regulan las relaciones jurídicas entre particulares", "Se aplica únicamente en los casos de conflicto de leyes", "No tiene relación con el Derecho civil o mercantil", "Es un sistema de carácter universal"],
+    answer: 1,
+  },
+  {
+    question: "¿Cuáles son las fuentes del Derecho internacional privado?",
+    options: ["Se limitan a la ley interna de cada Estado", "Incluyen normas supraestatales (UE) y estatales", "Se basan en la costumbre internacional", "Todas las anteriores"],
+    answer: 3,
+  },
+  {
+    question: "El tratado internacional:",
+    options: ["No es una fuente de Derecho internacional privado", "Se incorpora al ordenamiento interno español mediante su publicación en el BOE", "Prevalece sobre la ley interna en caso de conflicto", "Todas las anteriores"],
+    answer: 3,
+  },
+  {
+    question: "¿Quiénes elaboran los Principios sobre los contratos mercantiles internacionales?",
+    options: ["La Unión Europea", "Las Naciones Unidas", "UNIDROIT", "El Tribunal Supremo"],
+    answer: 2,
+  },
+  {
+    question: "¿Cuál de las siguientes afirmaciones sobre la nacionalidad española es FALSA?",
+    options: ["La nacionalidad española se puede adquirir por residencia", "La nacionalidad española se puede adquirir por ius sanguinis", "La nacionalidad española se puede adquirir por carta de naturaleza", "La nacionalidad española se puede adquirir por matrimonio"],
+    answer: 3,
+  },
+  {
+    question: "La Ley 12/2015, de 24 de junio, en materia de concesión de la nacionalidad española a los sefardíes de origen español, se basa en:",
+    options: ["El ius soli", "El ius sanguinis", "El derecho de reciprocidad", "La presunción de originariedad"],
+    answer: 3,
+  },
+  {
+    question: "La ciudadanía europea:",
+    options: ["Es un concepto equivalente a la nacionalidad española", "Se adquiere automáticamente al obtener la nacionalidad española", "Otorga a los ciudadanos europeos el derecho a la libre circulación y residencia en la Unión Europea", "Todas las anteriores son ciertas"],
+    answer: 3,
+  },
+  {
+    question: "El Derecho de extranjería:",
+    options: ["Regula la situación jurídica de los nacionales en el Estado del foro", "Regula la situación jurídica de los no nacionales en el Estado del foro", "No tiene relación con el Derecho internacional privado", "Todas las anteriores son falsas"],
+    answer: 1,
+  },
+  {
+    question: "Las fuentes del Derecho de extranjería en España se clasifican en:",
+    options: ["Supraestatales e internacionales", "Estatales y autonómicas", "Supraestatales y estatales", "Internacionales y autonómicas"],
+    answer: 2,
+  },
+  {
+    question: "El derecho de sufragio activo y pasivo en las elecciones municipales para los extranjeros en España:",
+    options: ["Se reconoce en la Constitución Española", "Se regula por ley ordinaria", "Requiere reciprocidad", "Todas las anteriores son ciertas"],
+    answer: 3,
+  },
+  {
+    question: "La extradición de un extranjero desde España:",
+    options: ["Se puede conceder sin necesidad de un tratado o ley", "Se puede conceder en base a un tratado o ley", "Se puede conceder en base al principio de reciprocidad", "Todas las anteriores son ciertas"],
+    answer: 3,
+  },
+  {
+    question: "El sistema de Derecho internacional privado español:",
+    options: ["Es un conjunto de normas de carácter uniforme", "Es un conjunto de normas de carácter heterogéneo", "Se basa en la primacía del Derecho internacional sobre el Derecho interno", "Se basa en la primacía del Derecho interno sobre el Derecho internacional"],
+    answer: 1,
+  },
+  {
+    question: "Las normas de origen supraestatal en el sistema español de Derecho internacional privado:",
+    options: ["Se integran directamente en el ordenamiento interno", "Se integran a través de los mecanismos previstos en la Constitución Española", "Se integran a través de los mecanismos previstos en la Ley de tratados", "Todas las anteriores son ciertas"],
+    answer: 3,
+  },
+  {
+    question: "El Derecho internacional privado de origen convencional:",
+    options: ["Se basa en la costumbre internacional", "Se basa en los tratados internacionales", "Se basa en la lex mercatoria", "Todas las anteriores son falsas"],
+    answer: 1,
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+  // Añade tus preguntas aquí
+  // { question: "¿Pregunta?", options: ["Opción 1", "Opción 2", "Opción 3"], answer: 0 }
+];
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+window.onload = function() {
+  // Selecciona 10 preguntas aleatorias
+  questions = shuffleArray(questions).slice(0, 10);
+  
+  var quiz = document.getElementById("quiz");
+  
+  for (var i = 0; i < questions.length; i++) {
+    var questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    
+    var questionP = document.createElement("p");
+    questionP.textContent = questions[i].question;
+    questionDiv.appendChild(questionP);
+    
+    var optionsDiv = document.createElement("div");
+    optionsDiv.className = "options";
+    
+    // Aquí se barajan las opciones
+    var shuffledOptions = shuffleArray(questions[i].options.slice());
+    
+    for (var j = 0; j < shuffledOptions.length; j++) {
+      var optionInput = document.createElement("input");
+      optionInput.type = "radio";
+      optionInput.id = "question" + i + "option" + j;
+      optionInput.name = "question" + i;
+      optionInput.value = shuffledOptions[j]; // Añadimos el valor de la opción
+      
+      var optionLabel = document.createElement("label");
+      optionLabel.htmlFor = optionInput.id;
+      optionLabel.textContent = shuffledOptions[j];
+      
+      var correctIndicator = document.createElement("span");
+      correctIndicator.className = "correct";
+      correctIndicator.textContent = " ⬅️";
+      if (shuffledOptions[j] == questions[i].options[questions[i].answer]) {
+        optionLabel.appendChild(correctIndicator);
+      }
+      
+      optionsDiv.appendChild(optionInput);
+      optionsDiv.appendChild(optionLabel);
+      optionsDiv.appendChild(document.createElement("br"));
+    }
+    
+    questionDiv.appendChild(optionsDiv);
+    quiz.appendChild(questionDiv);
+  }
+}
+
+function checkAnswers() {
+  var score = 0;
+  var wrongAnswers = [];
+  
+  for (var i = 0; i < questions.length; i++) {
+    var options = document.getElementsByName("question" + i);
+    var correct = false;
+    
+    for (var j = 0; j < options.length; j++) {
+      if (options[j].checked && options[j].value == questions[i].options[questions[i].answer]) {
+        score++;
+        correct = true;
+      }
+    }
+    
+    if (!correct) {
+      wrongAnswers.push({
+        question: questions[i].question,
+        correctAnswer: questions[i].options[questions[i].answer]
+      });
+    }
+  }
+  
+  alert("Tu puntuación es: " + score + "/" + questions.length);
+  
+  if (wrongAnswers.length > 0) {
+    var message = "Has fallado en las siguientes preguntas:\n";
+    
+    for (var i = 0; i < wrongAnswers.length; i++) {
+      message += "\nPregunta: " + wrongAnswers[i].question;
+      message += "\nRespuesta correcta: " + wrongAnswers[i].correctAnswer + " ⬅️\n";
+    }
+    
+    alert(message);
+  }
+  
+  // Muestra los indicadores de respuesta correcta
+  var correctIndicators = document.getElementsByClassName("correct");
+  for (var i = 0; i < correctIndicators.length; i++) {
+    correctIndicators[i].style.visibility = "visible";
+  }
+}
+</script>
+</head>
+<body>
+<div id="quiz"></div>
+<button onclick="checkAnswers()">Comprobar respuestas</button>
+</body>
+</html>
