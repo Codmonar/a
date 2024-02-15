@@ -1,95 +1,55 @@
-/* Estilo general */
+/*V1.2 */
+
+/* Colores */
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+  background-color: #ffffff;
+  color: #333333;
 }
 
-/* Encabezado del test */
-#titulo {
-  text-align: center;
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-bottom: 20px;
+.titulo {
+  color: #336699;
 }
 
-/* Preguntas */
+.boton {
+  background-color: #009933;
+  color: #ffffff;
+}
+
+/* Tipografía */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.titulo {
+  font-family: "Roboto", serif;
+}
+
+/* Diseño */
 .pregunta {
-  margin-bottom: 20px;
-  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  padding: 10px;
 }
 
-/* Enunciado de la pregunta */
-.pregunta p {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-/* Opciones de respuesta */
 .opciones {
-  margin: 10px 0;
-  padding-left: 20px;
-}
-
-/* Etiquetas de las opciones */
-.opciones label {
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-/* Indicador de respuesta correcta */
-.correct {
-  visibility: hidden;
-  color: green;
-  font-weight: bold;
-  margin-left: 5px;
-}
-
-/* Botón para comprobar respuestas */
-#comprobar {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  font-weight: bold;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #ccc;
-}
-
-/* Resultado del test */
-#resultado {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-#resultado p {
-  font-weight: bold;
-}
-
-/* Lista de preguntas falladas */
-#preguntas-falladas {
-  margin-top: 10px;
   list-style: none;
   padding: 0;
 }
 
-#preguntas-falladas li {
-  margin-bottom: 5px;
+.opciones li {
+  margin: 5px 0;
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-#preguntas-falladas li p {
-  font-weight: normal;
-  margin-bottom: 0;
+/* Interactividad */
+.respuesta-correcta {
+  color: green;
+  font-weight: bold;
 }
 
-#preguntas-falladas li span {
+.respuesta-incorrecta {
+  color: red;
   font-weight: bold;
-  color: green;
 }
