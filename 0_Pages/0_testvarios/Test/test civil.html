@@ -443,6 +443,522 @@ var questions = [
   options: ["Sí, si Inés estaba embarazada en el momento del fallecimiento de Juan", "No, a menos que Inés esté embarazada en el momento del fallecimiento de Juan", "Sí, si Juan dejó un testamento"],
   answer: 1
 },
+  {
+    question: "¿Puede Rafaela dejar un legado en metálico al notario que le ha ayudado con su testamento?",
+    options: ["Sí, sin ningún problema", "No, el notario no puede ser heredero ni legatario", "Sí, pero solo si el legado es inferior a una cantidad determinada", "Sí, pero solo si el notario renuncia a sus honorarios"],
+    answer: 2,
+  },
+  {
+    question: "¿Puede María Luisa desheredar a su hijo porque no la visita con frecuencia?",
+    options: ["Sí, sin ningún problema", "No, solo se puede desheredar por causas específicas", "Sí, pero solo si el hijo es mayor de edad", "Sí, pero solo si el hijo tiene hijos propios"],
+    answer: 1,
+  },
+  {
+    question: "¿Puede el causante rehabilitar al indigno?",
+    options: ["Sí, en cualquier momento", "No, la indignidad es permanente", "Sí, pero solo si el indigno ha pedido perdón", "Sí, pero solo si el indigno ha devuelto los bienes heredados"],
+    answer: 0,
+  },
+  {
+    question: "D. Ambrosio ha nombrado heredera a una asociación no inscrita en el Registro de Asociaciones. ¿Es válida la disposición testamentaria?",
+    options: ["No, la asociación no tiene capacidad jurídica", "Sí, la inscripción en el Registro no es obligatoria", "Sí, pero solo si la asociación se inscribe en el plazo de un año", "Sí, pero solo si la asociación no tiene fines lucrativos"],
+    answer: 1,
+  },
+  {
+    question: "D. Ambrosio también ha nombrado heredera a la Parroquia del Dulce Nombre, cuyo párroco es su director espiritual. ¿Es válida la disposición testamentaria?",
+    options: ["Sí, sin ningún problema", "No, el párroco es incapaz de recibir herencias", "Sí, pero solo si el párroco no ha influido en la decisión del testador", "Sí, pero solo si el párroco renuncia a su cargo"],
+    answer: 2,
+  },
+  {
+    question: "¿Qué pueden hacer los hijos de D. Ambrosio si consideran que no son merecedores de la herencia?",
+    options: ["Impugnar el testamento por indignidad", "Aceptar la herencia y luego renunciar a ella", "Solicitar la reducción de la legítima", "Todas las anteriores son opciones válidas"],
+    answer: 3,
+  },
+  {
+    question: "¿Es necesaria la aprehensión material de los bienes para adquirir la posesión de los mismos?",
+    options: ["Sí, siempre es necesaria", "No, la posesión se adquiere automáticamente por la aceptación de la herencia", "Sí, pero solo en el caso de los bienes muebles", "Sí, pero solo en el caso de los bienes inmuebles"],
+    answer: 1,
+  },
+  {
+    question: "Don Bartolo ha legado 100.000 euros a los Jesuitas, de los que es miembro su amigo y director espiritual. ¿Es válida la disposición testamentaria?",
+    options: ["No, porque el legado es excesivo", "Sí, sin ningún problema", "Sí, pero solo si el legado no supera la cuarta parte de la herencia", "Sí, pero solo si Don Bartolo no tiene hijos ni ascendientes"],
+    answer: 1,
+  },
+  {
+    question: "Don Claudio, albacea testamentario de su tía Doña Rosaura, quiere impugnar el legado de un millón de euros a la congregación religiosa de los Misioneros Oblatos de María Inmaculada. ¿Tiene argumentos para ello?",
+    options: ["Sí, porque la cantidad del legado es excesiva", "Sí, porque el legado se hizo en favor del confesor de Doña Rosaura", "No, porque Doña Rosaura no estaba en el momento de su última enfermedad", "No, porque Doña Rosaura era una persona de profundas convicciones religiosas"],
+    answer: 1,
+  },
+  {
+    question: "¿Qué requisitos deben concurrir para que se aplique la norma del art. 752 del Código Civil?",
+    options: ["Que el testador sea menor de edad", "Que el testador esté incapacitado", "Que el testador se encuentre en el momento de su última enfermedad grave", "Que el heredero sea un familiar del testador"],
+    answer: 2,
+  },
+  {
+    question: "¿Cuándo se produce la apertura de la sucesión?",
+    options: ["En el momento del fallecimiento del causante.", "En el momento de la aceptación de la herencia por parte del heredero.", "En el momento de la inscripción de la defunción en el Registro Civil.", "En el momento de la partición de la herencia."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué se transmite en la sucesión?",
+    options: ["Los bienes, derechos y obligaciones del causante que no se extinguen por su muerte.", "Solo los bienes del causante.", "Solo los derechos del causante.", "Solo las obligaciones del causante."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la conmoriencia?",
+    options: ["La muerte simultánea de dos o más personas.", "La muerte de una persona antes que otra.", "La muerte de una persona después que otra.", "La muerte de una persona sin testamento."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es el certificado de últimas voluntades?",
+    options: ["Un documento que acredita que una persona ha otorgado testamento.", "Un documento que acredita que una persona no ha otorgado testamento.", "Un documento que contiene el contenido del testamento.", "Un documento que acredita la muerte de una persona."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la declaración de herederos abintestato?",
+    options: ["Un documento que declara quiénes son los herederos legales de una persona fallecida.", "Un documento que declara quiénes son los herederos testamentarios de una persona fallecida.", "Un documento que declara que una persona no tiene herederos.", "Un documento que declara que una persona ha fallecido sin testamento."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué diferencia hay entre la sucesión por causa de muerte y la sucesión por declaración de fallecimiento?",
+    options: ["En la sucesión por causa de muerte se produce la apertura de la sucesión en el momento del fallecimiento, mientras que en la sucesión por declaración de fallecimiento se produce en el momento de la declaración de fallecimiento.", "En la sucesión por causa de muerte el heredero adquiere la herencia automáticamente, mientras que en la sucesión por declaración de fallecimiento debe aceptarla.", "En la sucesión por causa de muerte el heredero no puede disponer a título gratuito de lo que obtenga de la sucesión hasta cinco años después del fallecimiento, mientras que en la sucesión por declaración de fallecimiento no existe este límite.", "Todas las anteriores."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es la herencia yacente?",
+    options: ["La herencia que se encuentra en un estado de abandono.", "La herencia que se encuentra en un estado de disputa entre los herederos.", "La herencia que no ha sido aceptada por los herederos.", "La herencia que ha sido aceptada por los herederos pero no ha sido repartida."],
+    answer: 2,
+  },
+  {
+    question: "¿Qué es el derecho de transmisión?",
+    options: ["El derecho del heredero a transmitir la herencia a sus propios herederos.", "El derecho del heredero a renunciar a la herencia.", "El derecho del heredero a aceptar la herencia.", "El derecho del heredero a aumentar su porción hereditaria."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es el derecho de acrecer?",
+    options: ["El derecho del heredero a aumentar su porción hereditaria en caso de que otro heredero renuncie a la herencia.", "El derecho del heredero a disminuir su porción hereditaria.", "El derecho del heredero a renunciar a la herencia.", "El derecho del heredero a aceptar la herencia."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es el derecho de representación?",
+    options: ["El derecho de los descendientes de un heredero premuerto a ocupar el lugar de su ascendiente en la herencia.", "El derecho de los ascendientes de un heredero premuerto a ocupar el lugar de su descendiente en la herencia.", "El derecho del cónyuge viudo a ocupar el lugar del heredero premuerto en la herencia.", "El derecho del heredero a renunciar a la herencia."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué son las fases del proceso sucesorio?",
+    options: [
+      "Son los pasos que se siguen para distribuir los bienes del causante entre sus herederos.",
+      "Son las etapas que se dan en la vida de una persona desde su nacimiento hasta su muerte.",
+      "Son los diferentes tipos de sucesión que pueden darse, como la testamentaria o la intestada.",
+      "Son las situaciones jurídicas que se producen tras la muerte del causante y que regulan la transmisión de sus bienes y derechos."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿En qué momento se produce la apertura de la sucesión?",
+    options: [
+      "En el momento en que se realiza el testamento.",
+      "En el momento en que se acepta la herencia.",
+      "En el momento en que se adjudican los bienes a los herederos.",
+      "En el momento del fallecimiento del causante."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué es la delación de la herencia?",
+    options: [
+      "Es el llamamiento a la herencia que realiza el causante en su testamento.",
+      "Es la aceptación de la herencia por parte del heredero.",
+      "Es la atribución de la herencia al heredero por ley.",
+      "Es la partición de los bienes hereditarios entre los herederos."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Qué es la adquisición de la herencia?",
+    options: [
+      "Es el momento en que el heredero recibe los bienes hereditarios.",
+      "Es el momento en que el heredero manifiesta su voluntad de aceptar la herencia.",
+      "Es el momento en que se consuma la transmisión de la herencia al heredero.",
+      "Es el momento en que se paga el impuesto de sucesiones."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Qué es la herencia yacente?",
+    options: [
+      "Es la herencia que no ha sido aceptada por ningún heredero.",
+      "Es la herencia que está siendo administrada por un albacea.",
+      "Es la herencia que está siendo disputada por los herederos.",
+      "Todas las anteriores son correctas."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué es el derecho de transmisión?",
+    options: [
+      "Es el derecho que tiene el heredero para transmitir la herencia a sus propios herederos.",
+      "Es el derecho que tiene el heredero para renunciar a la herencia.",
+      "Es el derecho que tiene el heredero para aceptar la herencia a beneficio de inventario.",
+      "Es el derecho que tienen los descendientes del heredero premuerto para ocupar su lugar en la herencia."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué es el derecho de acrecer?",
+    options: [
+      "Es el derecho que tiene el heredero para aumentar su porción hereditaria.",
+      "Es el derecho que tiene el heredero para renunciar a la herencia.",
+      "Es el derecho que tiene el heredero para aceptar la herencia a beneficio de inventario.",
+      "Es el derecho que tienen los coherederos para aumentar su participación en la herencia cuando uno de ellos renuncia a la misma."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué es el derecho de representación?",
+    options: [
+      "Es el derecho que tiene el representante del heredero para actuar en su nombre.",
+      "Es el derecho que tiene el heredero para renunciar a la herencia.",
+      "Es el derecho que tiene el heredero para aceptar la herencia a beneficio de inventario.",
+      "Es el derecho que tienen los descendientes del heredero premuerto para ocupar su lugar en la herencia."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué diferencia hay entre la herencia y el legado?",
+    options: [
+      "La herencia es la transmisión de todos los bienes del causante, mientras que el legado es la transmisión de un bien concreto.",
+      "La herencia se transmite por ley, mientras que el legado se transmite por testamento.",
+      "La herencia es universal, mientras que el legado es particular.",
+      "Todas las anteriores son correctas."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué es la vocación a la herencia?",
+    options: ["La obligación de aceptar la herencia.", "El derecho a recibir una parte de la herencia.", "La llamada a ser heredero, que puede ser testamentaria o legal.", "La facultad de renunciar a la herencia."],
+    answer: 2,
+  },
+  {
+    question: "¿En qué se diferencia la vocación de la delación?",
+    options: ["La vocación es la posibilidad de ser heredero, mientras que la delación es el ofrecimiento concreto de la herencia.", "La vocación es el llamamiento a ser heredero, mientras que la delación es la aceptación de la herencia.", "La vocación es la delación en el caso de los herederos testamentarios.", "La vocación es la delación en el caso de los herederos abintestato."],
+    answer: 0,
+  },
+  {
+    question: "¿Cuándo se produce la delación de la herencia?",
+    options: ["En el momento del fallecimiento del causante.", "En el momento de la apertura del testamento.", "En el momento en que el heredero acepta la herencia.", "En el momento en que el heredero renuncia a la herencia."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es el ius delationis?",
+    options: ["El derecho a aceptar o repudiar la herencia.", "El derecho a transmitir la herencia a los propios herederos.", "El derecho a administrar los bienes de la herencia antes de aceptarla.", "El derecho a impugnar el testamento."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué ocurre si el llamado a la herencia no acepta ni repudia la herencia?",
+    options: ["Se le considera como heredero a todos los efectos.", "Se le considera como renunciante a la herencia.", "La herencia pasa a sus herederos.", "La herencia se declara yacente."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es la adquisición de la herencia?",
+    options: ["El momento en que el heredero es llamado a la herencia.", "El momento en que el heredero acepta la herencia.", "El momento en que el heredero recibe los bienes de la herencia.", "El momento en que se produce la partición de la herencia."],
+    answer: 1,
+  },
+  {
+    question: "¿Qué efecto tiene la aceptación de la herencia?",
+    options: ["Se retrotrae al momento de la apertura de la sucesión.", "Se retrotrae al momento de la delación de la herencia.", "Se produce desde el momento de la aceptación.", "No tiene efectos retroactivos."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la comunidad hereditaria?",
+    options: ["La situación que se produce cuando hay varios herederos que aceptan la herencia.", "La situación que se produce cuando hay un único heredero.", "La situación que se produce cuando el heredero renuncia a la herencia.", "La situación que se produce cuando el heredero es incapaz."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la partición de la herencia?",
+    options: ["El proceso por el cual se divide la herencia entre los herederos.", "El proceso por el cual se determina quiénes son los herederos.", "El proceso por el cual se acepta la herencia.", "El proceso por el cual se renuncia a la herencia."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué sistema de adquisición de la herencia se aplica en el Código Civil español?",
+    options: ["El sistema germánico.", "El sistema romano.", "El sistema mixto.", "El sistema anglosajón."],
+    answer: 1,
+  },
+
+  {
+    question: "¿Qué es la vocación hereditaria?",
+    options: ["La obligación de aceptar la herencia.", "La expectativa de ser heredero.", "La transmisión automática de la herencia al heredero.", "La capacidad para suceder al causante."],
+    answer: 1,
+  },
+  {
+    question: "¿En qué se diferencia la vocación de la delación?",
+    options: [
+      "La vocación es la llamada a la herencia, mientras que la delación es el ofrecimiento concreto de la herencia.",
+      "La vocación es un derecho, mientras que la delación es una obligación.",
+      "La vocación se produce en el momento de la muerte del causante, mientras que la delación se produce en un momento posterior.",
+      "Todas las anteriores.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es el ius delationis?",
+    options: [
+      "El derecho a aceptar o repudiar la herencia.",
+      "El derecho a transmitir la herencia a los propios herederos.",
+      "El derecho a administrar los bienes hereditarios antes de aceptarla.",
+      "El derecho a impugnar el testamento.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué sucede si el llamado a la herencia fallece sin aceptarla ni repudiarla?",
+    options: [
+      "La herencia se transmite a sus herederos.",
+      "La herencia se declara vacante.",
+      "La herencia se transmite al Estado.",
+      "La herencia se transmite al cónyuge del causante.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué sistema de adquisición de la herencia se aplica en el Código Civil español?",
+    options: ["El sistema romano.", "El sistema germánico.", "Un sistema mixto.", "Ninguno de los anteriores."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué significa que la aceptación de la herencia tenga efecto retroactivo?",
+    options: [
+      "Que el heredero se convierte en titular de la herencia desde el momento de la muerte del causante.",
+      "Que el heredero puede renunciar a la herencia después de haberla aceptado.",
+      "Que el heredero puede aceptar la herencia en un plazo de 10 años desde la muerte del causante.",
+      "Que el heredero debe pagar las deudas del causante con su propio patrimonio.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la comunidad hereditaria?",
+    options: [
+      "La situación jurídica que se crea cuando hay varios herederos.",
+      "El conjunto de bienes que forman parte de la herencia.",
+      "El derecho del heredero a aceptar o repudiar la herencia.",
+      "El derecho del heredero a impugnar el testamento.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la partición de la herencia?",
+    options: [
+      "El proceso por el cual se divide la herencia entre los herederos.",
+      "El acuerdo entre los herederos sobre cómo se repartirá la herencia.",
+      "La decisión del juez sobre cómo se repartirá la herencia.",
+      "El derecho del heredero a recibir una parte de la herencia.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Qué sucede si los herederos no se ponen de acuerdo sobre la partición de la herencia?",
+    options: [
+      "Se puede acudir a un juez para que la resuelva.",
+      "Se puede realizar una partición extrajudicial.",
+      "Se puede vender la herencia y repartir el dinero entre los herederos.",
+      "Todas las anteriores.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es la colación?",
+    options: [
+      "La obligación de los herederos de traer a la herencia las donaciones que recibieron del causante en vida.",
+      "La obligación de los herederos de pagar las deudas del causante.",
+      "El derecho del heredero a recibir una parte de la herencia.",
+      "El derecho del heredero a impugnar el testamento.",
+    ],
+    answer: 0,
+  },
+
+  {
+    question: "¿Qué es el derecho de transmisión o ius transmissionis?",
+    options: [
+      "El derecho del transmitente a aceptar o repudiar la herencia del causante.",
+      "El derecho del transmisario a aceptar o repudiar la herencia del transmitente.",
+      "El derecho del transmisario a aceptar o repudiar la herencia del causante, en caso de que el transmitente no lo haya hecho.",
+      "El derecho del causante a modificar su testamento después de la muerte del transmitente."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Cuándo se produce el derecho de transmisión?",
+    options: [
+      "Cuando el transmitente fallece antes que el causante.",
+      "Cuando el transmitente repudia la herencia del causante.",
+      "Cuando el transmitente no acepta ni repudia la herencia del causante en el plazo legal.",
+      "Cuando el transmisario repudia la herencia del transmitente."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Quiénes pueden ser transmisarios?",
+    options: [
+      "Los hijos del transmitente.",
+      "Los padres del transmitente.",
+      "Los cónyuges del transmitente.",
+      "Todos los herederos del transmitente."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué requisitos debe cumplir el transmisario para poder ejercer el derecho de transmisión?",
+    options: [
+      "Haber sido nombrado heredero del transmitente.",
+      "Haber aceptado la herencia del transmitente.",
+      "Tener capacidad para suceder al causante.",
+      "Todas las anteriores."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué efectos produce la aceptación de la herencia del transmitente por parte del transmisario?",
+    options: [
+      "El transmisario adquiere la herencia del transmitente.",
+      "El transmisario adquiere el ius delationis del transmitente.",
+      "El transmisario puede aceptar o repudiar la herencia del causante.",
+      "Todas las anteriores."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Qué sucede si el transmisario repudia la herencia del transmitente?",
+    options: [
+      "No se produce el derecho de transmisión.",
+      "El ius delationis del transmitente se extingue.",
+      "Los demás herederos del transmitente pueden aceptar la herencia del causante.",
+      "Todas las anteriores."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿El derecho de transmisión se aplica a la sucesión testada e intestada?",
+    options: [
+      "Sí, se aplica a ambas.",
+      "No, solo se aplica a la sucesión testada.",
+      "No, solo se aplica a la sucesión intestada.",
+      "No se aplica a ninguna de las dos."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿El derecho de transmisión se aplica a los legados?",
+    options: [
+      "Sí, se aplica también a los legados.",
+      "No, no se aplica a los legados.",
+      "Solo se aplica a los legados específicos.",
+      "Solo se aplica a los legados de usufructo."
+    ],
+    answer: 1
+  },
+  {
+    question: "¿Cuál es la doctrina del Tribunal Supremo sobre el derecho de transmisión?",
+    options: [
+      "El transmisario es sucesor directo del causante.",
+      "El transmisario es sucesor del causante a través del transmitente.",
+      "El transmisario no es sucesor ni del causante ni del transmitente.",
+      "No existe una doctrina del Tribunal Supremo sobre el derecho de transmisión."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Qué es la eficacia directa del ius transmissionis?",
+    options: [
+      "La capacidad del transmisario para aceptar la herencia del transmitente.",
+      "La capacidad del transmisario para aceptar la herencia del causante.",
+      "La obligación del transmisario de aceptar la herencia del causante.",
+      "La posibilidad de que el transmisario sea considerado indigno para suceder al causante."
+    ],
+    answer: 1
+  },
+
+  {
+    question: "¿Qué es el derecho de transmisión (o ius transmissionis)?",
+    options: [
+      "La facultad de un heredero de aceptar o repudiar la herencia de un transmitente.",
+      "La obligación de un heredero de pagar las deudas del transmitente.",
+      "El derecho que tienen los hijos del transmitente de recibir la herencia en caso de que este fallezca.",
+      "El derecho que tienen los herederos del transmitente de aceptar o repudiar la herencia de un primer causante, cuando el transmitente no llegó a hacerlo."
+    ],
+    answer: 3
+  },
+  {
+    question: "¿Quiénes son los sujetos que intervienen en el derecho de transmisión?",
+    options: [
+      "El causante, el transmitente y el transmisario.",
+      "El testador, el legatario y el heredero.",
+      "El donante, el donatario y el usufructuario.",
+      "El fiador, el acreedor y el deudor."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Qué requisitos se deben cumplir para que opere el derecho de transmisión?",
+    options: [
+      "Que el transmitente haya fallecido antes que el causante.",
+      "Que el transmitente haya aceptado la herencia del causante.",
+      "Que el transmisario haya aceptado la herencia del transmitente.",
+      "Que el transmitente haya dejado un testamento."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿En qué consiste la teoría clásica de la doble transmisión?",
+    options: [
+      "En que el transmisario hereda al transmitente y al causante en dos sucesiones independientes.",
+      "En que el transmisario hereda al transmitente y al causante en una sola sucesión.",
+      "En que el transmisario solo hereda al transmitente.",
+      "En que el transmisario solo hereda al causante."
+    ],
+    answer: 0
+  },
+  {
+    question: "¿Cuál es la doctrina actual del Tribunal Supremo sobre el derecho de transmisión?",
+    options: [
+      "La teoría clásica de la doble transmisión.",
+      "La teoría moderna de la transmisión única.",
+      "La teoría del ius delationis.",
+      "La teoría del ius hereditatis."
+    ],
+    answer: 1
+  },
+  {
+    question: "¿Cuándo se aplica el derecho de transmisión?",
+    options: [
+      "Solo en la sucesión testada.",
+      "Solo en la sucesión intestada.",
+      "Tanto en la sucesión testada como en la intestada.",
+      "Ni en la sucesión testada ni en la intestada."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Qué ocurre con los legados en el derecho de transmisión?",
+    options: [
+      "Se transmiten a los herederos del transmitente.",
+      "Se extinguen si el legatario fallece antes que el causante.",
+      "Se adquieren automáticamente por el legatario, sin necesidad de aceptación.",
+      "Se convierten en herencia y se transmiten a los herederos del legatario."
+    ],
+    answer: 2
+  },
+  {
+    question: "¿Cuál es la diferencia entre el ius delationis y el ius transmissionis?",
+    options: [
+      "El ius delationis es el derecho a aceptar o repudiar la herencia, mientras que el ius transmissionis es el derecho a transmitir ese derecho a los herederos.",
+      "El ius delationis es el derecho a recibir la herencia, mientras que el ius transmissionis es el derecho a transmitir esa herencia a los herederos.",
+      "El ius delationis es el derecho del transmitente a aceptar o repudiar la herencia del causante, mientras que el ius transmissionis es el derecho del transmisario a aceptar o repudiar la herencia del transmitente.",
+      "El ius delationis es el derecho del transmisario a aceptar o repudiar la herencia del causante, mientras que el ius transmissionis es el derecho del transmitente a recibir la herencia del causante."
+    ],
+    answer: 2
+  },
+
+
+
 
 
 
