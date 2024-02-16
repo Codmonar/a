@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8”>
+<meta name=“Test” content=“Tipo test aleatorio”>
+<title>Test +name</title>
+
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.question {
+  margin: 20px 0;
+}
+.options {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.correct {
+  visibility: hidden;
+}
+</style>
+<script>
+// Array de preguntas
+var questions = [
+
+
+  {
+    question: "¿Cuál de las siguientes afirmaciones sobre el procedimiento como garantía en el Derecho Financiero y Tributario es INCORRECTA?",
+    options: ["El procedimiento es un mecanismo de control que impide la arbitrariedad de la Administración.", "El procedimiento no tiene utilidad si no puede ser aplicado a través de un acto administrativo.", "La actuación de la administración puede representar una carga para los contribuyentes.", "El procedimiento es un instrumento de garantía de los derechos de los contribuyentes."],
+    answer: 1,
+  },
+  {
+    question: "¿De acuerdo con la STC 76/1990, qué requisitos debe cumplir la «eficaz actividad de inspección y comprobación»?",
+    options: ["Ser justa y equitativa.", "Estar condicionada por principios y derechos constitucionales.", "Ser realizada por personal especializado.", "Todas las anteriores."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué son las «fuentes de los procedimientos» en el ámbito del Derecho Financiero y Tributario?",
+    options: ["Las leyes tributarias y sus reglamentos de desarrollo.", "La Constitución Española.", "La jurisprudencia del Tribunal Supremo.", "Todas las anteriores."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué opciones se contemplan dentro de la «gestión» en los procedimientos tributarios?",
+    options: ["La información y asistencia a los obligados tributarios.", "La verificación de datos.", "La comprobación de valores.", "Todas las anteriores."],
+    answer: 3,
+  },
+  {
+    question: "¿Cuál es la diferencia entre una «comprobación limitada» y una «inspección» en el ámbito tributario?",
+    options: ["La comprobación limitada es un procedimiento más extenso que la inspección.", "La inspección es un procedimiento más extenso que la comprobación limitada.", "La comprobación limitada se realiza sobre la base de la información proporcionada por el contribuyente, mientras que la inspección puede ser más profunda.", "No existe diferencia entre ambas."],
+    answer: 2,
+  },
+  {
+    question: "¿Quién es responsable de la administración tributaria y la aplicación de los tributos en el Estado central?",
+    options: ["El Ministerio de Hacienda.", "La Agencia Estatal de Administración Tributaria (AEAT).", "Ambas, el Ministerio de Hacienda y la AEAT.", "Las Comunidades Autónomas."],
+    answer: 2,
+  },
+  {
+    question: "¿Qué se entiende por «normas comunes» en la aplicación de los tributos?",
+    options: ["Las normas que regulan la gestión, inspección y recaudación de los tributos.", "Las normas que regulan la información y asistencia a los obligados tributarios.", "Las normas que regulan la colaboración social en la aplicación de los tributos.", "Todas las anteriores."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué tipos de actuaciones de información y asistencia a los obligados tributarios se contemplan en la LGT?",
+    options: ["La publicación de normas tributarias actualizadas.", "Las respuestas a consultas escritas.", "La asistencia a los obligados en la realización de declaraciones.", "Todas las anteriores."],
+    answer: 3,
+  },
+  {
+    question: "¿Dónde se puede consultar la doctrina administrativa más relevante en materia tributaria?",
+    options: ["En el Boletín Oficial del Estado (BOE).", "En la página web del Ministerio de Hacienda.", "En la página web de la AEAT.", "En todas las anteriores."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué consecuencias tiene el incumplimiento por parte de la Administración de la obligación de publicar la doctrina administrativa más relevante?",
+    options: ["La nulidad de los actos administrativos dictados en contravención a la doctrina administrativa.", "La responsabilidad patrimonial de la Administración por los daños causados a los contribuyentes.", "La sanción económica a la Administración.", "Ninguna."],
+    answer: 3,
+  },
+  {
+    question: "¿Cuál de las siguientes NO es una fuente de los procedimientos tributarios?",
+    options: ["Ley General Tributaria (LGT)", "Reglamentos de desarrollo de la LGT", "Jurisprudencia del Tribunal Supremo", "Normas de la Unión Europea"],
+    answer: 2,
+  },
+  {
+    question: "¿Qué NO es un deber de la Administración Tributaria en materia de información y asistencia a los obligados tributarios?",
+    options: ["Publicar textos actualizados de las normas tributarias", "Contestar a consultas escritas", "Realizar inspecciones a los contribuyentes", "Asistir a los obligados en la realización de declaraciones"],
+    answer: 2,
+  },
+  {
+    question: "¿Cuál es el plazo máximo para que la Administración Tributaria publique las contestaciones a consultas y las resoluciones económico-administrativas de mayor trascendencia?",
+    options: ["1 mes", "3 meses", "6 meses", "1 año"],
+    answer: 1,
+  },
+  {
+    question: "¿Qué información NO debe incluir una solicitud de información por escrito dirigida a la Administración Tributaria?",
+    options: ["Nombre y apellidos o razón social del solicitante", "Número de identificación fiscal (NIF) del solicitante", "Domicilio fiscal del solicitante", "Derecho u obligación tributaria sobre la que se solicita información"],
+    answer: 2,
+  },
+  {
+    question: "¿Qué NO es un mecanismo de control que limita la discrecionalidad de la Administración Tributaria en la aplicación de los tributos?",
+    options: ["El procedimiento administrativo", "La Ley General Tributaria", "La jurisprudencia del Tribunal Supremo", "La Constitución Española"],
+    answer: 3,
+  },
+  {
+    question: "¿Cuál de los siguientes NO es un principio fundamental del procedimiento administrativo tributario?",
+    options: ["Legalidad", "Imparcialidad", "Transparencia", "Eficacia"],
+    answer: 3,
+  },
+  {
+    question: "¿Qué NO es un derecho de los obligados tributarios en el procedimiento administrativo tributario?",
+    options: ["Ser informado de los hechos y fundamentos de los actos administrativos", "Formular alegaciones y presentar pruebas", "Obtener una resolución expresa en plazo", "Recurrir los actos administrativos"],
+    answer: 2,
+  },
+  {
+    question: "¿En qué consiste la 'comprobación limitada' en el ámbito de la gestión tributaria?",
+    options: ["Una simple revisión de la documentación del contribuyente", "Una inspección completa del contribuyente", "Un procedimiento para regularizar la situación tributaria del contribuyente", "Un procedimiento para determinar la deuda tributaria del contribuyente"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es el 'deber de asistencia' de la Administración Tributaria?",
+    options: ["La obligación de la Administración de informar y asistir a los contribuyentes en el cumplimiento de sus obligaciones tributarias", "La obligación de la Administración de realizar inspecciones a los contribuyentes", "La obligación de la Administración de recaudar los tributos", "La obligación de la Administración de resolver las reclamaciones de los contribuyentes"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la 'colaboración social' en la aplicación de los tributos?",
+    options: ["La participación de los ciudadanos en la elaboración de las normas tributarias", "La obligación de los ciudadanos de pagar los tributos", "La obligación de los ciudadanos de colaborar con la Administración Tributaria en la lucha contra el fraude fiscal", "La obligación de los ciudadanos de presentar declaraciones tributarias"],
+    answer: 2,
+  },
+  {
+    question: "¿La respuesta a una consulta tributaria escrita tiene efectos vinculantes para la Administración tributaria?",
+    options: ["Sí", "No", "Depende"],
+    answer: 1,
+  },
+  {
+    question: "¿La información previa a la adquisición o transmisión de inmuebles se puede solicitar para cualquier tipo de bien?",
+    options: ["Sí", "No", "Solo para inmuebles urbanos"],
+    answer: 1,
+  },
+  {
+    question: "¿Las comunicaciones y actuaciones de información de la Administración tributaria son obligatorias para la Administración?",
+    options: ["Sí", "No", "Depende del caso"],
+    answer: 1,
+  },
+  {
+    question: "¿En las solicitudes de información a la Administración tributaria, la falta de respuesta de la Administración implica la aceptación de la solicitud?",
+    options: ["Sí", "No", "Depende del plazo"],
+    answer: 1,
+  },
+  {
+    question: "¿Las publicaciones de textos normativos y de doctrina administrativa se realizan en el Boletín Oficial del Estado?",
+    options: ["Sí", "No", "En la página web del Ministerio de Hacienda"],
+    answer: 0,
+  },
+  {
+    question: "¿La asistencia a los obligados tributarios en la realización de las declaraciones, autoliquidaciones y comunicaciones tributarias es una función de la Administración tributaria?",
+    options: ["Sí", "No", "Solo para las declaraciones"],
+    answer: 0,
+  },
+  {
+    question: "¿Los criterios administrativos existentes para la aplicación de la normativa tributaria son públicos?",
+    options: ["Sí", "No", "Solo para los funcionarios de la Administración"],
+    answer: 0,
+  },
+  {
+    question: "¿Las actuaciones previas de valoración son vinculantes para la Administración tributaria?",
+    options: ["Sí", "No", "Depende del caso"],
+    answer: 1,
+  },
+  {
+    question: "¿La falta de respuesta a una solicitud de información por parte de la Administración tributaria es un acto administrativo recurrible?",
+    options: ["Sí", "No", "Depende del plazo"],
+    answer: 1,
+  },
+  {
+    question: "¿La información suministrada por la Administración tributaria en las actuaciones de información es siempre completa y exacta?",
+    options: ["Sí", "No", "Depende del caso"],
+    answer: 1,
+  },
+  {
+    question: "¿Cuál de las siguientes NO es una actuación de información de la Administración tributaria?",
+    options: ["Publicación de textos normativos y de doctrina administrativa", "Contestación a consultas escritas", "Asistencia a los obligados en la realización de declaraciones, autoliquidaciones y comunicaciones", "Tramitación de expedientes sancionadores"],
+    answer: 3,
+  },
+  {
+    question: "La respuesta a una consulta escrita por parte de la Administración tributaria:",
+    options: ["Es vinculante para la Administración en la aplicación del tributo", "Es recurrible por el interesado", "Tiene efectos durante un plazo de 3 meses", "Interfiere en los plazos para el cumplimiento de las obligaciones tributarias"],
+    answer: 2,
+  },
+  {
+    question: "La información previa a la adquisición o transmisión de inmuebles:",
+    options: ["Se puede solicitar en cualquier momento", "Es vinculante para la Administración durante un plazo de 3 meses", "Impide la posterior comprobación administrativa", "Se puede recurrir por el interesado"],
+    answer: 1,
+  },
+  {
+    question: "La falta de respuesta a una solicitud de información por parte de la Administración tributaria:",
+    options: ["Implica la aceptación del criterio del interesado", "No tiene ninguna consecuencia", "Obliga al interesado a presentar una nueva solicitud", "Permite al interesado iniciar un procedimiento de reclamación"],
+    answer: 1,
+  },
+  {
+    question: "Las actuaciones de información de la Administración tributaria se pueden realizar:",
+    options: ["De forma presencial", "Por medios electrónicos, informáticos y telemáticos", "Únicamente por escrito", "Mediante comparecencia personal ante la Administración"],
+    answer: 1,
+  },
+  {
+    question: "Las comunicaciones y actuaciones de información de la Administración tributaria:",
+    options: ["Son recurribles por el interesado", "No tienen efectos vinculantes para la Administración", "Constituyen una interpretación vinculante de la norma a efectos sancionadores", "Se limitan a la información sobre los tributos estatales"],
+    answer: 1,
+  },
+  {
+    question: "La asistencia a los obligados tributarios en la realización de las declaraciones, autoliquidaciones y comunicaciones incluye:",
+    options: ["La elaboración de las declaraciones por parte de la Administración", "La facilitación de formularios y modelos oficiales", "La representación del interesado ante la Administración", "La resolución de dudas sobre la aplicación de la normativa tributaria"],
+    answer: 1,
+  },
+  {
+    question: "El acceso a través de internet a las publicaciones de la Administración tributaria:",
+    options: ["Es gratuito", "Requiere la solicitud de una clave de acceso", "Está limitado a los contribuyentes con certificado digital", "Se realiza mediante una plataforma de pago"],
+    answer: 0,
+  },
+  {
+    question: "La obligación de publicar las contestaciones a consultas y las resoluciones económico-administrativas de mayor trascendencia corresponde a:",
+    options: ["El Ministerio de Hacienda", "Las comunidades autónomas", "Los ayuntamientos", "La Agencia Tributaria"],
+    answer: 0,
+  },
+  {
+    question: "Los órganos de la Administración tributaria encargados de la aplicación de los tributos:",
+    options: ["Deben aplicar los criterios contenidos en las consultas tributarias escritas a cualquier obligado en idéntica situación", "Pueden discrepar de los criterios contenidos en las consultas tributarias escritas", "No están obligados a dar respuesta a las consultas tributarias escritas", "Solo están obligados a dar respuesta a las consultas tributarias escritas de los grandes contribuyentes"],
+    answer: 0,
+  },
+
+  {
+    question: "¿En qué casos se puede solicitar un acuerdo previo de valoración a la Administración Tributaria?",
+    options: ["Cuando la ley o el reglamento del tributo lo prevea", "Cuando el contribuyente lo desee", "Cuando la cuantía de la operación sea superior a 100.000 euros", "Solo en caso de operaciones vinculadas"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué plazo tiene la Administración Tributaria para resolver una solicitud de acuerdo previo de valoración?",
+    options: ["6 meses", "3 meses", "1 año", "El plazo que se determine reglamentariamente"],
+    answer: 3,
+  },
+  {
+    question: "¿Qué efectos tiene la falta de contestación de la Administración Tributaria a una solicitud de acuerdo previo de valoración?",
+    options: ["Se acepta la propuesta de valoración del contribuyente", "Se deniega la solicitud de acuerdo previo de valoración", "Se inicia un procedimiento de comprobación", "No tiene ningún efecto"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la asistencia en la realización de las declaraciones y autoliquidaciones?",
+    options: ["Un conjunto de actuaciones que la Administración pone a disposición de los obligados tributarios para facilitar el cumplimiento de sus obligaciones", "Un servicio de atención al contribuyente", "Un programa informático para la confección de declaraciones", "Un servicio de asesoramiento fiscal"],
+    answer: 0,
+  },
+  {
+    question: "¿Quién puede solicitar la asistencia en la realización de las declaraciones y autoliquidaciones?",
+    options: ["Cualquier persona física o jurídica", "Solo los contribuyentes que sean personas físicas", "Solo los contribuyentes que sean personas jurídicas", "Solo los contribuyentes que tengan un volumen de negocio superior a 1 millón de euros"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la colaboración social en la aplicación de los tributos?",
+    options: ["La obligación de los ciudadanos de pagar impuestos", "La participación de los ciudadanos en la gestión de los tributos", "La colaboración de las empresas con la Administración Tributaria", "La colaboración de las Administraciones Públicas con la Agencia Tributaria"],
+    answer: 1,
+  },
+  {
+    question: "¿Qué formas de colaboración social en la aplicación de los tributos existen?",
+    options: ["La firma de acuerdos con la Administración Tributaria", "La presentación de declaraciones y autoliquidaciones", "La asistencia en la realización de las declaraciones y autoliquidaciones", "Todas las anteriores"],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es el deber de información por terceros?",
+    options: ["La obligación de los ciudadanos de informar a la Administración Tributaria de sus ingresos y gastos", "La obligación de las empresas de informar a la Administración Tributaria de las operaciones que realizan con sus clientes", "La obligación de las Administraciones Públicas de informar a la Administración Tributaria de los datos de que disponen", "Todas las anteriores"],
+    answer: 1,
+  },
+  {
+    question: "¿Qué límites existen al deber de información por terceros?",
+    options: ["El secreto bancario", "El derecho a la intimidad", "El secreto de la correspondencia", "Todos los anteriores"],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es la publicación de situaciones de incumplimiento relevante de obligaciones tributarias?",
+    options: ["La publicación de una lista de los contribuyentes que no han pagado sus impuestos", "La publicación de una lista de los contribuyentes que tienen deudas con la Administración Tributaria", "La publicación de una lista de los contribuyentes que han cometido un delito fiscal", "Todas las anteriores"],
+    answer: 1,
+  },
+  {
+    question: "¿Qué son los Acuerdos previos de valoración?",
+    options: [
+      "Un acuerdo entre dos o más contribuyentes para fijar el valor de un bien o servicio.",
+      "Un acuerdo entre un contribuyente y la Administración tributaria para determinar el valor de un bien o servicio a efectos fiscales.",
+      "Un acuerdo entre la Administración tributaria y las Comunidades Autónomas para fijar el valor de un bien o servicio.",
+      "Un acuerdo entre la Administración tributaria y los Ayuntamientos para fijar el valor de un bien o servicio.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "¿En qué casos se puede solicitar un Acuerdo previo de valoración?",
+    options: [
+      "Cuando el contribuyente lo desee.",
+      "Cuando la ley o el reglamento del tributo lo prevea.",
+      "Cuando el valor del bien o servicio sea superior a 100.000 euros.",
+      "Cuando el valor del bien o servicio sea inferior a 10.000 euros.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "¿Qué efectos tiene un Acuerdo previo de valoración?",
+    options: [
+      "Vincula a la Administración tributaria durante un plazo de 3 años.",
+      "Vincula al contribuyente durante un plazo de 3 años.",
+      "Es susceptible de recurso administrativo.",
+      "No es susceptible de recurso administrativo.",
+    ],
+    answer: 0,
+  },
+  {
+    question: "¿Cuáles son las ventajas de los Acuerdos previos de valoración?",
+    options: [
+      "Seguridad jurídica para el contribuyente.",
+      "Agilidad en la tramitación de los expedientes.",
+      "Reducción de la litigiosidad.",
+      "Todas las anteriores.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "¿Cuáles son los inconvenientes de los Acuerdos previos de valoración?",
+    options: [
+      "Pérdida de flexibilidad para la Administración tributaria.",
+      "Dificultad para la actualización de los valores.",
+      "Posible riesgo de abuso por parte de los contribuyentes.",
+      "Todas las anteriores.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "Acuerdos previos de valoración:",
+    options: [
+      "Solo son posibles para impuestos cedidos a las Comunidades Autónomas.",
+      "No tienen efectos vinculantes para la Administración.",
+      "Se pueden solicitar antes o después de la realización del hecho imponible.",
+      "Su plazo de vigencia máximo es de 5 años.",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Asistencia en la realización de declaraciones:",
+    options: [
+      "La Administración tributaria no está obligada a ofrecerla.",
+      "Se limita a la confección de borradores de declaración.",
+      "No incluye la asistencia en la cumplimentación de autoliquidaciones.",
+      "Puede realizarse a través de programas informáticos como PADRE o SURPAC.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "Colaboración social en la aplicación de los tributos:",
+    options: [
+      "No se extiende a los grandes contribuyentes.",
+      "Se limita a la información proporcionada por los retenedores.",
+      "No implica la obligación de los profesionales de facilitar información.",
+      "Se basa en el deber de contribuir y la transparencia.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "Deber de información por terceros:",
+    options: [
+      "No se aplica a las entidades bancarias.",
+      "Se limita a los datos relacionados con el pago de impuestos.",
+      "No puede ser objeto de requerimiento individualizado.",
+      "No afecta al secreto del protocolo notarial.",
+    ],
+    answer: 3,
+  },
+  {
+    question: "Publicación de situaciones de incumplimiento relevante:",
+    options: [
+      "Se aplica a deudas inferiores a 1.000 euros.",
+      "Incluye las deudas y sanciones aplazadas o suspendidas.",
+      "Se realiza en la página web de la AEAT y en las de las Comunidades Autónomas.",
+      "No permite la publicación de sentencias por delitos contra la Hacienda Pública.",
+    ],
+    answer: 1,
+  },
+  {
+    question: "¿En qué casos se puede iniciar un procedimiento tributario de oficio?",
+    options: ["Por acuerdo del órgano competente", "Como consecuencia de una orden superior", "A petición razonada de otros órganos", "Todas las anteriores"],
+    answer: 3,
+  },
+  {
+    question: "¿Qué NO es un derecho del obligado tributario en un procedimiento tributario?",
+    options: ["Rehusar la entrega de documentos no exigibles por la normativa", "Obtener copia de los documentos del expediente", "Solicitar la ampliación del plazo para la cumplimentación de trámites", "Presentar alegaciones y pruebas después de la propuesta de liquidación"],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es un acta con acuerdo?",
+    options: ["Un documento que se firma entre la Administración y el obligado tributario para dar por terminado un procedimiento tributario", "Un documento que se firma entre la Administración y el obligado tributario para iniciar un procedimiento tributario", "Un documento que se firma entre la Administración y el obligado tributario para regularizar la situación tributaria del obligado tributario", "Un documento que se firma entre la Administración y el obligado tributario para solicitar la devolución de un impuesto"],
+    answer: 0,
+  },
+  {
+    question: "¿En qué casos se puede prescindir del trámite de audiencia en un procedimiento tributario?",
+    options: ["Cuando se suscriban actas con acuerdo", "Cuando en las normas reguladoras del procedimiento esté previsto un trámite de alegaciones posterior a la propuesta de resolución", "Cuando no figuren en el procedimiento ni sean tenidos en cuenta en la resolución otros hechos, alegaciones y pruebas que las presentadas por el obligado tributario", "Todas las anteriores"],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es una diligencia?",
+    options: ["Un documento público que se extiende para hacer constar hechos, así como las manifestaciones del obligado tributario", "Un documento que se utiliza para notificar al obligado tributario el inicio del procedimiento", "Un documento que se utiliza para requerir al obligado tributario la presentación de documentos", "Un documento que se utiliza para proponer una liquidación tributaria"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es un informe?",
+    options: ["Un documento de naturaleza argumentativa que se emite de oficio o a petición de otros órganos", "Un documento que se utiliza para notificar al obligado tributario el inicio del procedimiento", "Un documento que se utiliza para requerir al obligado tributario la presentación de documentos", "Un documento que se utiliza para proponer una liquidación tributaria"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la notificación?",
+    options: ["El acto por el que se comunica al interesado el contenido de un acto administrativo", "Un documento que se utiliza para iniciar un procedimiento tributario", "Un documento que se utiliza para requerir al obligado tributario la presentación de documentos", "Un documento que se utiliza para proponer una liquidación tributaria"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la liquidación tributaria?",
+    options: ["Un acto administrativo que determina la cantidad de tributo que debe pagar el obligado tributario", "Un documento que se utiliza para iniciar un procedimiento tributario", "Un documento que se utiliza para requerir al obligado tributario la presentación de documentos", "Un documento que se utiliza para notificar al obligado tributario el inicio del procedimiento"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la recaudación tributaria?",
+    options: ["La actividad administrativa que tiene por objeto la obtención de los ingresos tributarios", "Un documento que se utiliza para iniciar un procedimiento tributario", "Un documento que se utiliza para requerir al obligado tributario la presentación de documentos", "Un documento que se utiliza para proponer una liquidación tributaria"],
+    answer: 0,
+  },
+  {
+    question: "¿Qué son los recursos administrativos?",
+    options: ["Los medios que tienen los obligados tributarios para impugnar los actos administrativos tributarios", "Un documento que se utiliza para iniciar un procedimiento tributario", "Un documento que se utiliza para requerir al obligado tributario la presentación de documentos", "Un documento que se utiliza para proponer una liquidación tributaria"],
+    answer: 0,
+  },
+  {
+    question: "¿Cuál de las siguientes afirmaciones sobre la iniciación de oficio de los procedimientos tributarios es INCORRECTA?",
+    options: ["Puede ser por acuerdo del órgano competente.", "Puede ser por orden superior.", "Puede ser a petición razonada de otros órganos.", "Las autoliquidaciones presentadas después del inicio se consideran espontáneas."],
+    answer: 3,
+  },
+  {
+    question: "En la iniciación a instancia del obligado tributario, ¿qué NO es un medio previsto en la normativa tributaria?",
+    options: ["Autoliquidación.", "Declaración.", "Comunicación de datos.", "Solicitud de aplazamiento de pago de impuestos."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué NO es un derecho del obligado tributario en la tramitación de las actuaciones y procedimientos tributarios?",
+    options: ["Rehusar la entrega de documentos no exigibles.", "Obtener copia de los documentos del expediente.", "Acceder a los registros y documentos de un expediente en curso.", "Solicitar la ampliación del plazo para la cumplimentación de trámites."],
+    answer: 2,
+  },
+  {
+    question: "¿Qué NO es un tipo de documento en el que se documentan las actuaciones de la Administración tributaria?",
+    options: ["Comunicaciones.", "Diligencias.", "Informes.", "Actas de inspección levantadas por la Agencia Tributaria."],
+    answer: 3,
+  },
+  {
+    question: "¿En qué caso **NO** se puede prescindir del trámite de audiencia previo a la propuesta de resolución?",
+    options: ["Cuando se suscriban actas con acuerdo.", "Cuando esté previsto un trámite de alegaciones posterior a la propuesta de resolución.", "Cuando no figuren en el procedimiento otros hechos, alegaciones y pruebas que las presentadas por el obligado tributario.", "Cuando el obligado tributario no renuncie expresamente a este trámite."],
+    answer: 3,
+  },
+  {
+    question: "En el trámite de audiencia, el obligado tributario tiene derecho a:",
+    options: ["Que se incorporen al expediente las alegaciones y otros documentos presentados por él.", "Obtener copia de los documentos del expediente.", "Aportar nuevos documentos y justificantes.", "Todas las anteriores."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué **NO** es un motivo por el que se puede prescindir del trámite de audiencia previo a la propuesta de resolución?",
+    options: ["Cuando se suscriban actas con acuerdo.", "Cuando el obligado tributario lo solicite.", "Cuando esté previsto un trámite de alegaciones posterior a la propuesta de resolución.", "Cuando no figuren en el procedimiento otros hechos, alegaciones y pruebas que las presentadas por el obligado tributario."],
+    answer: 1,
+  },
+  {
+    question: "¿Cuál es el plazo mínimo para el trámite de alegaciones?",
+    options: ["5 días.", "10 días.", "15 días.", "20 días."],
+    answer: 1,
+  },
+  {
+    question: "¿Qué NO es un efecto de la presentación de una solicitud de ampliación del plazo para la cumplimentación de trámites?",
+    options: ["Interrumpe el plazo de prescripción.", "Suspende el procedimiento.", "Impide la práctica de liquidaciones provisionales.", "Obliga a la Administración a resolver en el plazo solicitado."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué NO es un recurso administrativo contra la resolución del procedimiento tributario?",
+    options: ["Reclamación económico-administrativa.", "Reposición.", "Reclamación ante el Tribunal Económico-Administrativo Central.", "Apelación ante la Audiencia Nacional"],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es la liquidación tributaria?",
+    options: ["Un acto administrativo que determina el importe de la deuda tributaria.", "Un documento que informa al contribuyente sobre sus obligaciones tributarias.", "Un procedimiento para regularizar la situación tributaria del contribuyente.", "Un pago que realiza el contribuyente a la Administración Tributaria."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué diferencia hay entre una liquidación provisional y una definitiva?",
+    options: ["La provisional se puede modificar, mientras que la definitiva no.", "La provisional se basa en datos estimados, mientras que la definitiva se basa en datos reales.", "La provisional es emitida por la Administración Tributaria, mientras que la definitiva es emitida por el contribuyente.", "La provisional es obligatoria, mientras que la definitiva es opcional."],
+    answer: 1,
+  },
+  {
+    question: "¿En qué casos la Administración Tributaria está obligada a resolver expresamente un procedimiento?",
+    options: ["En todos los casos.", "Solo cuando el procedimiento sea iniciado por el contribuyente.", "Solo cuando el procedimiento sea iniciado de oficio.", "Solo cuando el contribuyente lo solicite expresamente."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué efecto tiene el silencio administrativo en los procedimientos iniciados a instancia de parte?",
+    options: ["Estimación de la solicitud del contribuyente.", "Desestimación de la solicitud del contribuyente.", "Caducidad del procedimiento.", "Suspensión del procedimiento."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué efecto tiene la caducidad del procedimiento?",
+    options: ["Prescripción de los derechos de la Administración Tributaria.", "Archivo de las actuaciones.", "Imposibilidad de iniciar un nuevo procedimiento sobre el mismo hecho.", "Pérdida de la validez de las pruebas obtenidas en el procedimiento."],
+    answer: 1,
+  },
+  {
+    question: "¿En qué casos se puede producir la caducidad del procedimiento en perjuicio del contribuyente?",
+    options: ["Por su inactividad en el procedimiento.", "Por la falta de pago de una tasa.", "Por la presentación de una declaración incompleta.", "Por la falta de comparecencia a una citación."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué diferencia hay entre la prescripción de los derechos y la caducidad del procedimiento?",
+    options: ["La prescripción extingue el derecho, mientras que la caducidad extingue el procedimiento.", "La prescripción solo afecta a los derechos del contribuyente, mientras que la caducidad afecta a los derechos de ambas partes.", "La prescripción es un plazo de tiempo, mientras que la caducidad es un acto administrativo.", "La prescripción es interrumpida por las actuaciones del contribuyente, mientras que la caducidad no."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué son los efectos probatorios de las actuaciones realizadas en un procedimiento caducado?",
+    options: ["Son válidos y eficaces en otros procedimientos.", "Son nulos e ineficaces en otros procedimientos.", "Son válidos y eficaces solo en los procedimientos iniciados de oficio.", "Son válidos y eficaces solo en los procedimientos iniciados a instancia de parte."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la resolución presunta?",
+    options: ["Un acto administrativo que se produce cuando la Administración Tributaria no resuelve un procedimiento en el plazo legal.", "Un acto administrativo que se produce cuando el contribuyente no presenta una declaración tributaria.", "Un acto administrativo que se produce cuando el contribuyente no paga una deuda tributaria.", "Un acto administrativo que se produce cuando el contribuyente presenta una declaración incompleta."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué plazo tiene la Administración Tributaria para resolver un procedimiento?",
+    options: ["El plazo establecido en la normativa reguladora del procedimiento.", "6 meses.", "1 año.", "2 años."],
+    answer: 0,
+  },
+  {
+    question: "¿En qué casos la Administración tributaria no está obligada a resolver expresamente un procedimiento?",
+    options: ["Cuando se trate de un procedimiento de comprobación de valor.", "Cuando el obligado tributario haya presentado una solicitud de devolución de ingresos indebidos.", "Cuando el procedimiento se haya iniciado de oficio y no se trate de un procedimiento sancionador.", "Todas las anteriores son correctas."],
+    answer: 3,
+  },
+  {
+    question: "¿Cuál es el plazo máximo para que la Administración tributaria resuelva un procedimiento?",
+    options: ["3 meses.", "6 meses.", "1 año.", "El plazo que se establezca en la normativa reguladora del procedimiento correspondiente."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué efectos produce el silencio administrativo en los procedimientos iniciados a instancia de parte?",
+    options: ["El silencio administrativo tiene un carácter positivo, salvo en el ejercicio del derecho de petición y en la impugnación de actos y disposiciones.", "El silencio administrativo tiene un carácter negativo.", "El silencio administrativo tiene un carácter positivo en todos los casos.", "El silencio administrativo no produce ningún efecto."],
+    answer: 0,
+  },
+  {
+    question: "¿En qué casos la caducidad del procedimiento puede producirse en perjuicio del obligado tributario?",
+    options: ["Cuando el obligado tributario no haya presentado la documentación requerida en el plazo establecido.", "Cuando el obligado tributario haya presentado una declaración incompleta o inexacta.", "Cuando el obligado tributario no haya realizado ninguna actuación en el procedimiento durante un plazo determinado.", "Todas las anteriores son correctas."],
+    answer: 2,
+  },
+  {
+    question: "¿Qué efectos produce la caducidad del procedimiento?",
+    options: ["La prescripción de los derechos de la Administración tributaria.", "La nulidad de las actuaciones realizadas en el procedimiento.", "La imposibilidad de iniciar un nuevo procedimiento sobre el mismo hecho.", "Ninguno de los anteriores."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué son las liquidaciones tributarias?",
+    options: ["Actos administrativos por los que se determina la deuda tributaria.", "Actos administrativos por los que se determina la devolución de ingresos indebidos.", "Actos administrativos por los que se sanciona la comisión de una infracción tributaria.", "Actos administrativos por los que se aprueba un plan de inspección tributaria."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué tipos de liquidaciones tributarias existen?",
+    options: ["Provisionales y definitivas.", "Voluntarias y obligatorias.", "Principales y complementarias.", "Todas las anteriores son correctas."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es la obligación de resolver?",
+    options: ["La obligación de la Administración tributaria de notificar al obligado tributario la resolución de un procedimiento.", "La obligación de la Administración tributaria de motivar sus actos administrativos.", "La obligación de la Administración tributaria de resolver todos los recursos interpuestos por el obligado tributario.", "Todas las anteriores son correctas."],
+    answer: 3,
+  },
+  {
+    question: "¿Qué es el silencio administrativo?",
+    options: ["La falta de respuesta de la Administración tributaria a una solicitud del obligado tributario.", "La falta de motivación de un acto administrativo.", "La falta de notificación de un acto administrativo.", "La falta de resolución de un recurso interpuesto por el obligado tributario."],
+    answer: 0,
+  },
+  {
+    question: "¿Qué es la caducidad del procedimiento?",
+    options: ["La extinción de un procedimiento administrativo por la falta de actividad del obligado tributario.", "La extinción de un procedimiento administrativo por la falta de resolución de la Administración tributaria.", "La extinción de un procedimiento administrativo por la falta de motivación de un acto administrativo.", "La extinción de un procedimiento administrativo por la falta de notificación de un acto administrativo."],
+    answer: 0,
+  },
+
+
+
+
+
+
+  // Añade tus preguntas aquí
+  // { question: "¿Pregunta?", options: ["Opción 1", "Opción 2", "Opción 3"], answer: 0 }
+];
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+window.onload = function() {
+  // Selecciona 10 preguntas aleatorias
+  questions = shuffleArray(questions).slice(0, 10);
+  
+  var quiz = document.getElementById("quiz");
+  
+  for (var i = 0; i < questions.length; i++) {
+    var questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    
+    var questionP = document.createElement("p");
+    questionP.textContent = questions[i].question;
+    questionDiv.appendChild(questionP);
+    
+    var optionsDiv = document.createElement("div");
+    optionsDiv.className = "options";
+    
+    // Aquí se barajan las opciones
+    var shuffledOptions = shuffleArray(questions[i].options.slice());
+    
+    for (var j = 0; j < shuffledOptions.length; j++) {
+      var optionInput = document.createElement("input");
+      optionInput.type = "radio";
+      optionInput.id = "question" + i + "option" + j;
+      optionInput.name = "question" + i;
+      optionInput.value = shuffledOptions[j]; // Añadimos el valor de la opción
+      
+      var optionLabel = document.createElement("label");
+      optionLabel.htmlFor = optionInput.id;
+      optionLabel.textContent = shuffledOptions[j];
+      
+      var correctIndicator = document.createElement("span");
+      correctIndicator.className = "correct";
+      correctIndicator.textContent = " ⬅️";
+      if (shuffledOptions[j] == questions[i].options[questions[i].answer]) {
+        optionLabel.appendChild(correctIndicator);
+      }
+      
+      optionsDiv.appendChild(optionInput);
+      optionsDiv.appendChild(optionLabel);
+      optionsDiv.appendChild(document.createElement("br"));
+    }
+    
+    questionDiv.appendChild(optionsDiv);
+    quiz.appendChild(questionDiv);
+  }
+}
+
+function checkAnswers() {
+  var score = 0;
+  var wrongAnswers = [];
+  
+  for (var i = 0; i < questions.length; i++) {
+    var options = document.getElementsByName("question" + i);
+    var correct = false;
+    
+    for (var j = 0; j < options.length; j++) {
+      if (options[j].checked && options[j].value == questions[i].options[questions[i].answer]) {
+        score++;
+        correct = true;
+      }
+    }
+    
+    if (!correct) {
+      wrongAnswers.push({
+        question: questions[i].question,
+        correctAnswer: questions[i].options[questions[i].answer]
+      });
+    }
+  }
+  
+  alert("Tu puntuación es: " + score + "/" + questions.length);
+  
+  if (wrongAnswers.length > 0) {
+    var message = "Has fallado en las siguientes preguntas:\n";
+    
+    for (var i = 0; i < wrongAnswers.length; i++) {
+      message += "\nPregunta: " + wrongAnswers[i].question;
+      message += "\nRespuesta correcta: " + wrongAnswers[i].correctAnswer + " ⬅️\n";
+    }
+    
+    alert(message);
+  }
+  
+  // Muestra los indicadores de respuesta correcta
+  var correctIndicators = document.getElementsByClassName("correct");
+  for (var i = 0; i < correctIndicators.length; i++) {
+    correctIndicators[i].style.visibility = "visible";
+  }
+}
+</script>
+</head>
+<body>
+<div id="quiz"></div>
+<button onclick="checkAnswers()">Comprobar respuestas</button>
+</body>
+</html>
