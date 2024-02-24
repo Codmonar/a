@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv=“Content-Type” content=“text/html; charset=UTF-8”>
+<meta name=“Test” content=“Tipo test aleatorio”>
+<title>Test Trabajo I</title>
+
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.question {
+  margin: 20px 0;
+}
+.options {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.correct {
+  visibility: hidden;
+}
+</style>
+<script>
+// Array de preguntas
+var questions = [
+
+
+    { question: "¿Cuál es el objeto del Derecho del Trabajo y de la Seguridad Social?", options: ["Las relaciones laborales", "El convenio colectivo", "Los principios informadores", "La pacificación social"], answer: 0 },
+    { question: "¿Qué es el convenio colectivo en el contexto del Derecho del Trabajo y de la Seguridad Social?", options: ["Es el objeto del Derecho del Trabajo", "Es la fuente del Derecho del Trabajo", "Es un principio informador del Derecho del Trabajo", "Es una institución legal que promociona la autonomía colectiva"], answer: 1 },
+    { question: "¿Cuándo surge el Derecho del Trabajo y de la Seguridad Social?", options: ["A mediados del siglo XIX", "A finales del siglo XVIII", "Durante la Revolución Industrial", "Durante la Revolución Francesa"], answer: 0 },
+    { question: "¿Qué cambios trajo la Revolución Industrial al Derecho del Trabajo y de la Seguridad Social?", options: ["Generó el movimiento obrero y la intervención del Estado", "Implicó un nuevo pensamiento político basado en los derechos humanos y la soberanía popular", "Estableció sindicatos verticales", "Reguló el ejercicio de las relaciones de trabajo"], answer: 0 },
+    { question: "¿Qué caracteriza al Derecho del Trabajo y de la Seguridad Social?", options: ["Modernidad", "Dualidad", "Influencia de otros derechos", "Todos los anteriores"], answer: 3 },
+    { question: "¿Cuál es el objetivo del principio de contraposición de intereses y canalización del conflicto?", options: ["La pacificación social", "La protección de la productividad económica", "La promoción legal de la autonomía colectiva", "La protección de la estabilidad social para el trabajador"], answer: 0 },
+    { question: "¿Qué busca el principio tuitivo?", options: ["Mayor debilidad contractual del trabajador", "Protección de la productividad", "Promoción legal de la autonomía colectiva", "Evitar el dumping empresarial"], answer: 0 },
+    { question: "¿Qué instituciones legales promocionan la autonomía colectiva?", options: ["Libertad Sindical", "Representación de los trabajadores", "Negociación colectiva", "Todas las anteriores"], answer: 3 },
+    { question: "¿Qué ventajas ofrece la autonomía colectiva?", options: ["Se alcanzan mejores resultados negociando colectivamente las condiciones de trabajo", "Se institucionaliza de forma pacífica el tratamiento de los intereses de trabajo", "Favorece la uniformidad de las condiciones de trabajo", "Todas las anteriores"], answer: 3 },
+    { question: "¿Qué es el diálogo social bipartito?", options: ["Es un acuerdo entre los agentes sociales (empresarios y sindicatos)", "Es un acuerdo entre los agentes sociales y el gobierno", "Es un acuerdo entre los trabajadores y el gobierno", "Es un acuerdo entre los empresarios y el gobierno"], answer: 0 },
+    { question: "¿Qué es el diálogo social tripartito?", options: ["Es un acuerdo entre los agentes sociales (empresarios y sindicatos)", "Es un acuerdo entre los agentes sociales y el gobierno", "Es un acuerdo entre los trabajadores y el gobierno", "Es un acuerdo entre los empresarios y el gobierno"], answer: 1 },
+    { question: "¿Qué características se establecieron en el ámbito laboral a partir del régimen franquista?", options: ["Sindicatos verticales", "Reglamentaciones de trabajo y Ordenanzas laborales", "Ley de Contrato de Trabajo de 1944 y Ley de Relaciones Laborales de 1976", "Todas las anteriores"], answer: 3 },
+    { question: "¿Qué medidas se tomaron durante la transición a la democracia en el sistema de relaciones laborales?", options: ["Se reconoció el derecho a la asociación sindical", "Se incorporaron las normas internacionales de la OIT y el derecho social comunitario de la UE", "Se adaptaron las condiciones de trabajo a los cambios del sistema productivo", "Todas las anteriores"], answer: 3 },
+    { question: "¿Qué es el concepto de 'flexiguridad'?", options: ["Es un modelo de producción basado en el liberalismo, el capitalismo y la industrialización", "Es un nuevo pensamiento político basado en los derechos humanos y la soberanía popular", "Es un equilibrio entre flexibilidad y seguridad en las condiciones de trabajo", "Es una forma de promover la autonomía colectiva"], answer: 2 },
+    { question: "¿Qué es el 'trabajo asalariado' en el contexto del Derecho del Trabajo y de la Seguridad Social?", options: ["Es una actividad productiva de ciudadanos que un sujeto libre, trabaja personalmente en un régimen de ajenidad dentro del ámbito de organización y de dirección de otro sujeto", "Es un modelo de producción basado en el liberalismo, el capitalismo y la industrialización", "Es un nuevo pensamiento político basado en los derechos humanos y la soberanía popular", "Es un equilibrio entre flexibilidad y seguridad en las condiciones de trabajo"], answer: 0 },
+    { question: "¿Qué es el 'convenio colectivo' en el contexto del Derecho del Trabajo y de la Seguridad Social?", options: ["Es el objeto del Derecho del Trabajo", "Es la fuente del Derecho del Trabajo", "Es un principio informador del Derecho del Trabajo", "Es una institución legal que promociona la autonomía colectiva"], answer: 1 },
+    { question: "¿Qué es el 'principio tuitivo' en el contexto del Derecho del Trabajo y de la Seguridad Social?", options: ["Es el objeto del Derecho del Trabajo", "Es la fuente del Derecho del Trabajo", "Es un principio informador del Derecho del Trabajo", "Es una institución legal que promociona la autonomía colectiva"], answer: 2 },
+    { question: "¿Qué es la 'autonomía colectiva' en el contexto del Derecho del Trabajo y de la Seguridad Social?", options: ["Es el objeto del Derecho del Trabajo", "Es la fuente del Derecho del Trabajo", "Es un principio informador del Derecho del Trabajo", "Es una institución legal que promociona la autonomía colectiva"], answer: 3 },
+    { question: "¿Qué es el 'diálogo social bipartito' en el contexto del Derecho del Trabajo y de la Seguridad Social?", options: ["Es un acuerdo entre los agentes sociales (empresarios y sindicatos)", "Es un acuerdo entre los agentes sociales y el gobierno", "Es un acuerdo entre los trabajadores y el gobierno", "Es un acuerdo entre los empresarios y el gobierno"], answer: 0 },
+  {
+    question: "¿Qué significa la voluntariedad en el derecho del trabajo?",
+    options: ["Los ciudadanos son libres y no siervos", "Los ciudadanos pueden desistir de la relación laboral en cualquier momento", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué implica la ajenidad en el derecho del trabajo?",
+    options: ["El trabajador es ajeno a los riesgos del trabajo", "El trabajador es ajeno a los frutos del trabajo", "El trabajador es ajeno al mercado", "Todas las respuestas son correctas"],
+    answer: 3
+  },
+  {
+    question: "¿Qué indica la subordinación o dependencia en el derecho del trabajo?",
+    options: ["El trabajador está sometido a los poderes del empresario", "El trabajador se incorpora en el círculo rector y organizativo del empresario", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa la remuneración en el derecho del trabajo?",
+    options: ["La relación laboral no se puede confundir con las becas o prácticas no laborales", "La relación no remunerada se reduce al voluntariado social", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué implica la profesionalidad en el derecho del trabajo?",
+    options: ["Está ligada a la productividad", "No tiene ninguna implicación", "Está ligada a la remuneración", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+
+  {
+    question: "¿Qué significa ser un trabajador según el Art. 1.1 ET?",
+    options: ["Es una persona física que asume personalmente las obligaciones y derechos que derivan del contrato de trabajo", "Es una persona que presta servicio voluntariamente, por cuenta ajena, bajo la dependencia del empresario con profesionalidad y por una retribución", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué relaciones de trabajo están incluidas según el Art. 1.1. ET y 2 ET?",
+    options: ["La del personal de alta dirección no incluido en el artículo 1.3.c", "La del servicio del hogar familiar", "La de los penados en las instituciones penitenciarias", "Todas las respuestas son correctas"],
+    answer: 3
+  },
+  {
+    question: "¿Qué relaciones de trabajo están excluidas según el Art. 1.3 ET?",
+    options: ["La relación de servicio de los funcionarios públicos", "Las prestaciones personales obligatorias", "Los trabajos realizados a título de amistad, benevolencia o buena vecindad", "Todas las respuestas son correctas"],
+    answer: 3
+  },
+  {
+    question: "¿Qué significa ser un trabajador autónomo económicamente dependiente?",
+    options: ["Es una figura de autónomo que está excluido pero tiene unas características muy similares al trabajador habitual", "Depende en un 75% de un solo empresario", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué implica la disposición adicional vigésimo tercera en el ámbito de las plataformas digitales de reparto?",
+    options: ["Presume la existencia de la relación laboral", "Afecta a lo previsto en el artículo 1.3 de la presente norma", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué significa ser un trabajador con vehículos propios (suyos o alquilados) y realizar el transporte teniendo el vehículo una autorización administrativa?",
+    options: ["Se considera que está más cerca de ser un empresario", "Tiene un poder económico mayor que lo que tendría un trabajador normal", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza trabajos familiares?",
+    options: ["Se considera que presta esa actividad para apoyar a la familia", "No se considera que obtenga un interés patrimonial", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza trabajos realizados a título de amistad, benevolencia o buena vecindad?",
+    options: ["No está remunerado", "Está excluido de lo laboral", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza la actividad que se limite, pura y simplemente, al mero desempeño del cargo de consejero o miembro de los órganos de administración en las empresas que revistan la forma jurídica de sociedad?",
+    options: ["Está excluido de la relación laboral", "Si cumple los requisitos para ser una relación laboral, será una relación laboral", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza las prestaciones personales obligatorias?",
+    options: ["No es un trabajo voluntario", "Está excluido de lo laboral", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza la relación de servicio de los funcionarios públicos?",
+    options: ["Está excluido de la ley", "Tiene su propia regulación", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza la actividad de las personas que intervengan en operaciones mercantiles por cuenta de uno o más empresarios, siempre que queden personalmente obligados a responder del buen fin de la operación asumiendo el riesgo y ventura de la misma?",
+    options: ["Está excluido cuando ellos mismos asumen el riesgo del trabajo", "Es un agente de bolsa o de venta de coche", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza los trabajos familiares, salvo que se demuestre la condición de asalariados de quienes los llevan a cabo?",
+    options: ["Se considerarán familiares, a estos efectos, siempre que convivan con el empresario", "El cónyuge, los descendientes, ascendientes y demás parientes por consanguinidad o afinidad, hasta el segundo grado inclusive y, en su caso, por adopción", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza los trabajos realizados a título de amistad, benevolencia o buena vecindad?",
+    options: ["No está remunerado", "Está excluido de lo laboral", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza la actividad que se limite, pura y simplemente, al mero desempeño del cargo de consejero o miembro de los órganos de administración en las empresas que revistan la forma jurídica de sociedad?",
+    options: ["Está excluido de la relación laboral", "Si cumple los requisitos para ser una relación laboral, será una relación laboral", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza las prestaciones personales obligatorias?",
+    options: ["No es un trabajo voluntario", "Está excluido de lo laboral", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza la relación de servicio de los funcionarios públicos?",
+    options: ["Está excluido de la ley", "Tiene su propia regulación", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza la actividad de las personas que intervengan en operaciones mercantiles por cuenta de uno o más empresarios, siempre que queden personalmente obligados a responder del buen fin de la operación asumiendo el riesgo y ventura de la misma?",
+    options: ["Está excluido cuando ellos mismos asumen el riesgo del trabajo", "Es un agente de bolsa o de venta de coche", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué significa ser un trabajador que realiza los trabajos familiares, salvo que se demuestre la condición de asalariados de quienes los llevan a cabo?",
+    options: ["Se considerarán familiares, a estos efectos, siempre que convivan con el empresario", "El cónyuge, los descendientes, ascendientes y demás parientes por consanguinidad o afinidad, hasta el segundo grado inclusive y, en su caso, por adopción", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+
+
+  {
+    question: "¿Qué son las relaciones laborales de carácter especial?",
+    options: ["Son relaciones que tienen una particularidad en la actividad del trabajador o el empresario", "Se regulan de forma especial en reales decretos", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Qué artículo del Estatuto de los Trabajadores recoge un listado de relaciones laborales de carácter especial?",
+    options: ["Artículo 1", "Artículo 2", "Artículo 3", "Artículo 4"],
+    answer: 1
+  },
+  {
+    question: "¿Qué relación laboral especial corresponde al personal de alta dirección no incluido en el artículo 1.3?",
+    options: ["Relación laboral de los administradores de la empresa", "Relación laboral de los directores de centro", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué derechos básicos reconocidos por la Constitución deben respetar todas las relaciones laborales de carácter especial?",
+    options: ["El deber de trabajar y el derecho al trabajo", "La libre elección de profesión u oficio", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Cuál es la edad laboral mínima según el Art. 6.1 ET?",
+    options: ["15 años", "16 años", "17 años", "18 años"],
+    answer: 1
+  },
+  {
+    question: "¿Quiénes tienen capacidad de obrar plena según el Código Civil?",
+    options: ["Mayores de edad", "Menores de 18 años y mayores de 16 emancipados", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Quiénes necesitan autorización de sus padres o tutores para ejercer los derechos y cumplir los deberes derivados del contrato?",
+    options: ["Mayores de 16 y menores de 18 años que no sean independientes", "Mayores de edad", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué relación laboral especial corresponde a los penados en las instituciones penitenciarias?",
+    options: ["Relación laboral de los administradores de la empresa", "Relación laboral de los directores de centro", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué relación laboral especial corresponde a los deportistas profesionales?",
+    options: ["Relación laboral de los administradores de la empresa", "Relación laboral de los directores de centro", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué relación laboral especial corresponde a las personas artistas que desarrollan su actividad en las artes escénicas, audiovisuales y musicales?",
+    options: ["Relación laboral de los administradores de la empresa", "Relación laboral de los directores de centro", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué relación laboral especial corresponde a las personas que intervengan en operaciones mercantiles por cuenta de uno o más empresarios sin asumir el riesgo y ventura de aquellas?",
+    options: ["Relación laboral de los administradores de la empresa", "Relación laboral de los directores de centro", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué relación laboral especial corresponde a los trabajadores con discapacidad que presten sus servicios en los centros especiales de empleo?",
+    options: ["Relación laboral de los administradores de la empresa", "Relación laboral de los directores de centro", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué relación laboral especial corresponde a los menores sometidos a la ejecución de medidas de internamiento para el cumplimiento de su responsabilidad penal?",
+    options: ["Relación laboral de los administradores de la empresa", "Relación laboral de los directores de centro", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué relación laboral especial corresponde a la residencia para la formación de especialistas en Ciencias de la Salud?",
+    options: ["Relación laboral de los administradores de la empresa", "Relación laboral de los directores de centro", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué relación laboral especial corresponde a los abogados que prestan servicios en despachos de abogados, individuales o colectivos?",
+    options: ["Relación laboral de los administradores de la empresa", "Relación laboral de los directores de centro", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué relación laboral especial corresponde a cualquier otro trabajo que sea expresamente declarado como relación laboral de carácter especial por una ley?",
+    options: ["Relación laboral de los administradores de la empresa", "Relación laboral de los directores de centro", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+  {
+    question: "¿Qué derechos básicos reconocidos por la Constitución deben respetar todas las relaciones laborales de carácter especial?",
+    options: ["El deber de trabajar y el derecho al trabajo", "La libre elección de profesión u oficio", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 2
+  },
+  {
+    question: "¿Cuál es la edad laboral mínima según el Art. 6.1 ET?",
+    options: ["15 años", "16 años", "17 años", "18 años"],
+    answer: 1
+  },
+  {
+    question: "¿Quiénes tienen capacidad de obrar plena según el Código Civil?",
+    options: ["Mayores de edad", "Menores de 18 años y mayores de 16 emancipados", "Ambas respuestas son correctas", "Ninguna de las respuestas es correcta"],
+    answer: 0
+  },
+
+
+  { question: "¿Cuáles son los dos tipos de trabajadores extranjeros?", options: ["Comunitarios y extracomunitarios", "Permanentes y temporales", "Regulares e irregulares"], answer: 0 },
+  { question: "¿Qué principio rige a los ciudadanos comunitarios en el acceso al empleo?", options: ["Principio de igualdad", "Principio de mérito", "Principio de capacidad"], answer: 0 },
+  { question: "¿Qué tipo de trabajadores pueden acceder al empleo público en su totalidad, excepto los cargos que afectan a los intereses del estado?", options: ["Trabajadores comunitarios", "Trabajadores extracomunitarios", "Ambos tipos de trabajadores"], answer: 0 },
+  { question: "¿Qué ley regula la entrada, libre circulación y residencia en España de ciudadanos de los Estados miembros de la Unión Europea y de otros Estados parte en el Acuerdo sobre el Espacio Económico Europeo?", options: ["Ley Orgánica 4/2000", "Real Decreto 240/2007", "Ley 30/1984"], answer: 1 },
+  { question: "¿Qué tipo de trabajadores extranjeros tienen derechos desde el punto de vista laboral, pero no tienen el principio de igualdad de trato?", options: ["Los que les cede el visado", "Los que no tienen visado", "Ambos tipos de trabajadores"], answer: 1 },
+  { question: "¿Qué tipo de trabajadores no pueden nunca ser funcionarios?", options: ["Trabajadores comunitarios", "Trabajadores extracomunitarios", "Ambos tipos de trabajadores"], answer: 1 },
+  { question: "¿Qué tipo de trabajadores pueden hacer contratos laborales con las administraciones públicas comportándose como empresa?", options: ["Trabajadores comunitarios", "Trabajadores extracomunitarios", "Ambos tipos de trabajadores"], answer: 2 },
+  { question: "¿Quién es la persona que ofrece un empleo al trabajador, que lo emplea efectivamente y utiliza sus servicios?", options: ["Empleador", "Empresario", "Ambos términos son sinónimos"], answer: 0 },
+  { question: "¿Quién es el titular de una organización económica?", options: ["Empleador", "Empresario", "Ambos términos son sinónimos"], answer: 1 },
+  { question: "¿Qué artículo del Estatuto de los Trabajadores define al empresario?", options: ["Artículo 1.2", "Artículo 1.5", "Artículo 2.1"], answer: 0 },
+  { question: "¿Qué tipo de empresario puede ser una persona física?", options: ["Empleador", "Empresario", "Ambos términos son sinónimos"], answer: 1 },
+  { question: "¿Qué tipo de empresario puede ser una persona jurídica?", options: ["Empleador", "Empresario", "Ambos términos son sinónimos"], answer: 1 },
+  { question: "¿Qué tipo de empresario puede ser una comunidad de bienes?", options: ["Empleador", "Empresario", "Ambos términos son sinónimos"], answer: 1 },
+  { question: "¿Qué principios constitucionales orientan la actuación de la administración pública en el ámbito de la relación laboral?", options: ["Prohibición de la arbitrariedad de los poderes públicos", "Principio de igualdad", "Todos los mencionados"], answer: 2 },
+  { question: "¿Qué artículo de la Ley 30/1984 establece cuándo se puede recurrir a la contratación laboral en la Administración General del Estado?", options: ["Artículo 15", "Artículo 18", "Artículo 23"], answer: 0 },
+  { question: "¿Qué es una comunidad de bienes?", options: ["Una situación en la que la propiedad de un derecho o de una cosa pertenece a varias personas de forma conjunta", "Una organización económica", "Una empresa"], answer: 0 },
+  { question: "¿Qué es una empresa?", options: ["Una organización integradora del centro o centros de trabajo", "Un lugar de trabajo físico", "Un trabajador"], answer: 0 },
+  { question: "¿Qué es un centro de trabajo?", options: ["Una unidad productiva con una organización propia", "Una empresa", "Un trabajador"], answer: 0 },
+  { question: "¿Qué tipo de empresas pueden actuar bajo una dirección económica común, coordinando sus recursos y políticas?", options: ["Empresas pequeñas", "Empresas medianas", "Grupos de empresas"], answer: 2 },
+
+
+
+// nos quedamos en la leccion II, P15
+
+
+
+
+
+  // Añade tus preguntas aquí
+  // { question: "¿Pregunta?", options: ["Opción 1", "Opción 2", "Opción 3"], answer: 0 }
+];
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+window.onload = function() {
+  // Selecciona 10 preguntas aleatorias
+  questions = shuffleArray(questions).slice(0, 10);
+  
+  var quiz = document.getElementById("quiz");
+  
+  for (var i = 0; i < questions.length; i++) {
+    var questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    
+    var questionP = document.createElement("p");
+    questionP.textContent = questions[i].question;
+    questionDiv.appendChild(questionP);
+    
+    var optionsDiv = document.createElement("div");
+    optionsDiv.className = "options";
+    
+    // Aquí se barajan las opciones
+    var shuffledOptions = shuffleArray(questions[i].options.slice());
+    
+    for (var j = 0; j < shuffledOptions.length; j++) {
+      var optionInput = document.createElement("input");
+      optionInput.type = "radio";
+      optionInput.id = "question" + i + "option" + j;
+      optionInput.name = "question" + i;
+      optionInput.value = shuffledOptions[j]; // Añadimos el valor de la opción
+      
+      var optionLabel = document.createElement("label");
+      optionLabel.htmlFor = optionInput.id;
+      optionLabel.textContent = shuffledOptions[j];
+      
+      var correctIndicator = document.createElement("span");
+      correctIndicator.className = "correct";
+      correctIndicator.textContent = " ⬅️";
+      if (shuffledOptions[j] == questions[i].options[questions[i].answer]) {
+        optionLabel.appendChild(correctIndicator);
+      }
+      
+      optionsDiv.appendChild(optionInput);
+      optionsDiv.appendChild(optionLabel);
+      optionsDiv.appendChild(document.createElement("br"));
+    }
+    
+    questionDiv.appendChild(optionsDiv);
+    quiz.appendChild(questionDiv);
+  }
+}
+
+function checkAnswers() {
+  var score = 0;
+  var wrongAnswers = [];
+  
+  for (var i = 0; i < questions.length; i++) {
+    var options = document.getElementsByName("question" + i);
+    var correct = false;
+    
+    for (var j = 0; j < options.length; j++) {
+      if (options[j].checked && options[j].value == questions[i].options[questions[i].answer]) {
+        score++;
+        correct = true;
+      }
+    }
+    
+    if (!correct) {
+      wrongAnswers.push({
+        question: questions[i].question,
+        correctAnswer: questions[i].options[questions[i].answer]
+      });
+    }
+  }
+  
+  alert("Tu puntuación es: " + score + "/" + questions.length);
+  
+  if (wrongAnswers.length > 0) {
+    var message = "Has fallado en las siguientes preguntas:\n";
+    
+    for (var i = 0; i < wrongAnswers.length; i++) {
+      message += "\nPregunta: " + wrongAnswers[i].question;
+      message += "\nRespuesta correcta: " + wrongAnswers[i].correctAnswer + " ⬅️\n";
+    }
+    
+    alert(message);
+  }
+  
+  // Muestra los indicadores de respuesta correcta
+  var correctIndicators = document.getElementsByClassName("correct");
+  for (var i = 0; i < correctIndicators.length; i++) {
+    correctIndicators[i].style.visibility = "visible";
+  }
+}
+</script>
+</head>
+<body>
+<div id="quiz"></div>
+<button onclick="checkAnswers()">Comprobar respuestas</button>
+</body>
+</html>
