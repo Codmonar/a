@@ -403,5 +403,30 @@ function checkAnswers() {
 <body>
 <div id="quiz"></div>
 <button onclick="checkAnswers()">Comprobar respuestas</button>
+
+<p> </p>
+
+<script>
+function imprimirPagina() {
+    // Verifica si la función de impresión está disponible en el navegador
+    if (window.print) {
+        // Oculta los botones antes de imprimir
+        document.querySelectorAll('button').forEach((boton) => {
+            boton.style.display = 'none';
+        });
+
+        // Imprime la página
+        window.print();
+
+        // Restaura la visibilidad de los botones después de imprimir
+        document.querySelectorAll('button').forEach((boton) => {
+            boton.style.display = 'block';
+        });
+    }
+}
+
+</script>
+<button onclick="imprimirPagina()">imprimir pagina, Recuerde guardar tambien una version de impresion de la hoja tras la correccion </button>
+
 </body>
 </html>
