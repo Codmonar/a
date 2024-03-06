@@ -1251,6 +1251,102 @@ var questions = [
   { question: "¿Qué sucede en caso de incumplimiento del modo?", options: ["El incumplimiento imputable genera el nacimiento de responsabilidad", "El incumplimiento imputable genera el nacimiento de beneficio", "Ambas son correctas", "Ninguna es correcta"], answer: 0 },
   { question: "¿Quiénes son los legitimados en caso de incumplimiento del modo?", options: ["Herederos, albaceas, beneficiarios del modo y beneficiarios de la revocación de la atribución modal", "Herederos, albaceas, beneficiarios del modo y beneficiarios de la atribución de la atribución modal", "Ambas son correctas", "Ninguna es correcta"], answer: 0 },
 
+  {
+    question: "¿Cuál es la característica principal del testamento abierto?",
+    options: ["La voluntad del testador se manifiesta públicamente", "La voluntad del testador se mantiene en secreto", "El testamento no necesita ser firmado", "El testamento no necesita testigos"],
+    answer: 0
+  },
+  {
+    question: "¿Cuándo es necesaria la presencia de testigos en los testamentos abiertos notariales?",
+    options: ["Cuando el testador lo solicita", "Cuando el notario lo solicita", "Cuando el testador declara que no sabe o no puede firmar", "Todas las anteriores"],
+    answer: 3
+  },
+  {
+    question: "¿Qué sucede si el testador declara que no sabe o no puede firmar el testamento?",
+    options: ["El testamento se considera inválido", "El notario firma por el testador", "Uno de los testigos firma a ruego del testador", "El testamento se puede firmar más tarde"],
+    answer: 2
+  },
+  {
+    question: "¿Qué comprende el otorgamiento del testamento abierto?",
+    options: ["Lectura, conformidad del testador y firma", "Redacción del testamento", "Manifestación de la voluntad testamentaria", "Todas las anteriores"],
+    answer: 0
+  },
+  {
+    question: "¿Qué es la unidad de acto en el contexto del testamento abierto?",
+    options: ["Todas las formalidades se practican en un solo acto", "El testamento se puede dividir en varias partes", "El testamento se puede otorgar en varios días", "El testamento debe ser leído en voz alta"],
+    answer: 0
+  },
+  {
+    question: "¿Quién debe conocer al testador en el otorgamiento de los testamentos abiertos?",
+    options: ["El notario", "Los testigos", "El intérprete", "Todas las anteriores"],
+    answer: 0
+  },
+  {
+    question: "¿Cuándo es obligatoria la presencia de un intérprete en el otorgamiento del testamento?",
+    options: ["Cuando el testador no conoce al notario", "Cuando el testador expresa su voluntad en una lengua que el notario no conoce", "Cuando el testador no puede leer el testamento", "Cuando el testador no puede oír la lectura del testamento"],
+    answer: 1
+  },
+
+  {
+    question: "¿Es posible que Carlos y Beatriz otorguen su voluntad testamentaria en un único testamento?",
+    options: ["Sí", "No"],
+    answer: 1
+  },
+  {
+    question: "¿Pueden incluirse en un testamento declaraciones de última voluntad sin contenido patrimonial?",
+    options: ["Sí", "No"],
+    answer: 0
+  },
+  {
+    question: "¿Es válida la disposición testamentaria de Antonio reconociendo ser el padre de Cristina?",
+    options: ["Sí", "No"],
+    answer: 0
+  },
+  {
+    question: "¿Podría Antonio haber revocado su disposición testamentaria antes de fallecer?",
+    options: ["Sí", "No"],
+    answer: 1
+  },
+  {
+    question: "¿Es posible que Jesús, de 16 años y emancipado, realice un testamento ológrafo?",
+    options: ["Sí", "No"],
+    answer: 1
+  },
+  {
+    question: "¿Quién debe comprobar si Juan, que padece una grave esquizofrenia, está capacitado para realizar un testamento?",
+    options: ["El notario", "Los padres de Juan", "Un médico"],
+    answer: 0
+  },
+  {
+    question: "¿Cuáles son los llamados testamentos comunes?",
+    options: ["Testamento abierto o cerrado ante notario y el ológrafo", "Testamento en vida y testamento en muerte", "Testamento individual y testamento conjunto"],
+    answer: 0
+  },
+  {
+    question: "¿Se exige algún requisito especial al sujeto para la realización de un testamento ológrafo?",
+    options: ["Tener 18 años", "Saber leer y escribir", "Tener una fortuna"],
+    answer: 0
+  },
+  {
+    question: "Para que una declaración testamentaria sea válida, ¿debe otorgarse necesariamente en escritura pública?",
+    options: ["Sí", "No"],
+    answer: 1
+  },
+  {
+    question: "¿Es válida la disposición testamentaria efectuada por D. Eliseo?",
+    options: ["Sí", "No"],
+    answer: 0
+  },
+  {
+    question: "¿Quién valora la capacidad de testar?",
+    options: ["El notario", "Un médico", "Los familiares del testador"],
+    answer: 0
+  },
+  {
+    question: "¿Son necesarios informes médicos para valorar la capacidad de testar?",
+    options: ["Sí", "No"],
+    answer: 1
+  },
 
 
 
@@ -1391,6 +1487,99 @@ function imprimirPagina() {
 
 </script>
 <button onclick="imprimirPagina()">imprimir pagina, Recuerde guardar tambien una version de impresion de la hoja tras la correccion </button>
+<script>
+// Crear un elemento div para la barra roja
+var barra = document.createElement("div");
+barra.style.width = "0%";
+barra.style.height = "20px";
+barra.style.backgroundColor = "red";
+barra.style.position = "fixed"; // Cambiar a fixed
+barra.style.left = "0";
+barra.style.bottom = "0";
+
+// Crear un elemento span para el temporizador
+var temporizador = document.createElement("span");
+temporizador.style.fontSize = "24px";
+temporizador.style.position = "fixed"; // Cambiar a fixed
+temporizador.style.left = "50%";
+temporizador.style.top = "0";
+temporizador.style.transform = "translateX(-50%)";
+
+// Añadir los elementos al cuerpo de la página
+document.body.appendChild(barra);
+document.body.appendChild(temporizador);
+
+// Establecer el tiempo inicial en 10 minutos (600 segundos)
+var tiempo = 600;
+
+// Crear una función que devuelva un color RGB en función de un valor entre 0 y 1
+function colorSegunValor(valor) {
+  // Si el valor es menor o igual que 0.5, el color va de verde a amarillo
+  if (valor <= 0.5) {
+    // El componente rojo aumenta linealmente de 0 a 255
+    var rojo = Math.floor(valor * 2 * 255);
+    // El componente verde se mantiene en 255
+    var verde = 255;
+    // El componente azul se mantiene en 0
+    var azul = 0;
+  }
+  // Si el valor es mayor que 0.5, el color va de amarillo a rojo
+  else {
+    // El componente rojo se mantiene en 255
+    var rojo = 255;
+    // El componente verde disminuye linealmente de 255 a 0
+    var verde = Math.floor((1 - valor) * 2 * 255);
+    // El componente azul se mantiene en 0
+    var azul = 0;
+  }
+  // Devolver el color en formato RGB
+  return "rgb(" + rojo + "," + verde + "," + azul + ")";
+}
+
+// Actualizar el temporizador cada segundo
+var intervalo = setInterval(function() {
+  // Calcular los minutos y segundos restantes
+  var minutos = Math.floor(tiempo / 60);
+  var segundos = tiempo % 60;
+
+  // Formatear el tiempo con dos dígitos
+  var tiempoFormateado = (minutos < 10 ? "0" + minutos : minutos) + ":" + (segundos < 10 ? "0" + segundos : segundos);
+
+  // Mostrar el tiempo en el temporizador
+  temporizador.textContent = tiempoFormateado;
+
+  // Reducir el tiempo en un segundo
+  tiempo--;
+
+  // Si el tiempo llega a cero, detener el intervalo
+  if (tiempo < 0) {
+    clearInterval(intervalo);
+  }
+
+  // Calcular el porcentaje de la barra
+  var porcentaje = (600 - tiempo) / 600 * 100;
+
+  // Actualizar el ancho de la barra
+  barra.style.width = porcentaje + "%";
+
+  // Calcular el valor entre 0 y 1 para el color de la barra
+  var valor = 1 - tiempo / 600; // Invertir el valor
+
+  // Obtener el color de la barra según el valor
+  var color = colorSegunValor(valor);
+
+  // Actualizar el color de la barra
+  barra.style.backgroundColor = color;
+
+}, 1000);
+
+// Ocultar la barra y el temporizador si se intenta imprimir la página
+window.onbeforeprint = function() {
+  barra.style.display = "none";
+  temporizador.style.display = "none";
+};
+
+</script>
 
 </body>
 </html>

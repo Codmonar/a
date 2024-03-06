@@ -667,6 +667,99 @@ function imprimirPagina() {
 
 </script>
 <button onclick="imprimirPagina()">imprimir pagina, Recuerde guardar tambien una version de impresion de la hoja tras la correccion </button>
+<script>
+// Crear un elemento div para la barra roja
+var barra = document.createElement("div");
+barra.style.width = "0%";
+barra.style.height = "20px";
+barra.style.backgroundColor = "red";
+barra.style.position = "fixed"; // Cambiar a fixed
+barra.style.left = "0";
+barra.style.bottom = "0";
+
+// Crear un elemento span para el temporizador
+var temporizador = document.createElement("span");
+temporizador.style.fontSize = "24px";
+temporizador.style.position = "fixed"; // Cambiar a fixed
+temporizador.style.left = "50%";
+temporizador.style.top = "0";
+temporizador.style.transform = "translateX(-50%)";
+
+// Añadir los elementos al cuerpo de la página
+document.body.appendChild(barra);
+document.body.appendChild(temporizador);
+
+// Establecer el tiempo inicial en 10 minutos (600 segundos)
+var tiempo = 600;
+
+// Crear una función que devuelva un color RGB en función de un valor entre 0 y 1
+function colorSegunValor(valor) {
+  // Si el valor es menor o igual que 0.5, el color va de verde a amarillo
+  if (valor <= 0.5) {
+    // El componente rojo aumenta linealmente de 0 a 255
+    var rojo = Math.floor(valor * 2 * 255);
+    // El componente verde se mantiene en 255
+    var verde = 255;
+    // El componente azul se mantiene en 0
+    var azul = 0;
+  }
+  // Si el valor es mayor que 0.5, el color va de amarillo a rojo
+  else {
+    // El componente rojo se mantiene en 255
+    var rojo = 255;
+    // El componente verde disminuye linealmente de 255 a 0
+    var verde = Math.floor((1 - valor) * 2 * 255);
+    // El componente azul se mantiene en 0
+    var azul = 0;
+  }
+  // Devolver el color en formato RGB
+  return "rgb(" + rojo + "," + verde + "," + azul + ")";
+}
+
+// Actualizar el temporizador cada segundo
+var intervalo = setInterval(function() {
+  // Calcular los minutos y segundos restantes
+  var minutos = Math.floor(tiempo / 60);
+  var segundos = tiempo % 60;
+
+  // Formatear el tiempo con dos dígitos
+  var tiempoFormateado = (minutos < 10 ? "0" + minutos : minutos) + ":" + (segundos < 10 ? "0" + segundos : segundos);
+
+  // Mostrar el tiempo en el temporizador
+  temporizador.textContent = tiempoFormateado;
+
+  // Reducir el tiempo en un segundo
+  tiempo--;
+
+  // Si el tiempo llega a cero, detener el intervalo
+  if (tiempo < 0) {
+    clearInterval(intervalo);
+  }
+
+  // Calcular el porcentaje de la barra
+  var porcentaje = (600 - tiempo) / 600 * 100;
+
+  // Actualizar el ancho de la barra
+  barra.style.width = porcentaje + "%";
+
+  // Calcular el valor entre 0 y 1 para el color de la barra
+  var valor = 1 - tiempo / 600; // Invertir el valor
+
+  // Obtener el color de la barra según el valor
+  var color = colorSegunValor(valor);
+
+  // Actualizar el color de la barra
+  barra.style.backgroundColor = color;
+
+}, 1000);
+
+// Ocultar la barra y el temporizador si se intenta imprimir la página
+window.onbeforeprint = function() {
+  barra.style.display = "none";
+  temporizador.style.display = "none";
+};
+
+</script>
 
 </body>
 </html>
