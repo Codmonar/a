@@ -779,6 +779,20 @@ var questions = [
 
 //cAPITULO VIII (DENTRO DE LECCION VI)
 
+  { question: "¿Qué establece el Art.34.6 ET?", options: ["Establece las jornadas y los descansos diarios, semanales, fiestas y días de vacaciones.", "Establece las normas para la elaboración del calendario laboral.", "Establece las normas para la elaboración del calendario anual.", "Establece las normas para la elaboración del calendario de vacaciones."], answer: 1 },
+  { question: "¿Quién elabora el calendario laboral según el Art.34.6 ET?", options: ["Los trabajadores", "La empresa", "Los representantes de los trabajadores", "El gobierno"], answer: 1 },
+  { question: "¿Qué derecho tienen los representantes de los trabajadores según la Disposición Adicional 3ª RD 15671/1995?", options: ["Ser consultados por el empresario y emitir informe con carácter previo a la elaboración del calendario laboral.", "Ser informados mensualmente por el empresario de las horas extraordinarias realizadas por los trabajadores.", "Ambas respuestas son correctas.", "Ninguna de las respuestas es correcta."], answer: 2 },
+  { question: "¿Qué sucede si no se expone el calendario laboral en un lugar visible del centro de trabajo según el Art.6.1 LISOS?", options: ["Se considera una infracción administrativa.", "Se considera una infracción penal.", "Se considera una infracción civil.", "No sucede nada."], answer: 0 },
+  { question: "¿Qué sucede si se quiere modificar o alterar el calendario laboral una vez fijado?", options: ["Se puede modificar o alterar en cualquier momento.", "No se puede modificar o alterar.", "Se puede modificar o alterar a través del procedimiento previsto en el art.41 ET para las modificaciones sustanciales de las condiciones de trabajo.", "Se puede modificar o alterar con el consentimiento de los trabajadores."], answer: 2 },
+  { question: "¿Qué se considera una modificación sustancial de las condiciones de trabajo según el Art.41 ET?", options: ["Cualquier cambio en las condiciones de trabajo.", "Solo los cambios en las condiciones de trabajo que afecten a la jornada de trabajo.", "Los cambios en las condiciones de trabajo que afecten a la jornada de trabajo, horario y distribución del tiempo de trabajo, régimen de trabajo a turnos, sistema de remuneración y cuantía salarial, sistema de trabajo y rendimiento, funciones.", "Los cambios en las condiciones de trabajo que afecten a la jornada de trabajo y al horario."], answer: 2 },
+  { question: "¿Qué sucede si el trabajador resulta perjudicado por la modificación sustancial de las condiciones de trabajo según el Art.41 ET?", options: ["El trabajador tiene derecho a rescindir su contrato y percibir una indemnización de veinte días de salario por año de servicio prorrateándose por meses los periodos inferiores a un año y con un máximo de nueve meses.", "El trabajador tiene derecho a rescindir su contrato sin percibir ninguna indemnización.", "El trabajador tiene derecho a rescindir su contrato y percibir una indemnización de treinta días de salario por año de servicio prorrateándose por meses los periodos inferiores a un año y con un máximo de doce meses.", "El trabajador no tiene derecho a rescindir su contrato."], answer: 0 },
+  { question: "¿Qué sucede si el periodo de consultas finaliza con acuerdo según el Art.41 ET?", options: ["Se presume que concurren las causas justificativas y solo podrá ser impugnado ante la jurisdicción social por la existencia de fraude, dolo, coacción o abuso de derecho en su conclusión.", "Se presume que concurren las causas justificativas y no podrá ser impugnado ante la jurisdicción social.", "No se presume que concurren las causas justificativas y podrá ser impugnado ante la jurisdicción social.", "No se presume que concurren las causas justificativas y no podrá ser impugnado ante la jurisdicción social."], answer: 0 },
+  { question: "¿Qué sucede si la decisión sobre la modificación colectiva de las condiciones de trabajo es notificada por el empresario a los trabajadores una vez finalizado el periodo de consultas sin acuerdo según el Art.41 ET?", options: ["La decisión surtirá efectos en el plazo de los siete días siguientes a su notificación.", "La decisión surtirá efectos inmediatamente.", "La decisión surtirá efectos en el plazo de los quince días siguientes a su notificación.", "La decisión no surtirá efectos."], answer: 0 },
+  { question: "¿Qué sucede si se quiere modificar las condiciones de trabajo establecidas en los convenios colectivos según el Art.41 ET?", options: ["Se debe realizar conforme a lo establecido en el artículo 82.3.", "Se puede realizar en cualquier momento.", "No se puede realizar.", "Se puede realizar con el consentimiento de los trabajadores."], answer: 0 },
+
+//Leccion V
+
+
 
 
 
@@ -1008,6 +1022,32 @@ window.onbeforeprint = function() {
 };
 
 </script>
+<p>Modelo: <i id="numero-aleatorio"></i></p>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Obtener fecha y hora actual
+      const fecha = new Date();
+      const dia = fecha.getDate();
+      const mes = fecha.getMonth() + 1;
+      const año = fecha.getFullYear();
+      const minuto = fecha.getMinutes();
 
+      // Generar número aleatorio
+      const numeroAleatorio = Math.floor(Math.random() * 10000) + 1;
+
+      // Calcular resultado final
+      const resultado = (dia + mes + año) * (numeroAleatorio + minuto);
+
+      // Obtener los últimos 4 dígitos
+      const numeroFinal = resultado.toString().slice(-4);
+
+      // Mostrar el número en la página
+      const elementoNumeroAleatorio = document.getElementById("numero-aleatorio");
+      elementoNumeroAleatorio.textContent = numeroFinal;
+
+      // Centrar el texto
+      elementoNumeroAleatorio.style.textAlign = "center";
+    });
+  </script>
 </body>
 </html>

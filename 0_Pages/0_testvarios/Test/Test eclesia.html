@@ -525,9 +525,30 @@ var questions = [
   { question: "¿Cuáles son las funciones de la Comisión Asesora de Libertad Religiosa?", options: ["Órgano consultivo del Gobierno en materia de libertad religiosa", "Asesoramiento a las Administraciones públicas sobre aplicación de la LOLR y Acuerdos", "Estudio, informe y propuesta en cuestiones relativas a la libertad religiosa", "Todas las anteriores"], answer: 3 },
   { question: "¿Qué se crea en el Ministerio de Justicia según el artículo 8 de la LOLR?", options: ["Una Comisión Asesora de Libertad Religiosa", "Un Registro de Entidades Religiosas", "Ambas son correctas", "Ninguna de las anteriores"], answer: 0 },
 
+  { question: "¿Cuál es una posible definición de una secta?", options: ["Grupo religioso que contraria el orden público", "Grupo seudo religioso, que busca un fin fraudulento", "Organización que sin cometer delitos ejerce actos que resultan inapropiados socialmente", "Todas las anteriores"], answer: 3 },
+  { question: "¿Qué término se inventó para agrupar a los nuevos credos que van surgiendo?", options: ["Nuevos movimientos religiosos", "Sectas modernas", "Credos emergentes", "Religiones alternativas"], answer: 0 },
+  { question: "¿Qué problema se plantea con los grupos religiosos que sin cometer delitos llevan a las personas a ciertos límites?", options: ["Problema económico", "Problema de libertad de la persona", "Problema de integración social", "Problema de identidad cultural"], answer: 1 },
+  { question: "¿Qué establece el TC para los derechos fundamentales?", options: ["Estos límites no han de ser más allá de lo que sea estrictamente necesario sin tocar su base", "Estos límites pueden ser modificados según las circunstancias", "Estos límites son absolutos y no pueden ser modificados", "Estos límites son relativos y dependen de la interpretación de cada individuo"], answer: 0 },
+  { question: "¿Qué efecto principal tiene la inscripción en el registro para los grupos religiosos?", options: ["Obtención de la personalidad jurídica", "Obtención de beneficios fiscales", "Obtención de reconocimiento internacional", "Obtención de derechos civiles"], answer: 0 },
+  { question: "¿Qué beneficios otorga el artículo 6 a las entidades religiosas inscritas?", options: ["Plena autonomía", "Sus propias normas de organización, régimen interno y régimen de su personal", "Cláusulas de salvaguarda de su identidad religiosa y carácter propio, así como el debido respeto a sus creencias", "Todas las anteriores"], answer: 3 },
+  { question: "¿Qué es el 'notorio arraigo'?", options: ["Es un término que se refiere a la popularidad de una religión", "Es un término que se refiere a la antigüedad de una religión", "Es un término que se refiere a la relevancia de una religión en España", "Es un término que se refiere a la cantidad de seguidores de una religión"], answer: 2 },
+  { question: "¿Cuál de las siguientes confesiones tiene notorio arraigo?", options: ["Iglesia Católica", "I. Evangélicas", "C. Judías", "Todas las anteriores"], answer: 3 },
+  { question: "¿Qué beneficios adicionales aporta tener notorio arraigo?", options: ["Poder firmar acuerdos de cooperación", "Formar parte de la comisión asesora de libertad religiosa", "Los matrimonios religiosos tienen eficacia en el ordenamiento civil", "Todas las anteriores"], answer: 3 },
+  { question: "¿Qué nivel adicional se puede alcanzar después de obtener notorio arraigo?", options: ["Inscripción en el registro", "Firma de acuerdo", "Obtención de beneficios fiscales", "Reconocimiento internacional"], answer: 1 },
+
 //Leccion IX
 
+  { question: "¿Qué son las fuentes bilaterales en el contexto de los acuerdos con las confesiones religiosas?", options: ["Son acuerdos entre dos estados", "Son acuerdos entre el estado y las confesiones religiosas", "Son acuerdos entre dos confesiones religiosas", "Son acuerdos entre el estado y la Santa Sede"], answer: 1 },
+  { question: "¿Cuántas confesiones tienen el nivel 3?", options: ["4", "8", "2", "6"], answer: 0 },
+  { question: "¿Qué año se firmaron los acuerdos con la Iglesia Católica?", options: ["1979", "1992", "1980", "2000"], answer: 0 },
+  { question: "¿Qué tipo de acuerdos son los acuerdos con la Santa Sede?", options: ["Tratados internacionales", "Leyes ordinarias", "Acuerdos bilaterales", "Acuerdos unilaterales"], answer: 0 },
+  { question: "¿Qué establece el 'Acuerdo sobre Asuntos Económicos' con la Iglesia Católica?", options: ["Establece la financiación de la Iglesia Católica", "Establece la personalidad jurídica de la Iglesia", "Establece la autonomía de la Iglesia", "Establece el régimen fiscal de la Iglesia"], answer: 0 },
+  { question: "¿Qué confesiones firmaron acuerdos en 1992?", options: ["Federación de Entidades Religiosas Evangélicas de España, Federación de Comunidades Israelitas de España, Comisión Islámica de España", "Iglesia Católica, Federación de Entidades Religiosas Evangélicas de España, Federación de Comunidades Israelitas de España", "Iglesia Católica, Comisión Islámica de España", "Federación de Entidades Religiosas Evangélicas de España, Federación de Comunidades Israelitas de España"], answer: 0 },
+  { question: "¿Qué forma jurídica toman los acuerdos con otras confesiones?", options: ["Tratados internacionales", "Leyes ordinarias", "Acuerdos bilaterales", "Acuerdos unilaterales"], answer: 1 },
+  { question: "¿Qué se establece en los acuerdos con otras confesiones?", options: ["Personalidad jurídica e inscripción en el RER", "Cumplimiento de obligaciones religiosas de los fieles: culto, festividades y normas alimentarias", "Lugares y ministros de culto, seguridad social", "Todas las anteriores"], answer: 3 },
+  { question: "¿Cómo se interpretarán los acuerdos con otras confesiones?", options: ["Se constituirá una Comisión Mixta Paritaria con representación de la Administración del Estado y de la para la aplicación y seguimiento del presente Acuerdo", "Se interpretarán según la Constitución", "Se interpretarán según la LOLR", "Se interpretarán según los tratados internacionales"], answer: 0 },
 
+//Leccion X
 
 
 
@@ -760,6 +781,32 @@ window.onbeforeprint = function() {
 };
 
 </script>
+<p>Modelo: <i id="numero-aleatorio"></i></p>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Obtener fecha y hora actual
+      const fecha = new Date();
+      const dia = fecha.getDate();
+      const mes = fecha.getMonth() + 1;
+      const año = fecha.getFullYear();
+      const minuto = fecha.getMinutes();
 
+      // Generar número aleatorio
+      const numeroAleatorio = Math.floor(Math.random() * 10000) + 1;
+
+      // Calcular resultado final
+      const resultado = (dia + mes + año) * (numeroAleatorio + minuto);
+
+      // Obtener los últimos 4 dígitos
+      const numeroFinal = resultado.toString().slice(-4);
+
+      // Mostrar el número en la página
+      const elementoNumeroAleatorio = document.getElementById("numero-aleatorio");
+      elementoNumeroAleatorio.textContent = numeroFinal;
+
+      // Centrar el texto
+      elementoNumeroAleatorio.style.textAlign = "center";
+    });
+  </script>
 </body>
 </html>

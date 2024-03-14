@@ -1994,6 +1994,32 @@ window.onbeforeprint = function() {
 };
 
 </script>
+<p>Modelo: <i id="numero-aleatorio"></i></p>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Obtener fecha y hora actual
+      const fecha = new Date();
+      const dia = fecha.getDate();
+      const mes = fecha.getMonth() + 1;
+      const año = fecha.getFullYear();
+      const minuto = fecha.getMinutes();
 
+      // Generar número aleatorio
+      const numeroAleatorio = Math.floor(Math.random() * 10000) + 1;
+
+      // Calcular resultado final
+      const resultado = (dia + mes + año) * (numeroAleatorio + minuto);
+
+      // Obtener los últimos 4 dígitos
+      const numeroFinal = resultado.toString().slice(-4);
+
+      // Mostrar el número en la página
+      const elementoNumeroAleatorio = document.getElementById("numero-aleatorio");
+      elementoNumeroAleatorio.textContent = numeroFinal;
+
+      // Centrar el texto
+      elementoNumeroAleatorio.style.textAlign = "center";
+    });
+  </script>
 </body>
 </html>
